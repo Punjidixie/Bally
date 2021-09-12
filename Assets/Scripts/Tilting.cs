@@ -28,6 +28,7 @@ public class Tilting : MonoBehaviour
     //particles
     public ParticleSystem coinParticle1;
     public ParticleSystem coinParticle3;
+    public GameObject impulseParticle;
 
     //crystal sound
     public GameObject crystalSound;
@@ -138,8 +139,13 @@ public class Tilting : MonoBehaviour
 
     private void LateUpdate()
     {
+        //switch (levelController.levelState)
+        //{
+        //    case "InGame":
+        //        UpdateCamera();
+        //        break;
+        //}
 
-        
     }
     void TiltByKeyboard()
     {
@@ -280,20 +286,21 @@ public class Tilting : MonoBehaviour
         toZPosition = transform.position.z - distanceToCameraH * Mathf.Cos(toYRotation * Mathf.Deg2Rad);
         toYPosition = transform.position.y + heightToCamera + distanceToCamera * Mathf.Sin(toXRotation * Mathf.Deg2Rad);
 
-        Vector3 playerFromCamera = transform.position - new Vector3(toXPosition, toYPosition, toZPosition);
-        float relativeFrontSpeed = Vector3.Dot(new Vector2(playerFromCamera.x, playerFromCamera.z), new Vector2(rb.velocity.x, rb.velocity.z));
-        distanceToCamera = Mathf.Lerp(distanceToCamera, distanceToCameraNormal + relativeFrontSpeed * 0.03f, Time.deltaTime / 0.5f);
-
-        if (distanceToCamera > distanceToCameraMax)
-        {
-            distanceToCamera = distanceToCameraMax;
-        }
-        else if (distanceToCamera < distanceToCameraMin)
-        {
-            distanceToCamera = distanceToCameraMin;
-        }
-
+        //Vector3 playerFromCamera = transform.position - new Vector3(toXPosition, toYPosition, toZPosition);
+        //float relativeFrontSpeed = Vector3.Dot(new Vector2(playerFromCamera.x, playerFromCamera.z), new Vector2(rb.velocity.x, rb.velocity.z));
+        //distanceToCamera = Mathf.Lerp(distanceToCamera, distanceToCameraNormal + relativeFrontSpeed * 0.03f, Time.deltaTime / 0.5f);
         
+        //if (distanceToCamera > distanceToCameraMax)
+        //{
+        //    distanceToCamera = distanceToCameraMax;
+        //}
+        //else if (distanceToCamera < distanceToCameraMin)
+        //{
+        //    distanceToCamera = distanceToCameraMin;
+        //}
+
+        distanceToCamera = distanceToCameraNormal;
+
         Camera.main.transform.position = new Vector3(toXPosition, toYPosition, toZPosition);
         Camera.main.transform.rotation = Quaternion.Euler(toXRotation, toYRotation, toZRotation);
     }
@@ -421,8 +428,14 @@ public class Tilting : MonoBehaviour
     {
         if (Vector3.Dot(collision.impulse, collision.relativeVelocity) > bounceSoundThreshold)
         {
-            GameObject x = Instantiate(bounceSound);
-            Destroy(x, 5);
+
+            GameObject bounceSoundInstance = Instantiate(bounceSound);
+            Destroy(bounceSoundInstance, 5);
+
+            GameObject impulseParticleInstance = Instantiate(impulseParticle);
+            impulseParticleInstance.transform.position = collision.GetContact(0).point + collision.impulse.normalized * 0.15f;
+            impulseParticleInstance.transform.rotation *= Quaternion.FromToRotation(new Vector3(0, 1, 0), collision.impulse);
+            Destroy(impulseParticleInstance, 5);
         }
         Debug.Log(Vector3.Dot(collision.impulse, collision.relativeVelocity));
     }

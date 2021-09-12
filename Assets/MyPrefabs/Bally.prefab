@@ -143,7 +143,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1813893cc09254b08884188d1e224b30, type: 2}
+  - {fileID: 2100000, guid: 760903105158b432eba7d0bc7ac1a8b9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -187,7 +187,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 10
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0.2
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -214,6 +214,8 @@ MonoBehaviour:
   coinParticle1: {fileID: 5478678969964588052, guid: a5b8a4b0983fe48df822bed4c814c5c0,
     type: 3}
   coinParticle3: {fileID: 7823568668799692536, guid: e5cc32df7c189482f9635f7d0843350c,
+    type: 3}
+  impulseParticle: {fileID: 841444000747576592, guid: 12116ba175c074d52b878725195a96c4,
     type: 3}
   crystalSound: {fileID: 4982908729633609493, guid: 7dff9c2ed926f47ef97c649af8a923bb,
     type: 3}
@@ -244,7 +246,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &428244759214443634
 Transform:
   m_ObjectHideFlags: 0

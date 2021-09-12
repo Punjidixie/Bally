@@ -45,12 +45,10 @@ public class LevelSelectController : MonoBehaviour
         simpleScrollSnapScrollRect = scrollSnap.GetComponent<ScrollRect>();
     }
 
-    // Update is called once per frame
+    // Update island lightings
     void Update()
     {
         float trueCurrentPage = Mathf.Clamp(simpleScrollSnapScrollRect.horizontalNormalizedPosition * (simpleScrollSnap.NumberOfPanels - 1), 0, 2);
-
-        
 
         Quaternion previousPageLight = Quaternion.Euler(lightingArray[Mathf.FloorToInt(trueCurrentPage)].x, lightingArray[Mathf.FloorToInt(trueCurrentPage)].y, lightingArray[Mathf.FloorToInt(trueCurrentPage)].z);
         Quaternion nextPageLight = Quaternion.Euler(lightingArray[Mathf.CeilToInt(trueCurrentPage)].x, lightingArray[Mathf.CeilToInt(trueCurrentPage)].y, lightingArray[Mathf.CeilToInt(trueCurrentPage)].z);
@@ -58,6 +56,7 @@ public class LevelSelectController : MonoBehaviour
 
     }
 
+    // Update island locations
     private void LateUpdate()
     {
         float trueCurrentPage = simpleScrollSnapScrollRect.horizontalNormalizedPosition * (simpleScrollSnap.NumberOfPanels - 1);

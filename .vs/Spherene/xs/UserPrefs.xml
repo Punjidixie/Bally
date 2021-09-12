@@ -1,12 +1,12 @@
 ﻿<Properties StartupConfiguration="{2658D945-FE6E-398E-B85B-68178392ACB5}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Switch.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/LevelController.cs">
     <Files>
-      <File FileName="Assets/Scripts/DefaultSettings.cs" Line="1" Column="1" />
-      <File FileName="Assets/LevelSelectController.cs" Line="53" Column="4" />
+      <File FileName="Assets/Switch.cs" />
+      <File FileName="Assets/SwitchAction.cs" />
+      <File FileName="Assets/LevelSelectController.cs" Line="14" Column="43" />
       <File FileName="Assets/Scripts/LevelController.cs" Line="1" Column="1" />
-      <File FileName="Assets/Switch.cs" Line="104" Column="15" />
-      <File FileName="Assets/Scripts/Tilting.cs" Line="379" Column="43" />
-      <File FileName="Assets/JustRotate.cs" Line="18" Column="15" />
+      <File FileName="Assets/Scripts/Crystal.cs" Line="35" Column="26" />
+      <File FileName="Assets/Scripts/Tilting.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -19,8 +19,9 @@
                   <Node name="Joysticks" expanded="True" />
                 </Node>
               </Node>
-              <Node name="Scripts" expanded="True" />
-              <Node name="Switch.cs" selected="True" />
+              <Node name="Scripts" expanded="True">
+                <Node name="LevelController.cs" selected="True" />
+              </Node>
             </Node>
           </Node>
         </State>
@@ -29,7 +30,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="59e17a5c-be86-4951-8076-5c796cd07db7" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="9dbac85f-50c1-4afe-92b1-205d21283ba8" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

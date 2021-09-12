@@ -2984,7 +2984,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f71362444481c47eba8387ab20dc8a9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canRetrigger: 1
+  canRetrigger: 0
   switchOn: 0
   onSwitchOn:
     m_PersistentCalls:
