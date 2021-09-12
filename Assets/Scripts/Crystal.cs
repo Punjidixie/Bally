@@ -34,7 +34,7 @@ public class Crystal : MonoBehaviour
 
         //delta position = deriverative of position * delta time
         
-        transform.position += new Vector3(0f, amplitude * ((2 * Mathf.PI) / period) * Mathf.Cos(2 * Mathf.PI * (timePassed / period)), 0f) * Time.fixedDeltaTime;
+        //transform.position += new Vector3(0f, amplitude * ((2 * Mathf.PI) / period) * Mathf.Cos(2 * Mathf.PI * (timePassed / period)), 0f) * Time.fixedDeltaTime;
         transform.rotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y + angularVelocity * Time.fixedDeltaTime, transform.eulerAngles.z);
 
 

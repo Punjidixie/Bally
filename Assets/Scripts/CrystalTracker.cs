@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 public class CrystalTracker : MonoBehaviour
 {
+    [SerializeField] private float fillRate;
+    [SerializeField] private float unfillRate;
     public GameObject star1;
     public GameObject star2;
     public GameObject star3;
@@ -12,7 +14,7 @@ public class CrystalTracker : MonoBehaviour
     public Text text3;
     public Slider slider;
     public Text crystalText;
-    public int stars = 0;
+    [System.NonSerialized] public int stars = 0;
     public Color yellow;
     public Color brown;
 
@@ -26,10 +28,7 @@ public class CrystalTracker : MonoBehaviour
         text1.text = levelController.reqCrystal1.ToString();
         text2.text = levelController.reqCrystal2.ToString();
         text3.text = levelController.reqCrystal3.ToString();
-        //yellow = new Color(255f / 255f, 233f / 233f, 0f / 255f);
-        //brown = new Color(114f / 103f, 88f / 233f, 0f / 255f);
-
-
+ 
         if (levelController.reqCrystal1 == 0)
         {
             foreach (GameObject winBox in GameObject.FindGameObjectsWithTag("WinBox"))
@@ -62,12 +61,26 @@ public class CrystalTracker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        slider.value = Mathf.Lerp(slider.value, levelController.crystals, Time.deltaTime / 0.2f);
+        float toBeValue = levelController.crystals;
 
-        //if (levelController.reqCrystal3 == 0)
-        //{
-        //    slider.normalizedValue = 1;
-        //}
+        if (slider.value > levelController.crystals)
+        {
+            toBeValue = slider.value - Time.deltaTime * unfillRate;
+            if (toBeValue <= levelController.crystals)
+            {
+                toBeValue = levelController.crystals;
+            }
+        }
+        else if (slider.value < levelController.crystals)
+        {
+            toBeValue = slider.value + Time.deltaTime * fillRate;
+            if (toBeValue >= levelController.crystals)
+            {
+                toBeValue = levelController.crystals;
+            }
+        }
+
+        slider.value = toBeValue;
     }
 
     public void AddCrystal(int count)

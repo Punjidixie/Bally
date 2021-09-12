@@ -1,37 +1,19 @@
 ﻿<Properties StartupConfiguration="{2658D945-FE6E-398E-B85B-68178392ACB5}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/CrystalTracker.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/LevelController.cs">
     <Files>
-      <File FileName="Assets/Scripts/Tilting.cs" Line="114" Column="42" />
-      <File FileName="Assets/Scripts/LevelController.cs" Line="372" Column="58" />
-      <File FileName="Assets/Scripts/Crystal.cs" Line="36" Column="9" />
-      <File FileName="Assets/Magnet.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/OscillatingMovement.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/CrystalTracker.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Tilting.cs" Line="140" Column="19" />
+      <File FileName="Assets/Scripts/LevelController.cs" Line="398" Column="68" />
+      <File FileName="Assets/Scripts/Crystal.cs" Line="37" Column="11" />
+      <File FileName="Assets/Magnet.cs" />
+      <File FileName="Assets/Scripts/OscillatingMovement.cs" />
+      <File FileName="Assets/Scripts/CrystalTracker.cs" Line="68" Column="59" />
       <File FileName="Assets/Scripts/GoodCube.cs" Line="1" Column="1" />
+      <File FileName="Assets/MagneticField.cs" Line="1" Column="1" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="Spherene" expanded="True">
-            <Node name="Assets" expanded="True">
-              <Node name="Joystick Pack" expanded="True">
-                <Node name="Scripts" expanded="True">
-                  <Node name="Base" expanded="True" />
-                  <Node name="Joysticks" expanded="True" />
-                </Node>
-              </Node>
-              <Node name="Scripts" expanded="True">
-                <Node name="CrystalTracker.cs" selected="True" />
-              </Node>
-            </Node>
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="095af4a2-a0fd-490c-ade6-5356d345d20f" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="c5e53f04-cdbb-45af-a962-578bcadce149" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

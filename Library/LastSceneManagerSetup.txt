@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/AfterLVS/AfterLVS20.unity
+- path: Assets/Scenes/LVS/Level2.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
