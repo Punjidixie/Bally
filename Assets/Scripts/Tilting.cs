@@ -41,6 +41,7 @@ public class Tilting : MonoBehaviour
     public GameObject switchSound;
     
 
+    //for camera
     float toXRotation;
     float toYRotation;
     float toZRotation;
@@ -103,13 +104,10 @@ public class Tilting : MonoBehaviour
         switch (levelController.levelState)
         {
             case "Intro":
-                rb.useGravity = false;
                 break;
             case "Panning":
-                rb.useGravity = false;
                 break;
             case "InGame":
-                rb.useGravity = true;
                 switch (UserSettings.movementMode)
                 {
                     case "Joystick":

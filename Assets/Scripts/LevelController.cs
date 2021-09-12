@@ -369,6 +369,7 @@ public class LevelController : MonoBehaviour
     public IEnumerator InGameRoutine()
     {
         StopCoroutine(WhilePanning());
+        ball.GetComponent<Rigidbody>().useGravity = true;
         Camera.main.transform.position = ball.transform.position + new Vector3(0, tilting.heightToCamera, -tilting.distanceToCameraNormal);
         Camera.main.transform.LookAt(ball.transform.position + new Vector3(0, tilting.heightToCamera, 10));
 
