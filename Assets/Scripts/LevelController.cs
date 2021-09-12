@@ -18,12 +18,7 @@ public class LevelController : MonoBehaviour
     public GameObject ball;
     Tilting tilting;
 
-    
-    float cameraPanSpeed;
-    public float cameraPanTime;
-    Vector3 toTopOfBall;
-    Vector3 toResetRotation;
-
+    //panning after intro
     Quaternion cameraStartRotation;
     Vector3 cameraStartPosition;
     Coroutine whilePanningRoutine;
@@ -103,39 +98,28 @@ public class LevelController : MonoBehaviour
 
         tilting = ball.GetComponent<Tilting>();
 
-        toTopOfBall = ball.transform.position + new Vector3(0, 1.5f, -tilting.distanceToCameraNormal) - Camera.main.transform.position;
-        cameraPanTime = 3;
-        cameraPanSpeed = toTopOfBall.magnitude / cameraPanTime;
+        
         timePassed = 0;
 
         crystals = 0;
 
         nameText.text = setName + " " + levelNumber.ToString();
 
-        //crystalsText.text = "Crystals: " + 0 + "/" + reqCrystal1.ToString();
+
 
         if (reqCrystal1 == 0)
         {
             foreach (GameObject winBox in GameObject.FindGameObjectsWithTag("WinBox"))
             {
                 winBox.GetComponent<GoodCube>().active = true;
+                winBox.GetComponent<GoodCube>().winLight.SetActive(true);
             }
         }
 
-        CalculateToResetRotation();
         StartCoroutine(FramerateCounterUpdate());
        
     }
-    void CalculateToResetRotation()
-    {
-        float xFixed = Camera.main.transform.eulerAngles.x - 0;
-        float yFixed = Camera.main.transform.eulerAngles.y - 0;
-        float zFixed = Camera.main.transform.eulerAngles.z - 0;
-        if (xFixed > 180) { xFixed -= 360; }
-        if (yFixed > 180) { yFixed -= 360; }
-        if (zFixed > 180) { zFixed -= 360; }
-        toResetRotation = -new Vector3(xFixed, yFixed, zFixed) / cameraPanTime;
-    }
+   
 
     IEnumerator FramerateCounterUpdate()
     {
@@ -162,131 +146,91 @@ public class LevelController : MonoBehaviour
     {
         speedText.text = "Speed: " + Mathf.Round(ball.GetComponent<Rigidbody>().velocity.magnitude * 100) / 100f;
         //previousSpeed = ball.GetComponent<Rigidbody>().velocity;
-        
-
         timePassed += Time.deltaTime;
-        
-        if (levelState == "Intro")
-        {
-            //Camera.main.transform.LookAt(ball.transform.position + new Vector3(0, 1.5f, 10));
-            if (Input.anyKeyDown)
-            {
 
-                whilePanningRoutine = StartCoroutine(WhilePanning());
-                
-            }
-        }
-        else if (levelState == "Panning")
+        switch (levelState)
         {
-            //countDownText.text = Mathf.Ceil(cameraPanTime - timePassed).ToString();
-            if (Input.anyKeyDown)
-            {
-                
-                StartCoroutine(InGameRoutine());
-                StopCoroutine(whilePanningRoutine);
-            }
-            else
-            {
-                //CameraPanToTopOfBall();
-            }
-        }
-        
-
-        else if (levelState == "InGame")
-        {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                PauseGame();
-            }
-            else if (timePassed >= maxTime)
-            {
-                StartCoroutine(TimesUpRoutine());
-            }
-            else if (ball.transform.position.y <= fallOutHeight)
-            {
-                StartCoroutine(FallOutRoutine());
-            }
-            else
-            {
-                //update clock time
-                float minutes = Mathf.Floor((maxTime - timePassed) / 60f);
-                float seconds = Mathf.Floor((maxTime - timePassed) - 60 * minutes);
-                float millisecs = Mathf.Floor((maxTime - timePassed - 60 * minutes - seconds) * 100);
-
-                string minutesString = minutes.ToString();
-                string secondsString;
-                string millisecsString;
-                if (seconds < 10)
+            case "Intro":
+                if (Input.anyKeyDown)
                 {
-                    secondsString = "0" + seconds.ToString();
+                    whilePanningRoutine = StartCoroutine(WhilePanning());
+                }
+                break;
+            case "Panning":
+                if (Input.anyKeyDown)
+                {
+                    StartCoroutine(InGameRoutine());
+                    StopCoroutine(whilePanningRoutine);
+                }
+                break;
+            case "InGame":
+                if (Input.GetKeyDown(KeyCode.Escape))
+                {
+                    PauseGame();
+                }
+                else if (timePassed >= maxTime)
+                {
+                    StartCoroutine(TimesUpRoutine());
+                }
+                else if (ball.transform.position.y <= fallOutHeight)
+                {
+                    StartCoroutine(FallOutRoutine());
                 }
                 else
                 {
-                    secondsString = seconds.ToString();
+                    UpdateClock();
                 }
-                if (millisecs < 10)
+                break;
+            case "Paused":
+                if (Input.GetKeyDown(KeyCode.Escape))
                 {
-                    millisecsString = "0" + millisecs.ToString();
+                    ContinueGame();
                 }
-                else
-                {
-                    millisecsString = millisecs.ToString();
-                }
-                timeText.text = minutesString + ":" + secondsString;
-                timeTextMs.text = ":" + millisecsString;
-            }
-            
+                break;
+            default:
+                break;
         }
-
-        else if (levelState == "Paused")
-        {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                ContinueGame();
-            }
-        }
-
         
-        
-        
-
-
     }
-
-    void CameraPanToTopOfBall()
+    void UpdateClock()
     {
-        //destination
-        toTopOfBall = ball.transform.position + new Vector3(0, 1.5f, -tilting.distanceToCameraNormal) - Camera.main.transform.position;
+        //update clock time
+        float minutes = Mathf.Floor((maxTime - timePassed) / 60f);
+        float seconds = Mathf.Floor((maxTime - timePassed) - 60 * minutes);
+        float millisecs = Mathf.Floor((maxTime - timePassed - 60 * minutes - seconds) * 100);
 
-        Camera.main.transform.position += toTopOfBall.normalized * cameraPanSpeed * Time.deltaTime;
-
-        Camera.main.transform.rotation = Quaternion.Euler(Camera.main.transform.eulerAngles.x + (toResetRotation.x * Time.deltaTime), Camera.main.transform.eulerAngles.y + (toResetRotation.y * Time.deltaTime), Camera.main.transform.eulerAngles.z + (toResetRotation.z * Time.deltaTime));
-        //Camera.main.transform.LookAt(ball.transform.position + new Vector3(0, 1.5f, 10));
-        
-        if (toTopOfBall.magnitude < cameraPanSpeed * Time.deltaTime)
+        string minutesString = minutes.ToString();
+        string secondsString;
+        string millisecsString;
+        if (seconds < 10)
         {
-            Camera.main.transform.position = ball.transform.position + new Vector3(0, 1.5f, -tilting.distanceToCameraNormal);
-            
-            StartCoroutine(InGameRoutine());
+            secondsString = "0" + seconds.ToString();
         }
+        else
+        {
+            secondsString = seconds.ToString();
+        }
+        if (millisecs < 10)
+        {
+            millisecsString = "0" + millisecs.ToString();
+        }
+        else
+        {
+            millisecsString = millisecs.ToString();
+        }
+        timeText.text = minutesString + ":" + secondsString;
+        timeTextMs.text = ":" + millisecsString;
     }
-
     
     public IEnumerator WinRoutine() //called from Tilting.cs, setup for Winning state
     {
         StartCoroutine(WinCrystalStarAnimation());
         PlayerPrefs.SetInt(setName + levelNumber + "Completed", 1);
-        Cursor.visible = true;
+        
         levelState = "Winning";
-        pauseButton.SetActive(false);
-        calibrateButton.SetActive(false);
-        timer.SetActive(false);
-        statusEffectTracker.gameObject.SetActive(false);
-        crystalTracker.gameObject.SetActive(false);
-        namePanel.SetActive(false);
-
-        joystick.gameObject.SetActive(false);
-
+        
+        HideEssentials();
+        HideControls();
 
         winPanel.SetActive(true);
         winningMessage.text = "Level Completed!\n" + setName + " " + levelNumber.ToString();
@@ -355,25 +299,7 @@ public class LevelController : MonoBehaviour
             bestTimeMessage.text = "New best 3-star time!";
             PlayerPrefs.SetFloat(setName + levelNumber + "Best3sTime", timePassed);
         }
-        //crystalsWinText.text = crystals.ToString();
-        ////calculate stars
-        //switch (crystalTracker.stars)
-        //{
-        //    case 0:
-        //        break;
-        //    case 1:
-        //        winStar1.GetComponent<Image>().color = crystalTracker.yellow;
-        //        break;
-        //    case 2:
-        //        winStar1.GetComponent<Image>().color = crystalTracker.yellow;
-        //        winStar2.GetComponent<Image>().color = crystalTracker.yellow;
-        //        break;
-        //    case 3:
-        //        winStar1.GetComponent<Image>().color = crystalTracker.yellow;
-        //        winStar2.GetComponent<Image>().color = crystalTracker.yellow;
-        //        winStar3.GetComponent<Image>().color = crystalTracker.yellow;
-        //        break;
-        //}
+
         yield return new WaitForSecondsRealtime(1.5f);
         //levelState = "End";
         Time.timeScale = 0;
@@ -438,6 +364,7 @@ public class LevelController : MonoBehaviour
         StartCoroutine(InGameRoutine());
 
     }
+
     //setup for going to InGame state
     public IEnumerator InGameRoutine()
     {
@@ -445,29 +372,8 @@ public class LevelController : MonoBehaviour
         Camera.main.transform.position = ball.transform.position + new Vector3(0, tilting.heightToCamera, -tilting.distanceToCameraNormal);
         Camera.main.transform.LookAt(ball.transform.position + new Vector3(0, tilting.heightToCamera, 10));
 
-        timer.SetActive(true);
-        crystalTracker.gameObject.SetActive(true);
-        namePanel.SetActive(true);
-        
-        switch (PlayerPrefs.GetString("MovementMode", DefaultSettings.movementMode))
-        {
-            case "DeviceTilting":
-                Cursor.visible = true;
-                pauseButton.SetActive(true);
-                calibrateButton.SetActive(true);
-                break;
-            case "Joystick":
-                Cursor.visible = true;
-                pauseButton.SetActive(true);
-                
-                joystick.gameObject.SetActive(true);
-                break;
-            case "Keyboard":
-                Cursor.visible = false;
-                break;
-            default:
-                break;
-        }
+        BringUpEssentials();
+        BringUpControls();
         
         timePassed = 0;
         Time.timeScale = 1;
@@ -502,17 +408,10 @@ public class LevelController : MonoBehaviour
 
     public IEnumerator TimesUpRoutine()
     {
-        pauseButton.SetActive(false);
-        calibrateButton.SetActive(false);
-        timer.SetActive(false);
-        statusEffectTracker.gameObject.SetActive(false);
-        crystalTracker.gameObject.SetActive(false);
-        namePanel.SetActive(false);
 
-        joystick.gameObject.SetActive(false);
-        
+        HideEssentials();
+        HideControls();
 
-        Cursor.visible = true;
         levelState = "End";
         losePanel.SetActive(true);
         losingMessage.text = "Time's up";
@@ -523,21 +422,14 @@ public class LevelController : MonoBehaviour
 
     public IEnumerator FallOutRoutine()
     {
-        pauseButton.SetActive(false);
-        calibrateButton.SetActive(false);
-        timer.SetActive(false);
-        statusEffectTracker.gameObject.SetActive(false);
-        crystalTracker.gameObject.SetActive(false);
-        namePanel.SetActive(false);
 
-        joystick.gameObject.SetActive(false);
-        
+        HideEssentials();
+        HideControls();
 
-        Cursor.visible = true;
         levelState = "Losing";
-
         losePanel.SetActive(true);
         losingMessage.text = "Fall out";
+
         yield return new WaitForSecondsRealtime(2f);
         Time.timeScale = 0;
         levelState = "End";
@@ -550,63 +442,81 @@ public class LevelController : MonoBehaviour
 
     public void PauseGame()
     {
-        
-        pauseButton.SetActive(false);
-        calibrateButton.SetActive(false);
-        timer.SetActive(false);
-        statusEffectTracker.gameObject.SetActive(false);
-        crystalTracker.gameObject.SetActive(false);
-        namePanel.SetActive(false);
+        HideEssentials();
+        HideControls();
 
-        joystick.gameObject.SetActive(false);
-        
-
+        ball.GetComponent<Tilting>().UpdateCamera();
         pausePanel.SetActive(true);
-        
-        
-        Cursor.visible = true;
-        levelState = "Paused";
         Time.timeScale = 0;
+        levelState = "Paused";
     }
 
     public void ContinueGame()
     {
-        timer.SetActive(true);
-        crystalTracker.gameObject.SetActive(true);
-        namePanel.SetActive(true);
-        statusEffectTracker.gameObject.SetActive(true);
+        BringUpEssentials();
+        BringUpControls();
+
         pausePanel.SetActive(false);
         Time.timeScale = 1;
-        switch (PlayerPrefs.GetString("MovementMode", DefaultSettings.movementMode))
-        {
-            case "DeviceTilting":
-                Cursor.visible = true;
-                pauseButton.SetActive(true);
-                
-                calibrateButton.SetActive(true);
-                break;
-            case "Joystick":
-                Cursor.visible = true;
-                pauseButton.SetActive(true);
-                
-                joystick.gameObject.SetActive(true);
-                break;
-            case "Keyboard":
-                Cursor.visible = false;
-                break;
-            default:
-                break;
-        }
-        
         levelState = "InGame";
     }
 
     private void OnApplicationFocus(bool focus)
     {
-        //if (!focus && levelState == "InGame")
-        //{
-        //    PauseGame();
-        //}
+        if (!focus && levelState == "InGame" && !Application.isEditor)
+        {
+            PauseGame();
+        }
+    }
+
+    public void BringUpEssentials()
+    {
+        timer.SetActive(true);
+        statusEffectTracker.gameObject.SetActive(true);
+        crystalTracker.gameObject.SetActive(true);
+        namePanel.SetActive(true);
+    }
+
+    public void HideEssentials()
+    {
+        timer.SetActive(false);
+        statusEffectTracker.gameObject.SetActive(false);
+        crystalTracker.gameObject.SetActive(false);
+        namePanel.SetActive(false);
+    }
+
+    public void BringUpControls()
+    {
+        switch (PlayerPrefs.GetString("MovementMode", DefaultSettings.movementMode))
+        {
+            case "DeviceTilting":
+                Cursor.visible = true;
+                pauseButton.SetActive(true);
+                joystick.gameObject.SetActive(false);
+                calibrateButton.SetActive(true);
+                break;
+            case "Joystick":
+                Cursor.visible = true;
+                pauseButton.SetActive(true);
+                joystick.gameObject.SetActive(true);
+                calibrateButton.SetActive(false);
+                break;
+            case "Keyboard":
+                Cursor.visible = false;
+                pauseButton.SetActive(false);
+                joystick.gameObject.SetActive(false);
+                calibrateButton.SetActive(false);
+                break;
+            default:
+                break;
+        }
+    }
+    public void HideControls()
+    {
+        Cursor.visible = true;
+        pauseButton.SetActive(false);
+        joystick.gameObject.SetActive(false);
+        calibrateButton.SetActive(false);
     }
 }
 

@@ -1,22 +1,26 @@
 ﻿<Properties StartupConfiguration="{2658D945-FE6E-398E-B85B-68178392ACB5}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/LevelSelectController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Switch.cs">
     <Files>
-      <File FileName="Assets/Scripts/DefaultSettings.cs" Line="31" Column="26" />
-      <File FileName="Assets/LevelSelectPage.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Tilting.cs" Line="463" Column="13" />
-      <File FileName="Assets/Scripts/BetaStartController.cs" Line="12" Column="9" />
-      <File FileName="Assets/Scripts/LevelController.cs" Line="433" Column="59" />
-      <File FileName="Assets/Scripts/UserSettings.cs" Line="22" Column="9" />
-      <File FileName="Assets/LevelSelectController.cs" Line="38" Column="1" />
+      <File FileName="Assets/Scripts/DefaultSettings.cs" Line="1" Column="1" />
+      <File FileName="Assets/LevelSelectController.cs" Line="53" Column="4" />
+      <File FileName="Assets/Scripts/LevelController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Switch.cs" Line="104" Column="15" />
+      <File FileName="Assets/Scripts/Tilting.cs" Line="379" Column="43" />
+      <File FileName="Assets/JustRotate.cs" Line="18" Column="15" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="Spherene" expanded="True">
             <Node name="Assets" expanded="True">
-              <Node name="MyShaders" expanded="True" />
+              <Node name="Joystick Pack" expanded="True">
+                <Node name="Scripts" expanded="True">
+                  <Node name="Base" expanded="True" />
+                  <Node name="Joysticks" expanded="True" />
+                </Node>
+              </Node>
               <Node name="Scripts" expanded="True" />
-              <Node name="LevelSelectController.cs" selected="True" />
+              <Node name="Switch.cs" selected="True" />
             </Node>
           </Node>
         </State>
@@ -25,7 +29,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="596c2e26-8b4c-419e-bcc7-e530161e18df" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="59e17a5c-be86-4951-8076-5c796cd07db7" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

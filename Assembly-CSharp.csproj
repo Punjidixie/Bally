@@ -103,6 +103,7 @@
     <Compile Include="Assets\Simple Scroll-Snap\Scripts\Runtime\SimpleScrollSnap.cs" />
     <Compile Include="Assets\Simple Scroll-Snap\Scripts\Runtime\TransitionEffect.cs" />
     <Compile Include="Assets\StatusEffectTracker.cs" />
+    <Compile Include="Assets\Switch.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />

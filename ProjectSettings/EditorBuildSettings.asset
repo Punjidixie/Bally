@@ -132,7 +132,7 @@ EditorBuildSettings:
     path: Assets/Scenes/AfterLVS/AfterLVS20.unity
     guid: 2fc3913085e4348e7afa89fc6b5145c0
   - enabled: 1
-    path: Assets/Scenes/Sandbox.unity
+    path: Assets/Scenes/Sandbox/Sandbox1.unity
     guid: 6830d7a0067524c498033e2eb123b46f
   - enabled: 1
     path: Assets/Scenes/Level Select.unity

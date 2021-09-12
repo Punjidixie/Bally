@@ -10,6 +10,7 @@ public class LevelSelectController : MonoBehaviour
     public float normalY;
     public float normalZ;
 
+    //level button scroller
     public GameObject levelButtonScroller;
     public GameObject levelButtonContent;
     public GameObject levelButtonContainer;
@@ -178,6 +179,7 @@ public class LevelSelectController : MonoBehaviour
             {
                 levelButton.disabledPanel.SetActive(false);
                 levelButton.GetComponent<Button>().interactable = true;
+
                 levelButton.star1.GetComponent<Image>().color = Color.white;
                 levelButton.star2.GetComponent<Image>().color = Color.white;
                 levelButton.star3.GetComponent<Image>().color = Color.white;
@@ -190,6 +192,7 @@ public class LevelSelectController : MonoBehaviour
             {
                 levelButton.disabledPanel.SetActive(false);
                 levelButton.GetComponent<Button>().interactable = true;
+
                 levelButton.star1.GetComponent<Image>().color = Color.white;
                 levelButton.star2.GetComponent<Image>().color = Color.white;
                 levelButton.star3.GetComponent<Image>().color = Color.white;

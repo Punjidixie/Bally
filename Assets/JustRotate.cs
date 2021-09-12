@@ -15,7 +15,7 @@ public class JustRotate : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         float toXRotation = transform.eulerAngles.x;
         float toYRotation = transform.eulerAngles.y;

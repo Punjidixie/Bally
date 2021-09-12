@@ -5358,7 +5358,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -6239,7 +6239,6 @@ MonoBehaviour:
   setName: 
   levelNumber: 0
   ball: {fileID: 0}
-  cameraPanTime: 3
   timer: {fileID: 5969679030225070577}
   timeText: {fileID: 5969679030769637933}
   timeTextMs: {fileID: 5969679031371479144}

@@ -78,6 +78,7 @@ public class CrystalTracker : MonoBehaviour
             foreach (GameObject winBox in GameObject.FindGameObjectsWithTag("WinBox"))
             {
                 winBox.GetComponent<GoodCube>().active = true;
+                winBox.GetComponent<GoodCube>().winLight.SetActive(true);
             }
             star1.GetComponent<Image>().color = Color.yellow;
             text1.color = brown;

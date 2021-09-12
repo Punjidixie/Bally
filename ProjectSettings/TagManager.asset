@@ -10,6 +10,7 @@ TagManager:
   - ScrollArea
   - Magnet
   - Bouncy
+  - Switch
   layers:
   - Default
   - TransparentFX

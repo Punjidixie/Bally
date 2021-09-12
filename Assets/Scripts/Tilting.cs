@@ -35,6 +35,9 @@ public class Tilting : MonoBehaviour
     //bouncy sound
     public GameObject bounceSound;
     public float bounceSoundThreshold;
+
+    //switch sound
+    public GameObject switchSound;
     
 
     float toXRotation;
@@ -55,7 +58,6 @@ public class Tilting : MonoBehaviour
     float distanceToCameraMin;
     float distanceToCamera;
 
-    float mouseSensitivity;
     public LevelController levelController;
 
   
@@ -65,16 +67,15 @@ public class Tilting : MonoBehaviour
         magnetActive = false;
         bouncyActive = false;
         physicsMaterial.bounciness = 0.7f;
-        forceSize = 8;
-        //OpenMagneticField();
+
         rb = GetComponent<Rigidbody>();
-        //forceSize = 8;
+
         
         frontTiltAngle = 15;
         sideTiltAngle = 20;
 
 
-        heightToCamera = 1f;
+        heightToCamera = 0.8f;
         xRotationOffset = 20f;
 
         distanceToCameraNormal = 3.75f;
@@ -82,9 +83,6 @@ public class Tilting : MonoBehaviour
         distanceToCameraMin = distanceToCameraNormal - 0.5f;
         distanceToCamera = distanceToCameraNormal;
 
-        mouseSensitivity = 10;
-
-        //StartCoroutine(CheckForBounce());
     }
 
     private void FixedUpdate()
@@ -100,60 +98,41 @@ public class Tilting : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        
-        if (levelController.levelState == "Intro" || levelController.levelState == "Panning")
-        {
-            rb.useGravity = false;
-        }
-        else if (levelController.levelState == "InGame")
-        {
-            //if (Input.GetKeyDown(KeyCode.Escape))
-            //{
-            //    levelController.PauseGame();
-            //}
-            rb.useGravity = true;
-            switch (UserSettings.movementMode)
-            {
-                case "Joystick":
-                    TiltByJoystick();
-                    break;
-                case "Keyboard":
-                    TiltByKeyboard();
-                    break;
-                case "DeviceTilting":
-                    TiltByDeviceTilting();
-                    break;
-                default:
-                    TiltByKeyboard();
-                    break;
-            }
 
-            //UpdateCamera();
-
-        }
-        
-        else if (levelController.levelState == "Paused")
+        switch (levelController.levelState)
         {
-            //if (Input.GetKeyDown(KeyCode.Escape))
-            //{
-            //    levelController.ContinueGame();
-            //}
+            case "Intro":
+                rb.useGravity = false;
+                break;
+            case "Panning":
+                rb.useGravity = false;
+                break;
+            case "InGame":
+                rb.useGravity = true;
+                switch (UserSettings.movementMode)
+                {
+                    case "Joystick":
+                        TiltByJoystick();
+                        break;
+                    case "Keyboard":
+                        TiltByKeyboard();
+                        break;
+                    case "DeviceTilting":
+                        TiltByDeviceTilting();
+                        break;
+                    default:
+                        TiltByKeyboard();
+                        break;
+                }
+                UpdateCamera();
+                break;
+            case "Winning":
+                PanWinning();
+                break;
+            case "Losing":
+                PanWinning();
+                break;
         }
-
-        if (levelController.levelState == "InGame")
-        {
-            UpdateCamera();
-        }
-        else if (levelController.levelState == "Winning")
-        {
-            PanWinning();
-        }
-        else if (levelController.levelState == "Losing")
-        {
-            PanWinning();
-        }
-
-        
 
     }
 
@@ -174,10 +153,6 @@ public class Tilting : MonoBehaviour
 
         frontForce = Vector3.zero;
         sidewayForce = Vector3.zero;
-
-
-        //ChaseCamera();
-
 
         toYRotation += Input.GetAxis("Mouse X") * UserSettings.mouseSensitivity;
 
@@ -221,10 +196,6 @@ public class Tilting : MonoBehaviour
             toZRotation = Mathf.LerpAngle(Camera.main.transform.eulerAngles.z, sideTiltAngle, Time.deltaTime / 0.1f);
         }
 
-       
-
-        //Debug.Log((Camera.main.transform.position - transform.position - new Vector3(0, 1, 0)).magnitude);
-
     }
 
     void TiltByJoystick()
@@ -251,7 +222,7 @@ public class Tilting : MonoBehaviour
             frontForce = new Vector3(Mathf.Sin(toYRotation * Mathf.Deg2Rad), 0, Mathf.Cos(toYRotation * Mathf.Deg2Rad)) * forceSize * levelController.joystick.Vertical;
 
             toXRotation = -frontTiltAngle * levelController.joystick.Vertical;
-            //toXRotation = Mathf.LerpAngle(Camera.main.transform.eulerAngles.x, -frontTiltAngle * levelController.joystick.Vertical, Time.deltaTime / 0.1f);
+
         }
 
         if (levelController.joystick.Horizontal != 0)
@@ -259,16 +230,8 @@ public class Tilting : MonoBehaviour
             sidewayForce = new Vector3(Mathf.Cos(toYRotation * Mathf.Deg2Rad), 0, -Mathf.Sin(toYRotation * Mathf.Deg2Rad)) * forceSize * levelController.joystick.Horizontal;
 
             toZRotation = sideTiltAngle * levelController.joystick.Horizontal;
-            //toZRotation = Mathf.LerpAngle(Camera.main.transform.eulerAngles.z, sideTiltAngle * levelController.joystick.Horizontal, Time.deltaTime / 0.1f);
+
         }
-
-        //Debug.Log(levelController.joystick.Horizontal);
-        
-
-        
-
-        //Debug.Log((Camera.main.transform.position - transform.position - new Vector3(0, 1, 0)).magnitude);
-
     }
 
     void TiltByDeviceTilting()
@@ -291,7 +254,6 @@ public class Tilting : MonoBehaviour
         float frontTiltness = -(Input.acceleration.z - UserSettings.tiltCalibration.z) / 0.3f;
         float sideTiltness = (Input.acceleration.x - UserSettings.tiltCalibration.x) / 0.3f;
 
-        //limit them from 1 to -1
         if (Mathf.Abs(frontTiltness) > 1)
         {
             frontTiltness /= Mathf.Abs(frontTiltness);
@@ -306,16 +268,10 @@ public class Tilting : MonoBehaviour
         
         sidewayForce = new Vector3(Mathf.Cos(toYRotation * Mathf.Deg2Rad), 0, -Mathf.Sin(toYRotation * Mathf.Deg2Rad)) * forceSize * sideTiltness;
 
-        
-
-
-        
-
-        //Debug.Log((Camera.main.transform.position - transform.position - new Vector3(0, 1, 0)).magnitude);
-
+       
     }
 
-    void UpdateCamera()
+    public void UpdateCamera()
     {
         
         float distanceToCameraH = distanceToCamera * Mathf.Cos(toXRotation * Mathf.Deg2Rad);
@@ -342,10 +298,6 @@ public class Tilting : MonoBehaviour
         Camera.main.transform.rotation = Quaternion.Euler(toXRotation, toYRotation, toZRotation);
     }
 
-    void CheckObstruction()
-    {
-        
-    }
     void PanWinning()
     {
         float distanceToCameraH = distanceToCamera * Mathf.Cos(Camera.main.transform.eulerAngles.x * Mathf.Deg2Rad);
@@ -357,26 +309,6 @@ public class Tilting : MonoBehaviour
         Camera.main.transform.position = new Vector3(toXPosition, toYPosition, toZPosition);
     }
 
-    void DragPanning()
-    {
-        toYRotation = Camera.main.transform.eulerAngles.y + levelController.scrollArea.TouchDist.x * UserSettings.dragSensitivity;
-        
-    }
-    
-
-    void ChaseCamera()
-    {
-        //experimental chase camera
-        if (rb.velocity.x != 0 && rb.velocity.z != 0)
-        {
-            float angleDifference = Mathf.Abs(Mathf.DeltaAngle(Mathf.Atan2(rb.velocity.x, rb.velocity.z) * Mathf.Rad2Deg, Camera.main.transform.eulerAngles.y));
-            
-           
-            
-            
-            toYRotation = Mathf.LerpAngle(Camera.main.transform.eulerAngles.y, Mathf.Atan2(rb.velocity.x, rb.velocity.z) * Mathf.Rad2Deg, Time.deltaTime / 0.25f);
-        }
-    }
     private void OnTriggerEnter(Collider other)
     {
         
@@ -422,6 +354,33 @@ public class Tilting : MonoBehaviour
                     GameObject sound = Instantiate(crystalSound);
                     Destroy(sound, 5);
 
+                    break;
+                case "Switch":
+                    Switch switchScript = other.gameObject.GetComponent<Switch>();
+
+                    if (switchScript.canRetrigger)
+                    {
+                        if (!switchScript.switchOn)
+                        {
+                            switchScript.TurnOn();
+                        }
+                        else if (switchScript.switchOn)
+                        {
+                            switchScript.TurnOff();
+                        }
+                        GameObject s = Instantiate(switchSound);
+                        Destroy(s, 5);
+                    }
+                    else if (!switchScript.canRetrigger)
+                    {
+                        if (!switchScript.switchOn)
+                        {
+                            GameObject s = Instantiate(switchSound);
+                            Destroy(s, 5);
+                            switchScript.TurnOn();
+                        }
+                    }
+                    
                     break;
                 case "Magnet":
                     magnetTime = 0;
