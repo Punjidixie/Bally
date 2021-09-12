@@ -1,19 +1,31 @@
 ﻿<Properties StartupConfiguration="{2658D945-FE6E-398E-B85B-68178392ACB5}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/LevelController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/LevelSelectController.cs">
     <Files>
-      <File FileName="Assets/Scripts/Tilting.cs" Line="140" Column="19" />
-      <File FileName="Assets/Scripts/LevelController.cs" Line="398" Column="68" />
-      <File FileName="Assets/Scripts/Crystal.cs" Line="37" Column="11" />
-      <File FileName="Assets/Magnet.cs" />
-      <File FileName="Assets/Scripts/OscillatingMovement.cs" />
-      <File FileName="Assets/Scripts/CrystalTracker.cs" Line="68" Column="59" />
-      <File FileName="Assets/Scripts/GoodCube.cs" Line="1" Column="1" />
-      <File FileName="Assets/MagneticField.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/DefaultSettings.cs" Line="31" Column="26" />
+      <File FileName="Assets/LevelSelectPage.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Tilting.cs" Line="463" Column="13" />
+      <File FileName="Assets/Scripts/BetaStartController.cs" Line="12" Column="9" />
+      <File FileName="Assets/Scripts/LevelController.cs" Line="433" Column="59" />
+      <File FileName="Assets/Scripts/UserSettings.cs" Line="22" Column="9" />
+      <File FileName="Assets/LevelSelectController.cs" Line="38" Column="1" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Spherene" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="MyShaders" expanded="True" />
+              <Node name="Scripts" expanded="True" />
+              <Node name="LevelSelectController.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="c5e53f04-cdbb-45af-a962-578bcadce149" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="596c2e26-8b4c-419e-bcc7-e530161e18df" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

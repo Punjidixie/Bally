@@ -9,6 +9,7 @@ public class BetaStartController : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1;
+        
     }
 
     // Update is called once per frame
@@ -16,7 +17,7 @@ public class BetaStartController : MonoBehaviour
     {
         if (Input.anyKeyDown)
         {
-            SceneManager.LoadScene("BetaSelect");
+            SceneManager.LoadScene("Level Select");
         }
     }
 }

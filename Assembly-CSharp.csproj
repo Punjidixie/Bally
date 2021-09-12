@@ -72,7 +72,11 @@
     <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\FixedJoystick.cs" />
     <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\FloatingJoystick.cs" />
     <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\VariableJoystick.cs" />
+    <Compile Include="Assets\JustRotate.cs" />
+    <Compile Include="Assets\LevelButton.cs" />
     <Compile Include="Assets\LevelDragger.cs" />
+    <Compile Include="Assets\LevelSelectController.cs" />
+    <Compile Include="Assets\LevelSelectPage.cs" />
     <Compile Include="Assets\Magnet.cs" />
     <Compile Include="Assets\MagneticField.cs" />
     <Compile Include="Assets\Planar_Reflection_ILK\PlanarRealtimeReflection.cs" />
@@ -91,6 +95,13 @@
     <Compile Include="Assets\Scripts\OscillatingMovement.cs" />
     <Compile Include="Assets\Scripts\Tilting.cs" />
     <Compile Include="Assets\Scripts\UserSettings.cs" />
+    <Compile Include="Assets\Simple Scroll-Snap\Examples\Example 1 (macOS Finder)\Scripts\FileSelected.cs" />
+    <Compile Include="Assets\Simple Scroll-Snap\Examples\Example 3 (Slot Machine)\Scripts\SlotMachine.cs" />
+    <Compile Include="Assets\Simple Scroll-Snap\Examples\Example 5 (Dynamic Content)\Scripts\DynamicContentController.cs" />
+    <Compile Include="Assets\Simple Scroll-Snap\Examples\Example 6 (3D Shape Selection)\Scripts\Rotator.cs" />
+    <Compile Include="Assets\Simple Scroll-Snap\Examples\Shared Resources\Scripts\ExpandInformation.cs" />
+    <Compile Include="Assets\Simple Scroll-Snap\Scripts\Runtime\SimpleScrollSnap.cs" />
+    <Compile Include="Assets\Simple Scroll-Snap\Scripts\Runtime\TransitionEffect.cs" />
     <Compile Include="Assets\StatusEffectTracker.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />

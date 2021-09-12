@@ -10,6 +10,8 @@ public static class UserSettings
     public static float dragSensitivity;
     public static float cameraAngularSpeed; //degrees per sec
 
+    public static bool cheat = true;
+
     public static void CalibrateTilt()
     {
         tiltCalibration = Input.acceleration;

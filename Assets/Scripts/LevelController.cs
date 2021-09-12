@@ -124,7 +124,7 @@ public class LevelController : MonoBehaviour
 
         CalculateToResetRotation();
         StartCoroutine(FramerateCounterUpdate());
-        Debug.Log(PlayerPrefs.GetFloat(setName + levelNumber + "BestTime", maxTime));
+       
     }
     void CalculateToResetRotation()
     {
@@ -275,6 +275,7 @@ public class LevelController : MonoBehaviour
     public IEnumerator WinRoutine() //called from Tilting.cs, setup for Winning state
     {
         StartCoroutine(WinCrystalStarAnimation());
+        PlayerPrefs.SetInt(setName + levelNumber + "Completed", 1);
         Cursor.visible = true;
         levelState = "Winning";
         pauseButton.SetActive(false);
@@ -324,9 +325,16 @@ public class LevelController : MonoBehaviour
             PlayerPrefs.SetInt(setName + levelNumber + "BestCrystal", crystals);
         }
 
+        if (crystalTracker.stars > PlayerPrefs.GetInt(setName + levelNumber + "BestStar", 0))
+        {
+            int oldStars = PlayerPrefs.GetInt(setName + levelNumber + "BestStar", 0);
+            PlayerPrefs.SetInt(setName + levelNumber + "BestStar", crystalTracker.stars);
+            PlayerPrefs.SetInt("TotalStar", PlayerPrefs.GetInt("TotalStar", 0) - oldStars + crystalTracker.stars);
 
-        bool hasBestTime = timePassed < PlayerPrefs.GetFloat(setName + levelNumber + "BestTime", maxTime);
-        bool hasBest3sTime = timePassed < PlayerPrefs.GetFloat(setName + levelNumber + "Best3sTime", maxTime) && crystalTracker.stars == 3;
+        }
+
+        bool hasBestTime = timePassed < PlayerPrefs.GetFloat(setName + levelNumber + "BestTime", Mathf.Infinity);
+        bool hasBest3sTime = timePassed < PlayerPrefs.GetFloat(setName + levelNumber + "Best3sTime", Mathf.Infinity) && crystalTracker.stars == 3;
 
         if (hasBestTime && hasBest3sTime)
         {
@@ -475,6 +483,7 @@ public class LevelController : MonoBehaviour
     public void LoadScene(string name)
     {
         SceneManager.LoadScene(name);
+        Time.timeScale = 1;
     }
     public void RestartLevel()
     {

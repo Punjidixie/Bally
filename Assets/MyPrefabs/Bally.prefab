@@ -217,6 +217,9 @@ MonoBehaviour:
     type: 3}
   crystalSound: {fileID: 4982908729633609493, guid: 7dff9c2ed926f47ef97c649af8a923bb,
     type: 3}
+  bounceSound: {fileID: 4397481708012282258, guid: 572c53a45a55949f8a77f574817f85c9,
+    type: 3}
+  bounceSoundThreshold: 20
   distanceToCameraNormal: 0
   heightToCamera: 0
   xRotationOffset: 0

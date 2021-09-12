@@ -29,8 +29,12 @@ public class Tilting : MonoBehaviour
     public ParticleSystem coinParticle1;
     public ParticleSystem coinParticle3;
 
-    //sounds
+    //crystal sound
     public GameObject crystalSound;
+
+    //bouncy sound
+    public GameObject bounceSound;
+    public float bounceSoundThreshold;
     
 
     float toXRotation;
@@ -80,7 +84,7 @@ public class Tilting : MonoBehaviour
 
         mouseSensitivity = 10;
 
-
+        //StartCoroutine(CheckForBounce());
     }
 
     private void FixedUpdate()
@@ -149,7 +153,7 @@ public class Tilting : MonoBehaviour
             PanWinning();
         }
 
-        CheckObstruction();
+        
 
     }
 
@@ -456,7 +460,12 @@ public class Tilting : MonoBehaviour
     }
     public void OnCollisionEnter(Collision collision)
     {
-        
+        if (Vector3.Dot(collision.impulse, collision.relativeVelocity) > bounceSoundThreshold)
+        {
+            GameObject x = Instantiate(bounceSound);
+            Destroy(x, 5);
+        }
+        Debug.Log(Vector3.Dot(collision.impulse, collision.relativeVelocity));
     }
     IEnumerator WhileMagnetActive()
     {
@@ -492,8 +501,8 @@ public class Tilting : MonoBehaviour
         physicsMaterial.bounciness = 0.7f;
         bouncyBubble.SetActive(false);
     }
-    private void OnCollisionStay(Collision collision)
-    {
-        
-    }
+
+    
+
+    
 }
