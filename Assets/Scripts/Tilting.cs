@@ -277,7 +277,7 @@ public class Tilting : MonoBehaviour
 
     public void UpdateCamera()
     {
-        
+        //horizontal distance
         float distanceToCameraH = distanceToCamera * Mathf.Cos(toXRotation * Mathf.Deg2Rad);
 
         toXPosition = transform.position.x - distanceToCameraH * Mathf.Sin(toYRotation * Mathf.Deg2Rad);
