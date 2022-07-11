@@ -13,13 +13,13 @@ public class Tilting : MonoBehaviour
     public float forceSize;
 
     //magnetic field
-    public bool magnetActive;
+    bool magnetActive;
     public GameObject magneticField;
     float magnetTime;
     float magnetMaxTime;
 
     //bouncy effect
-    public bool bouncyActive;
+    bool bouncyActive;
     public GameObject bouncyBubble;
     public PhysicMaterial physicsMaterial;
     float bouncyMaxTime;
@@ -336,7 +336,6 @@ public class Tilting : MonoBehaviour
                 case "Crystal":
 
                     levelController.crystalTracker.AddCrystal(other.gameObject.GetComponent<Crystal>().value);
-                    levelController.crystalsText.text = "Crystals: " + levelController.crystals.ToString() + "/" + levelController.reqCrystal1.ToString();
                     Destroy(other.gameObject);
 
                     ParticleSystem particle;

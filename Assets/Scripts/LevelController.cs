@@ -35,10 +35,6 @@ public class LevelController : MonoBehaviour
     public GameObject countDownPanel;
     public Text countDownText;
 
-    //crystal panel
-    public GameObject crystalsCount;
-    public Text crystalsText;
-
     //crystal tracker
     public CrystalTracker crystalTracker;
 
@@ -77,7 +73,7 @@ public class LevelController : MonoBehaviour
     public Text nameText;
 
     public Text speedText;
-    public Vector3 previousSpeed;
+    Vector3 previousSpeed;
     public Text framerateText;
     
     float timePassed;

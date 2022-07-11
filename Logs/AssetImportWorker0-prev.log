@@ -12,67 +12,57 @@ AssetImportWorker0
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-50551
+60924
 Successfully changed project path to: /Users/punji/Spherene
 /Users/punji/Spherene
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 64.33 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 48.59 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.12f1 (b3b2c6512326)
 [Subsystems] Discovering subsystems at path /Applications/Unity/Hub/Editor/2020.3.12f1/Unity.app/Contents/Resources/UnitySubsystems
 [Subsystems] Discovering subsystems at path /Users/punji/Spherene/Assets
 GfxDevice: creating device client; threaded=0
-2022-02-11 21:34:22.037 Unity[44535:4093838] Color LCD preferred device: Intel(R) Iris(TM) Plus Graphics 655 (low power)
-2022-02-11 21:34:22.037 Unity[44535:4093838] Metal devices available: 1
-2022-02-11 21:34:22.037 Unity[44535:4093838] 0: Intel(R) Iris(TM) Plus Graphics 655 (low power)
-2022-02-11 21:34:22.039 Unity[44535:4093838] Using device Intel(R) Iris(TM) Plus Graphics 655 (low power)
+2022-07-10 17:24:47.811 Unity[18197:1121185] Color LCD preferred device: Intel(R) Iris(TM) Plus Graphics 655 (low power)
+2022-07-10 17:24:47.811 Unity[18197:1121185] Metal devices available: 1
+2022-07-10 17:24:47.811 Unity[18197:1121185] 0: Intel(R) Iris(TM) Plus Graphics 655 (low power)
+2022-07-10 17:24:47.813 Unity[18197:1121185] Using device Intel(R) Iris(TM) Plus Graphics 655 (low power)
 Initializing Metal device caps: Intel(R) Iris(TM) Plus Graphics 655
 Initialize mono
 Mono path[0] = '/Applications/Unity/Hub/Editor/2020.3.12f1/Unity.app/Contents/Managed'
 Mono path[1] = '/Applications/Unity/Hub/Editor/2020.3.12f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = '/Applications/Unity/Hub/Editor/2020.3.12f1/Unity.app/Contents/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56535
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56197
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: /Applications/Unity/Hub/Editor/2020.3.12f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
-Registered in 0.000532 seconds.
+Registered in 0.002230 seconds.
 Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 42.05 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 38.88 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.613 seconds
+- Completed reload, in  1.797 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.009660 seconds.
+Registered in 0.008286 seconds.
 Begin MonoManager ReloadAssembly
-Error: Could not load signature of UnityEditor.Purchasing.GooglePlayProductCatalogExporter:ProductTypeString due to: Could not load file or assembly 'UnityEngine.Purchasing, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' or one of its dependencies. assembly:UnityEngine.Purchasing, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null type:<unknown type> member:(null) signature:<none>
-
-Unloading broken assembly Assets/Plugins/UnityPurchasing/Bin/Stores.dll, this assembly can cause crashes in the runtime
-
-Unloading broken assembly Assets/Plugins/UnityPurchasing/Bin/Editor.dll, this assembly can cause crashes in the runtime
-
 Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 0.88 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 0.51 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-UnityIAP: [InitializeOnLoad] Facebook Check
-UnityIAP: Runtime [2020.3.12f1]
-UnityIAP: Current Build is Standalone:StandaloneOSX
-UnityIAP: stub FacebookStore.dll disabled
 Mono: successfully reloaded assembly
-- Completed reload, in  1.317 seconds
+- Completed reload, in  1.429 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Launching external process: /Applications/Unity/Hub/Editor/2020.3.12f1/Unity.app/Contents/Tools/UnityShaderCompiler
-Launched and connected shader compiler UnityShaderCompiler after 0.02 seconds
-Refreshing native plugins compatible for Editor in 0.87 ms, found 2 plugins.
+Launched and connected shader compiler UnityShaderCompiler after 0.01 seconds
+Refreshing native plugins compatible for Editor in 0.60 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2020 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 190.0 MB.
-System memory in use after: 190.0 MB.
+Unloading 1844 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 180.4 MB.
+System memory in use after: 180.5 MB.
 
-Unloading 69 unused Assets to reduce memory usage. Loaded Objects now: 2451.
-Total: 2.579565 ms (FindLiveObjects: 0.279784 ms CreateObjectMapping: 0.085363 ms MarkObjects: 2.075092 ms  DeleteObjects: 0.138181 ms)
+Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 2313.
+Total: 2.733280 ms (FindLiveObjects: 0.255999 ms CreateObjectMapping: 0.106450 ms MarkObjects: 2.263682 ms  DeleteObjects: 0.105977 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -86,30 +76,21 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  path: Assets/ProBuilder Data/Default Material Palette.asset
-  artifactKey: Guid(98db6da59ee4b49fca26f9a36593cdfe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/ProBuilder Data/Default Material Palette.asset using Guid(98db6da59ee4b49fca26f9a36593cdfe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bb5825170e80fc2e1c680bb6c5d6996e') in 0.274621 seconds 
-  Import took 0.279467 seconds .
+  path: Assets/Scenes/Sandbox/Sandbox1.unity
+  artifactKey: Guid(6830d7a0067524c498033e2eb123b46f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Sandbox/Sandbox1.unity using Guid(6830d7a0067524c498033e2eb123b46f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b76740ded335adfc30bb26c4cee4b916') in 0.010969 seconds 
+  Import took 0.014138 seconds .
 
 ========================================================================
 Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.004023 seconds.
-Begin MonoManager ReloadAssembly
-Native extension for OSXStandalone target not found
-Refreshing native plugins compatible for Editor in 0.73 ms, found 2 plugins.
+Refreshing native plugins compatible for Editor in 4.89 ms, found 2 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Mono: successfully reloaded assembly
-- Completed reload, in  1.223 seconds
-Platform modules already initialized, skipping
-Refreshing native plugins compatible for Editor in 0.91 ms, found 2 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 1948 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 189.5 MB.
-System memory in use after: 189.6 MB.
+Unloading 18 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 141.6 MB.
+System memory in use after: 141.7 MB.
 
-Unloading 43 unused Assets to reduce memory usage. Loaded Objects now: 2453.
-Total: 2.067615 ms (FindLiveObjects: 0.215122 ms CreateObjectMapping: 0.070365 ms MarkObjects: 1.720078 ms  DeleteObjects: 0.061127 ms)
+Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 2313.
+Total: 3.176297 ms (FindLiveObjects: 0.271806 ms CreateObjectMapping: 0.085492 ms MarkObjects: 2.753553 ms  DeleteObjects: 0.064206 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
@@ -121,4 +102,147 @@ AssetImportParameters requested are different than current active one (requested
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-AssetImportWorkerClient::OnTransportError - code=2 error=End of file
+========================================================================
+Received Import Request.
+  Time since last request: 364.208448 seconds.
+  path: Assets/MyPrefabs/ALVS Set 4/Doorway.prefab
+  artifactKey: Guid(245c8b46a55444e12b6bdeac5d3feac1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyPrefabs/ALVS Set 4/Doorway.prefab using Guid(245c8b46a55444e12b6bdeac5d3feac1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '910df3983b68aa1d40fbff5cfeb554dc') in 2.172992 seconds 
+  Import took 2.196339 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000309 seconds.
+  path: Assets/MyPrefabs/ALVS Set 4/Plant Pot.prefab
+  artifactKey: Guid(59d18f99037e044d1ac014c3544c2e4f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyPrefabs/ALVS Set 4/Plant Pot.prefab using Guid(59d18f99037e044d1ac014c3544c2e4f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd65e225862b1da78eda32b3512dd2282') in 0.113220 seconds 
+  Import took 0.116982 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000273 seconds.
+  path: Assets/MyPrefabs/ALVS Set 4/Table Lamp.prefab
+  artifactKey: Guid(25be183f63dd64247a9f2a3400cb0e38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyPrefabs/ALVS Set 4/Table Lamp.prefab using Guid(25be183f63dd64247a9f2a3400cb0e38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '14d1478b7d5b78f1a68795791edc2d7d') in 0.005687 seconds 
+  Import took 0.009969 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000233 seconds.
+  path: Assets/MyPrefabs/ALVS Set 4/Fern Pot.prefab
+  artifactKey: Guid(6d301387cbb8848b18be71cf11883cb1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyPrefabs/ALVS Set 4/Fern Pot.prefab using Guid(6d301387cbb8848b18be71cf11883cb1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b7a958bd19bfe9c3fd1878f8928acdf0') in 0.004629 seconds 
+  Import took 0.007893 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000294 seconds.
+  path: Assets/MyPrefabs/ALVS Set 4/Table.prefab
+  artifactKey: Guid(f7ae07d49af064b6cadefe07cb2b1f84) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyPrefabs/ALVS Set 4/Table.prefab using Guid(f7ae07d49af064b6cadefe07cb2b1f84) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4bff3b930c369bf512ef73ec92c2fb74') in 0.004570 seconds 
+  Import took 0.008966 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.684916 seconds.
+  path: Assets/MyPrefabs/ALVS Set 2/Crystal3Deco.prefab
+  artifactKey: Guid(19491c70d06a844eea60418ab0460254) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyPrefabs/ALVS Set 2/Crystal3Deco.prefab using Guid(19491c70d06a844eea60418ab0460254) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '061b12ced7771dac42da6d20c687e9d8') in 0.005108 seconds 
+  Import took 0.010321 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000318 seconds.
+  path: Assets/MyPrefabs/ALVS Set 2/ModPole Smooth.prefab
+  artifactKey: Guid(457de10aaf5c24f8d84c316cf6fac586) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyPrefabs/ALVS Set 2/ModPole Smooth.prefab using Guid(457de10aaf5c24f8d84c316cf6fac586) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c7782bed6f91158cb33a9fada7382744') in 0.004463 seconds 
+  Import took 0.011576 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000695 seconds.
+  path: Assets/MyPrefabs/ALVS Set 2/LampCV3.prefab
+  artifactKey: Guid(c7832fb98daab46cdbe30fa319ecffa0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyPrefabs/ALVS Set 2/LampCV3.prefab using Guid(c7832fb98daab46cdbe30fa319ecffa0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1f7c53663f83a8ab739fe58e692d3dbb') in 0.008468 seconds 
+  Import took 0.015167 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000215 seconds.
+  path: Assets/MyPrefabs/ALVS Set 2/CrystalDeco.prefab
+  artifactKey: Guid(ec9766ea490804e51bbd8c5def6c2168) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyPrefabs/ALVS Set 2/CrystalDeco.prefab using Guid(ec9766ea490804e51bbd8c5def6c2168) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b14b53ea9872042a1f25fd6ad12d8582') in 0.008782 seconds 
+  Import took 0.016217 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000525 seconds.
+  path: Assets/MyPrefabs/ALVS Set 2/ModPoleHori Smooth.prefab
+  artifactKey: Guid(6f1ad29fe592548b1a5181019c8e281b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyPrefabs/ALVS Set 2/ModPoleHori Smooth.prefab using Guid(6f1ad29fe592548b1a5181019c8e281b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4f6638e4acfcdb899c59401cef64dd05') in 0.008274 seconds 
+  Import took 0.017750 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.049443 seconds.
+  path: Assets/MyPrefabs/ALVS Set 1/ModHoriBottom.prefab
+  artifactKey: Guid(efb91668f49664eb6b54c288e5302d84) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyPrefabs/ALVS Set 1/ModHoriBottom.prefab using Guid(efb91668f49664eb6b54c288e5302d84) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c27effea0a1ee99e649d41fc68d57070') in 0.004781 seconds 
+  Import took 0.009627 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000256 seconds.
+  path: Assets/MyPrefabs/ALVS Set 1/ModPole.prefab
+  artifactKey: Guid(863043fdf7ea346bd822dfed3eb271f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyPrefabs/ALVS Set 1/ModPole.prefab using Guid(863043fdf7ea346bd822dfed3eb271f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e6d2630c1b13994670f2c1e926b8e879') in 0.003916 seconds 
+  Import took 0.007771 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000546 seconds.
+  path: Assets/MyPrefabs/ALVS Set 1/ModHoriTop.prefab
+  artifactKey: Guid(96928d896d63f45aa861b4041e51ab0b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyPrefabs/ALVS Set 1/ModHoriTop.prefab using Guid(96928d896d63f45aa861b4041e51ab0b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2afe5ce63fd633b596187d814d6c4890') in 0.007618 seconds 
+  Import took 0.016587 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000486 seconds.
+  path: Assets/MyPrefabs/ALVS Set 1/ModTopPlate.prefab
+  artifactKey: Guid(88e69219b7dd54b52b231aa34f84e958) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/MyPrefabs/ALVS Set 1/ModTopPlate.prefab using Guid(88e69219b7dd54b52b231aa34f84e958) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6026d718d33ee3e48905b2f80160f2f9') in 0.006229 seconds 
+  Import took 0.012165 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.007134 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.66 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.368 seconds
+Platform modules already initialized, skipping
+Switching build target platform(2) subTarget(0) extendedPlatform(0) -> platform(9) subTarget(16777218) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 0.63 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1809 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 183.4 MB.
+System memory in use after: 183.5 MB.
+
+Unloading 19 unused Assets to reduce memory usage. Loaded Objects now: 2324.
+Total: 2.441204 ms (FindLiveObjects: 0.265885 ms CreateObjectMapping: 0.074642 ms MarkObjects: 2.053768 ms  DeleteObjects: 0.046059 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: b23960f63f64bdc6ff669e2cdcee2391 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 

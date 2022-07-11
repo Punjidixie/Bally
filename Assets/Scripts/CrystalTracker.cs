@@ -65,7 +65,8 @@ public class CrystalTracker : MonoBehaviour
 
         if (slider.value > levelController.crystals)
         {
-            toBeValue = slider.value - Time.deltaTime * unfillRate;
+            //Normalizing rates
+            toBeValue = (slider.normalizedValue - Time.deltaTime * unfillRate) * slider.maxValue;
             if (toBeValue <= levelController.crystals)
             {
                 toBeValue = levelController.crystals;
@@ -73,7 +74,7 @@ public class CrystalTracker : MonoBehaviour
         }
         else if (slider.value < levelController.crystals)
         {
-            toBeValue = slider.value + Time.deltaTime * fillRate;
+            toBeValue = (slider.normalizedValue + Time.deltaTime * fillRate) * slider.maxValue;
             if (toBeValue >= levelController.crystals)
             {
                 toBeValue = levelController.crystals;

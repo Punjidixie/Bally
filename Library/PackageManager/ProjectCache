@@ -5,159 +5,21 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637652403130000000
-    m_Hash: 1413173155
+      ticks: 637801882820000000
+    m_Hash: 1009586758
   m_LockFileStatus:
     m_FilePath: /Users/punji/Spherene/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637652403130000000
-    m_Hash: 1614857810
+      ticks: 637801882820000000
+    m_Hash: 3838625614
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_PackageAssets:
   m_Packages:
     m_ResolvedPackages:
-    - packageId: com.unity.ads@3.7.1
-      testable: 0
-      isDirectDependency: 1
-      version: 3.7.1
-      source: 1
-      resolvedPath: /Users/punji/Spherene/Library/PackageCache/com.unity.ads@3.7.1
-      assetPath: Packages/com.unity.ads
-      name: com.unity.ads
-      displayName: Advertisement
-      author:
-        name: 
-        email: 
-        url: 
-      category: 
-      type: 
-      description: Unity Ads is a video ad network for iOS and Android that allows
-        you to quickly and effectively monetize your games.
-      status: 4
-      errors: []
-      versions:
-        all:
-        - 0.0.3
-        - 0.0.4
-        - 0.0.5
-        - 0.0.6
-        - 0.0.7
-        - 0.0.8
-        - 0.0.10
-        - 0.0.11
-        - 0.0.12
-        - 0.0.13
-        - 0.0.14
-        - 0.0.15
-        - 0.0.16
-        - 2.0.0
-        - 2.0.3
-        - 2.0.4
-        - 2.0.7
-        - 2.0.8
-        - 2.3.1
-        - 2.3.2
-        - 3.0.1
-        - 3.0.2
-        - 3.0.3
-        - 3.1.1
-        - 3.2.0
-        - 3.3.0
-        - 3.3.1
-        - 3.4.0
-        - 3.4.1
-        - 3.4.2
-        - 3.4.4
-        - 3.4.5
-        - 3.4.7
-        - 3.4.9
-        - 3.5.0
-        - 3.5.2
-        - 3.6.1
-        - 3.7.0
-        - 3.7.1
-        - 3.7.3
-        - 3.7.5
-        compatible:
-        - 0.0.3
-        - 0.0.4
-        - 0.0.5
-        - 0.0.6
-        - 0.0.7
-        - 0.0.8
-        - 0.0.10
-        - 0.0.11
-        - 0.0.12
-        - 0.0.13
-        - 0.0.14
-        - 0.0.15
-        - 0.0.16
-        - 2.0.0
-        - 2.0.3
-        - 2.0.4
-        - 2.0.7
-        - 2.0.8
-        - 2.3.1
-        - 2.3.2
-        - 3.0.1
-        - 3.0.2
-        - 3.0.3
-        - 3.1.1
-        - 3.2.0
-        - 3.3.0
-        - 3.3.1
-        - 3.4.0
-        - 3.4.1
-        - 3.4.2
-        - 3.4.4
-        - 3.4.5
-        - 3.4.7
-        - 3.4.9
-        - 3.5.0
-        - 3.5.2
-        - 3.6.1
-        - 3.7.0
-        - 3.7.1
-        - 3.7.3
-        - 3.7.5
-        verified: 3.7.5
-      dependencies:
-      - name: com.unity.ugui
-        version: 1.0.0
-      resolvedDependencies:
-      - name: com.unity.ugui
-        version: 1.0.0
-      - name: com.unity.modules.ui
-        version: 1.0.0
-      - name: com.unity.modules.imgui
-        version: 1.0.0
-      keywords:
-      - ads
-      - unity
-      registry:
-        id: main
-        name: 
-        url: https://packages.unity.com
-        scopes: []
-        isDefault: 1
-        capabilities: 7
-      hasRegistry: 1
-      hideInEditor: 1
-      entitlements:
-        isAllowed: 1
-      isAssetStorePackage: 0
-      datePublishedTicks: 637533483430000000
-      documentationUrl: 
-      hasRepository: 1
-      repository:
-        type: git
-        url: https://github.cds.internal.unity3d.com/unity/com.unity.ads.git
-        revision: 95ec369d16df431f8c9ebbb83c0f65dc4471f07e
-        path: 
     - packageId: com.unity.collab-proxy@1.5.7
       testable: 0
       isDirectDependency: 1
@@ -204,6 +66,20 @@ m_PackageAssets:
         - 1.7.1
         - 1.8.0
         - 1.9.0
+        - 1.10.2
+        - 1.11.2
+        - 1.12.5
+        - 1.13.5
+        - 1.14.1
+        - 1.14.4
+        - 1.14.7
+        - 1.14.9
+        - 1.14.12
+        - 1.15.1
+        - 1.15.4
+        - 1.15.7
+        - 1.15.9
+        - 1.15.12
         - 2.0.0-preview.6
         - 2.0.0-preview.8
         - 2.0.0-preview.15
@@ -218,6 +94,13 @@ m_PackageAssets:
         - 1.5.7
         - 1.6.0
         - 1.8.0
+        - 1.10.2
+        - 1.12.5
+        - 1.14.1
+        - 1.14.4
+        - 1.14.7
+        - 1.14.9
+        - 1.14.12
         - 2.0.0-preview.6
         - 2.0.0-preview.8
         - 2.0.0-preview.15
@@ -313,6 +196,9 @@ m_PackageAssets:
         - 3.0.5
         - 3.0.6
         - 3.0.7
+        - 3.0.9
+        - 3.0.10
+        - 3.0.12
         compatible:
         - 1.0.2
         - 1.0.6
@@ -339,6 +225,9 @@ m_PackageAssets:
         - 3.0.5
         - 3.0.6
         - 3.0.7
+        - 3.0.9
+        - 3.0.10
+        - 3.0.12
         verified: 2.0.7
       dependencies:
       - name: com.unity.test-framework
@@ -410,6 +299,8 @@ m_PackageAssets:
         - 2.0.8
         - 2.0.9
         - 2.0.11
+        - 2.0.12
+        - 2.0.14
         compatible:
         - 1.0.2
         - 1.0.3
@@ -426,7 +317,9 @@ m_PackageAssets:
         - 2.0.8
         - 2.0.9
         - 2.0.11
-        verified: 2.0.11
+        - 2.0.12
+        - 2.0.14
+        verified: 2.0.14
       dependencies:
       - name: com.unity.test-framework
         version: 1.1.9
@@ -493,6 +386,8 @@ m_PackageAssets:
         - 1.2.1
         - 1.2.2
         - 1.2.3
+        - 1.2.4
+        - 1.2.5
         compatible:
         - 1.0.2
         - 1.0.3
@@ -505,7 +400,9 @@ m_PackageAssets:
         - 1.2.1
         - 1.2.2
         - 1.2.3
-        verified: 1.2.3
+        - 1.2.4
+        - 1.2.5
+        verified: 1.2.5
       dependencies: []
       resolvedDependencies: []
       keywords: []
@@ -592,6 +489,7 @@ m_PackageAssets:
         - 5.0.0-pre.10
         - 5.0.1
         - 5.0.3
+        - 5.0.4
         compatible:
         - 4.0.2
         - 4.0.3
@@ -621,6 +519,7 @@ m_PackageAssets:
         - 5.0.0-pre.10
         - 5.0.1
         - 5.0.3
+        - 5.0.4
         verified: 4.5.2
       dependencies:
       - name: com.unity.settings-manager
@@ -797,12 +696,18 @@ m_PackageAssets:
         - 1.1.26
         - 1.1.27
         - 1.1.29
+        - 1.1.30
+        - 2.0.1-pre.12
+        - 2.0.1-pre.18
         compatible:
         - 1.1.24
         - 1.1.26
         - 1.1.27
         - 1.1.29
-        verified: 1.1.29
+        - 1.1.30
+        - 2.0.1-pre.12
+        - 2.0.1-pre.18
+        verified: 1.1.30
       dependencies:
       - name: com.unity.ext.nunit
         version: 1.0.6
@@ -941,6 +846,7 @@ m_PackageAssets:
         - 2.1.5
         - 2.1.6
         - 2.2.0-preview.1
+        - 2.2.0-preview.2
         - 3.0.0-preview.1
         - 3.0.0-preview.3
         - 3.0.0-preview.4
@@ -959,9 +865,12 @@ m_PackageAssets:
         - 3.0.5
         - 3.0.6
         - 3.2.0-pre.1
+        - 3.2.0-pre.2
+        - 4.0.0-pre.1
         compatible:
         - 3.0.6
         - 3.2.0-pre.1
+        - 3.2.0-pre.2
         verified: 3.0.6
       dependencies:
       - name: com.unity.ugui
@@ -1079,12 +988,17 @@ m_PackageAssets:
         - 1.5.4
         - 1.5.5
         - 1.5.6
+        - 1.5.7
         - 1.6.0-pre.1
         - 1.6.0-pre.3
         - 1.6.0-pre.4
         - 1.6.0-pre.5
         - 1.6.1
         - 1.6.2
+        - 1.6.3
+        - 1.6.4
+        - 1.7.0-pre.1
+        - 1.7.0-pre.2
         compatible:
         - 1.4.8
         - 1.5.0-pre.2
@@ -1100,12 +1014,17 @@ m_PackageAssets:
         - 1.5.4
         - 1.5.5
         - 1.5.6
+        - 1.5.7
         - 1.6.0-pre.1
         - 1.6.0-pre.3
         - 1.6.0-pre.4
         - 1.6.0-pre.5
         - 1.6.1
         - 1.6.2
+        - 1.6.3
+        - 1.6.4
+        - 1.7.0-pre.1
+        - 1.7.0-pre.2
         verified: 1.4.8
       dependencies:
       - name: com.unity.modules.director
@@ -2983,6 +2902,7 @@ m_PackageAssets:
         - 1.0.0
         - 1.0.5
         - 1.0.6
+        - 2.0.2
         compatible:
         - 0.1.5-preview
         - 0.1.6-preview
@@ -2990,6 +2910,7 @@ m_PackageAssets:
         - 1.0.0
         - 1.0.5
         - 1.0.6
+        - 2.0.2
         verified: 1.0.6
       dependencies: []
       resolvedDependencies: []
@@ -3044,6 +2965,8 @@ m_PackageAssets:
         - 1.0.1
         - 1.0.2
         - 1.0.3
+        - 2.0.0
+        - 2.0.1
         compatible:
         - 0.1.0-preview.4
         - 0.1.0-preview.8
@@ -3051,6 +2974,8 @@ m_PackageAssets:
         - 1.0.1
         - 1.0.2
         - 1.0.3
+        - 2.0.0
+        - 2.0.1
         verified: 1.0.3
       dependencies: []
       resolvedDependencies: []
@@ -3114,6 +3039,7 @@ m_PackageAssets:
         - 2.0.0-preview.2
         - 2.0.0
         - 2.0.1-preview.1
+        - 2.0.2
         compatible:
         - 1.0.0-preview.2
         - 1.0.0-preview.3
@@ -3125,7 +3051,8 @@ m_PackageAssets:
         - 2.0.0-preview.2
         - 2.0.0
         - 2.0.1-preview.1
-        verified: 2.0.0
+        - 2.0.2
+        verified: 2.0.2
       dependencies: []
       resolvedDependencies: []
       keywords: []

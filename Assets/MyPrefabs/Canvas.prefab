@@ -2559,8 +2559,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52ef1b37829104336adfb2bf1db84d62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fillRate: 5
-  unfillRate: 20
+  fillRate: 1
+  unfillRate: 3
   star1: {fileID: 126608397947116131}
   star2: {fileID: 8916856481677314528}
   star3: {fileID: 2409579289144504451}
@@ -6328,8 +6328,6 @@ MonoBehaviour:
   introPanel: {fileID: 5969679030987393258}
   countDownPanel: {fileID: 5969679030458571510}
   countDownText: {fileID: 5969679031277212997}
-  crystalsCount: {fileID: 6436884821073678686}
-  crystalsText: {fileID: 5224216388516320394}
   crystalTracker: {fileID: 4767703513762394911}
   statusEffectTracker: {fileID: 5886601207599077527}
   winPanel: {fileID: 1011916985176994280}
@@ -6352,7 +6350,6 @@ MonoBehaviour:
   namePanel: {fileID: 5706441781959025463}
   nameText: {fileID: 7608970772707484216}
   speedText: {fileID: 7996613874384439864}
-  previousSpeed: {x: 0, y: 0, z: 0}
   framerateText: {fileID: 603256895275223659}
   crystals: 0
   levelState: 
