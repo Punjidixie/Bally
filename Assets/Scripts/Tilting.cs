@@ -50,15 +50,22 @@ public class Tilting : MonoBehaviour
     float toYPosition;
     float toZPosition;
 
-    float frontTiltAngle;
-    float sideTiltAngle;
+    //float frontTiltAngle;
+    //float sideTiltAngle;
 
-    public float distanceToCameraNormal;
-    public float heightToCamera;
+    //public float distanceToCameraNormal;
+    //public float heightToCamera;
+    //public float xRotationOffset;
+    //float distanceToCameraMax;
+    //float distanceToCameraMin;
+    //float distanceToCamera;
+
+    public float frontTiltAngle;
+    public float sideTiltAngle;
+
+    public float heightToCamera; //B'
+    public float lengthToCamera; //C'
     public float xRotationOffset;
-    float distanceToCameraMax;
-    float distanceToCameraMin;
-    float distanceToCamera;
 
     public LevelController levelController;
 
@@ -72,19 +79,20 @@ public class Tilting : MonoBehaviour
 
         rb = GetComponent<Rigidbody>();
 
-        
-        frontTiltAngle = 15;
-        sideTiltAngle = 20;
 
 
-        heightToCamera = 0.8f;
-        xRotationOffset = 20f;
 
-        distanceToCameraNormal = 3.75f;
-        distanceToCameraMax = distanceToCameraNormal + 0.5f;
-        distanceToCameraMin = distanceToCameraNormal - 0.5f;
-        distanceToCamera = distanceToCameraNormal;
+        //frontTiltAngle = 15;
+        //sideTiltAngle = 20;
 
+
+        //heightToCamera = 0.8f;
+        //xRotationOffset = 20f;
+
+        //distanceToCameraNormal = 3.75f;
+        //distanceToCameraMax = distanceToCameraNormal + 0.5f;
+        //distanceToCameraMin = distanceToCameraNormal - 0.5f;
+        //distanceToCamera = distanceToCameraNormal;
     }
 
     private void FixedUpdate()
@@ -271,33 +279,25 @@ public class Tilting : MonoBehaviour
 
         
         sidewayForce = new Vector3(Mathf.Cos(toYRotation * Mathf.Deg2Rad), 0, -Mathf.Sin(toYRotation * Mathf.Deg2Rad)) * forceSize * sideTiltness;
-
        
     }
 
     public void UpdateCamera()
     {
-        //horizontal distance
-        float distanceToCameraH = distanceToCamera * Mathf.Cos(toXRotation * Mathf.Deg2Rad);
 
-        toXPosition = transform.position.x - distanceToCameraH * Mathf.Sin(toYRotation * Mathf.Deg2Rad);
-        toZPosition = transform.position.z - distanceToCameraH * Mathf.Cos(toYRotation * Mathf.Deg2Rad);
-        toYPosition = transform.position.y + heightToCamera + distanceToCamera * Mathf.Sin(toXRotation * Mathf.Deg2Rad);
+        float xRad = toXRotation * Mathf.Deg2Rad;
+        float yRad = toYRotation * Mathf.Deg2Rad;
+        float zRad = toZRotation * Mathf.Deg2Rad;
 
-        //Vector3 playerFromCamera = transform.position - new Vector3(toXPosition, toYPosition, toZPosition);
-        //float relativeFrontSpeed = Vector3.Dot(new Vector2(playerFromCamera.x, playerFromCamera.z), new Vector2(rb.velocity.x, rb.velocity.z));
-        //distanceToCamera = Mathf.Lerp(distanceToCamera, distanceToCameraNormal + relativeFrontSpeed * 0.03f, Time.deltaTime / 0.5f);
-        
-        //if (distanceToCamera > distanceToCameraMax)
-        //{
-        //    distanceToCamera = distanceToCameraMax;
-        //}
-        //else if (distanceToCamera < distanceToCameraMin)
-        //{
-        //    distanceToCamera = distanceToCameraMin;
-        //}
+        float h = lengthToCamera * Mathf.Cos(xRad) - heightToCamera * Mathf.Sin(xRad);
+        float v = heightToCamera * Mathf.Cos(xRad) + lengthToCamera * Mathf.Sin(xRad);
+        float mr = heightToCamera * (1 - Mathf.Cos(zRad)) * Mathf.Sin(xRad);
 
-        distanceToCamera = distanceToCameraNormal;
+
+        toXPosition = transform.position.x - h * Mathf.Sin(yRad) - heightToCamera * Mathf.Sin(zRad) * Mathf.Cos(yRad) - mr * Mathf.Sin(yRad);
+        toZPosition = transform.position.z - h * Mathf.Cos(yRad) + heightToCamera * Mathf.Sin(zRad) * Mathf.Sin(yRad) - mr * Mathf.Cos(yRad);
+        toYPosition = transform.position.y + v - heightToCamera * (1 - Mathf.Cos(zRad)) * Mathf.Cos(xRad);
+
 
         Camera.main.transform.position = new Vector3(toXPosition, toYPosition, toZPosition);
         Camera.main.transform.rotation = Quaternion.Euler(toXRotation, toYRotation, toZRotation);
@@ -305,13 +305,7 @@ public class Tilting : MonoBehaviour
 
     void PanWinning()
     {
-        float distanceToCameraH = distanceToCamera * Mathf.Cos(Camera.main.transform.eulerAngles.x * Mathf.Deg2Rad);
-
-        toXPosition = transform.position.x - distanceToCameraH * Mathf.Sin(Camera.main.transform.eulerAngles.y * Mathf.Deg2Rad);
-        toZPosition = transform.position.z - distanceToCameraH * Mathf.Cos(Camera.main.transform.eulerAngles.y * Mathf.Deg2Rad);
-        toYPosition = transform.position.y + heightToCamera + distanceToCamera * Mathf.Sin(Camera.main.transform.eulerAngles.x * Mathf.Deg2Rad);
-
-        Camera.main.transform.position = new Vector3(toXPosition, toYPosition, toZPosition);
+        UpdateCamera();
     }
 
     private void OnTriggerEnter(Collider other)

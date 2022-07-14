@@ -352,8 +352,11 @@ public class LevelController : MonoBehaviour
         {
             countDownText.text = Mathf.Ceil(3 - t).ToString();
             t += Time.deltaTime;
-            Camera.main.transform.position = Vector3.Lerp(cameraStartPosition, ball.transform.position + new Vector3(0, tilting.heightToCamera, -tilting.distanceToCameraNormal), t / 3f);
-            Camera.main.transform.rotation = Quaternion.Lerp(cameraStartRotation, Quaternion.Euler(0, 0, 0), t / 3f);
+
+            float h = tilting.lengthToCamera * Mathf.Cos(tilting.xRotationOffset * Mathf.Deg2Rad) - tilting.heightToCamera * Mathf.Sin(tilting.xRotationOffset * Mathf.Deg2Rad);
+            float v = tilting.heightToCamera * Mathf.Cos(tilting.xRotationOffset * Mathf.Deg2Rad) + tilting.lengthToCamera * Mathf.Sin(tilting.xRotationOffset * Mathf.Deg2Rad);
+            Camera.main.transform.position = Vector3.Lerp(cameraStartPosition, ball.transform.position + new Vector3(0, v, -h), t / 3f);
+            Camera.main.transform.rotation = Quaternion.Lerp(cameraStartRotation, Quaternion.Euler(tilting.xRotationOffset, 0, 0), t / 3f);
             Camera.main.transform.rotation = Quaternion.Euler(Camera.main.transform.eulerAngles.x, Camera.main.transform.eulerAngles.y, 0);
             yield return null;
         }
@@ -366,8 +369,10 @@ public class LevelController : MonoBehaviour
     {
         StopCoroutine(WhilePanning());
         ball.GetComponent<Rigidbody>().useGravity = true;
-        Camera.main.transform.position = ball.transform.position + new Vector3(0, tilting.heightToCamera, -tilting.distanceToCameraNormal);
-        Camera.main.transform.LookAt(ball.transform.position + new Vector3(0, tilting.heightToCamera, 10));
+        float h = tilting.lengthToCamera * Mathf.Cos(tilting.xRotationOffset * Mathf.Deg2Rad) - tilting.heightToCamera * Mathf.Sin(tilting.xRotationOffset * Mathf.Deg2Rad);
+        float v = tilting.heightToCamera * Mathf.Cos(tilting.xRotationOffset * Mathf.Deg2Rad) + tilting.lengthToCamera * Mathf.Sin(tilting.xRotationOffset * Mathf.Deg2Rad);
+        Camera.main.transform.position = ball.transform.position + new Vector3(0, v, -h);
+        Camera.main.transform.rotation = Quaternion.Euler(tilting.xRotationOffset, 0, 0);
 
         BringUpEssentials();
         BringUpControls();
