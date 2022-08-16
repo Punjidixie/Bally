@@ -34,13 +34,8 @@ public class RotatingMovement : MonoBehaviour
             GetComponent<Rigidbody>().MoveRotation(Quaternion.Euler(toXRotation, toYRotation, toZRotation));
         }
 
-        
-
-
     }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
+    
+    
 }

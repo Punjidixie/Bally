@@ -39,16 +39,12 @@ public class Tilting : MonoBehaviour
 
     //switch sound
     public GameObject switchSound;
-    
+
 
     //for camera
     float toXRotation;
     float toYRotation;
     float toZRotation;
-
-    float toXPosition;
-    float toYPosition;
-    float toZPosition;
 
     //float frontTiltAngle;
     //float sideTiltAngle;
@@ -69,7 +65,9 @@ public class Tilting : MonoBehaviour
 
     public LevelController levelController;
 
-  
+    //other components
+    SphereCollider sphereCollider;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -78,7 +76,7 @@ public class Tilting : MonoBehaviour
         physicsMaterial.bounciness = 0.7f;
 
         rb = GetComponent<Rigidbody>();
-
+        sphereCollider = GetComponent<SphereCollider>();
 
 
 
@@ -102,8 +100,8 @@ public class Tilting : MonoBehaviour
             rb.AddForce(frontForce, ForceMode.Acceleration);
             rb.AddForce(sidewayForce, ForceMode.Acceleration);
         }
-        
-        
+
+
     }
     // Update is called once per frame
     private void Update()
@@ -155,13 +153,9 @@ public class Tilting : MonoBehaviour
     }
     void TiltByKeyboard()
     {
-        toXRotation = Mathf.LerpAngle(Camera.main.transform.eulerAngles.x, 0, Time.deltaTime / 0.1f);
+        toXRotation = Mathf.LerpAngle(Camera.main.transform.eulerAngles.x, xRotationOffset, Time.deltaTime / 0.1f);
         toYRotation = Camera.main.transform.eulerAngles.y;
         toZRotation = Mathf.LerpAngle(Camera.main.transform.eulerAngles.z, 0, Time.deltaTime / 0.1f);
-
-        toXPosition = 0;
-        toYPosition = transform.position.y + 1;
-        toZPosition = 0;
 
         frontForce = Vector3.zero;
         sidewayForce = Vector3.zero;
@@ -182,26 +176,26 @@ public class Tilting : MonoBehaviour
 
 
 
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
             frontForce = new Vector3(Mathf.Sin(toYRotation * Mathf.Deg2Rad), 0, Mathf.Cos(toYRotation * Mathf.Deg2Rad)) * forceSize;
 
-            toXRotation = Mathf.LerpAngle(Camera.main.transform.eulerAngles.x, -frontTiltAngle, Time.deltaTime / 0.1f);
+            toXRotation = Mathf.LerpAngle(Camera.main.transform.eulerAngles.x, xRotationOffset - frontTiltAngle, Time.deltaTime / 0.1f);
         }
-        else if (Input.GetKey(KeyCode.S))
+        else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
         {
             frontForce = new Vector3(Mathf.Sin(toYRotation * Mathf.Deg2Rad), 0, Mathf.Cos(toYRotation * Mathf.Deg2Rad)) * -forceSize;
 
-            toXRotation = Mathf.LerpAngle(Camera.main.transform.eulerAngles.x, frontTiltAngle, Time.deltaTime / 0.1f);
+            toXRotation = Mathf.LerpAngle(Camera.main.transform.eulerAngles.x, xRotationOffset + frontTiltAngle, Time.deltaTime / 0.1f);
         }
 
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             sidewayForce = new Vector3(Mathf.Cos(toYRotation * Mathf.Deg2Rad), 0, -Mathf.Sin(toYRotation * Mathf.Deg2Rad)) * -forceSize;
 
             toZRotation = Mathf.LerpAngle(Camera.main.transform.eulerAngles.z, -sideTiltAngle, Time.deltaTime / 0.1f);
         }
-        else if (Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             sidewayForce = new Vector3(Mathf.Cos(toYRotation * Mathf.Deg2Rad), 0, -Mathf.Sin(toYRotation * Mathf.Deg2Rad)) * forceSize;
 
@@ -212,14 +206,10 @@ public class Tilting : MonoBehaviour
 
     void TiltByJoystick()
     {
-        toXRotation = Mathf.LerpAngle(Camera.main.transform.eulerAngles.x, 0, Time.deltaTime / 0.1f);
+        toXRotation = Mathf.LerpAngle(Camera.main.transform.eulerAngles.x, xRotationOffset, Time.deltaTime / 0.1f);
         toYRotation = Camera.main.transform.eulerAngles.y; //will be set via levelController
         
         toZRotation = Mathf.LerpAngle(Camera.main.transform.eulerAngles.z, 0, Time.deltaTime / 0.1f);
-
-        toXPosition = 0;
-        toYPosition = transform.position.y + 1;
-        toZPosition = 0;
 
         frontForce = Vector3.zero;
         sidewayForce = Vector3.zero;
@@ -233,8 +223,7 @@ public class Tilting : MonoBehaviour
         {
             frontForce = new Vector3(Mathf.Sin(toYRotation * Mathf.Deg2Rad), 0, Mathf.Cos(toYRotation * Mathf.Deg2Rad)) * forceSize * levelController.joystick.Vertical;
 
-            toXRotation = -frontTiltAngle * levelController.joystick.Vertical;
-
+            toXRotation = xRotationOffset - frontTiltAngle * levelController.joystick.Vertical;
         }
 
         if (levelController.joystick.Horizontal != 0)
@@ -248,13 +237,9 @@ public class Tilting : MonoBehaviour
 
     void TiltByDeviceTilting()
     {
-        toXRotation = Mathf.LerpAngle(Camera.main.transform.eulerAngles.x, 0, Time.deltaTime / 0.1f);
+        toXRotation = xRotationOffset;
         toYRotation = Camera.main.transform.eulerAngles.y;
-        toZRotation = Mathf.LerpAngle(Camera.main.transform.eulerAngles.z, 0, Time.deltaTime / 0.1f);
-
-        toXPosition = 0;
-        toYPosition = transform.position.y + 1;
-        toZPosition = 0;
+        toZRotation = 0;
 
         frontForce = Vector3.zero;
         sidewayForce = Vector3.zero;
@@ -294,9 +279,9 @@ public class Tilting : MonoBehaviour
         float mr = heightToCamera * (1 - Mathf.Cos(zRad)) * Mathf.Sin(xRad);
 
 
-        toXPosition = transform.position.x - h * Mathf.Sin(yRad) - heightToCamera * Mathf.Sin(zRad) * Mathf.Cos(yRad) - mr * Mathf.Sin(yRad);
-        toZPosition = transform.position.z - h * Mathf.Cos(yRad) + heightToCamera * Mathf.Sin(zRad) * Mathf.Sin(yRad) - mr * Mathf.Cos(yRad);
-        toYPosition = transform.position.y + v - heightToCamera * (1 - Mathf.Cos(zRad)) * Mathf.Cos(xRad);
+        float toXPosition = transform.position.x - h * Mathf.Sin(yRad) - heightToCamera * Mathf.Sin(zRad) * Mathf.Cos(yRad) - mr * Mathf.Sin(yRad);
+        float toZPosition = transform.position.z - h * Mathf.Cos(yRad) + heightToCamera * Mathf.Sin(zRad) * Mathf.Sin(yRad) - mr * Mathf.Cos(yRad);
+        float toYPosition = transform.position.y + v - heightToCamera * (1 - Mathf.Cos(zRad)) * Mathf.Cos(xRad);
 
 
         Camera.main.transform.position = new Vector3(toXPosition, toYPosition, toZPosition);
@@ -428,8 +413,66 @@ public class Tilting : MonoBehaviour
             impulseParticleInstance.transform.rotation *= Quaternion.FromToRotation(new Vector3(0, 1, 0), collision.impulse);
             Destroy(impulseParticleInstance, 5);
         }
-        Debug.Log(Vector3.Dot(collision.impulse, collision.relativeVelocity));
+
+        SetAngularVelocity(collision);
+
     }
+
+    public void OnCollisionStay(Collision collision)
+    {
+        SetAngularVelocity(collision);
+
+    }
+
+    public void SetAngularVelocity(Collision collision)
+    {
+        Vector3 normal = rb.position - collision.GetContact(0).point;
+        normal.Normalize();
+
+        Vector3 relativeVelocity = collision.relativeVelocity;
+
+        //See if the other body rotates
+        if (collision.rigidbody)
+        {
+            relativeVelocity += GetPointVelocity(collision.GetContact(0).point, collision.rigidbody);
+        }
+
+        float smallNumber = Time.deltaTime;
+        
+        //FOR BALL ROTATION
+        Vector3 axis = Vector3.Cross(normal, relativeVelocity);
+        float angVelMagnitude = axis.magnitude / sphereCollider.radius;
+
+        //Use 1 frame then magnify later so it doesn't go over 360 (or 180 too idk) in quaternion but can get over that later.
+        //This will range from 0 to max rotational speed * Time.fixedDeltaTime radians (probably not big enough to go over 180 or 360.
+        Vector3 oneFrameRotation = Quaternion.AngleAxis(-angVelMagnitude * smallNumber * Mathf.Rad2Deg, axis).eulerAngles;
+
+        //Negative angles are observed to be added by 360
+        if (oneFrameRotation.x > 180) { oneFrameRotation.x -= 360; }
+        if (oneFrameRotation.y > 180) { oneFrameRotation.y -= 360; }
+        if (oneFrameRotation.z > 180) { oneFrameRotation.z -= 360; }
+
+        rb.angularVelocity = Mathf.Deg2Rad * oneFrameRotation / smallNumber;
+    }
+
+    public Vector3 GetPointVelocity(Vector3 point, Rigidbody otherRb)
+    {
+        //Refer to Rotating Point documentation
+        Rigidbody rb = GetComponent<Rigidbody>();
+
+        if (Mathf.Abs(otherRb.angularVelocity.y) > 0)
+        {
+            float deltaX = point.x - otherRb.position.x;
+            float deltaZ = point.z - otherRb.position.z;
+            float r = Mathf.Sqrt(deltaX * deltaX + deltaZ * deltaZ);
+
+            Quaternion q = Quaternion.AngleAxis(90, Vector3.up);
+            return q * new Vector3(deltaX, 0, deltaZ).normalized * otherRb.angularVelocity.y * r; //Note: q must be first (point * q wouldn't compile)
+        }
+        return Vector3.zero;
+
+    }
+
     IEnumerator WhileMagnetActive()
     {
         magnetActive = true;

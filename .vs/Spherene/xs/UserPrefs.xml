@@ -1,15 +1,15 @@
-﻿<Properties>
+﻿<Properties StartupConfiguration="{2658D945-FE6E-398E-B85B-68178392ACB5}|">
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Tilting.cs">
     <Files>
-      <File FileName="Assets/MagneticField.cs" Line="50" Column="14" />
-      <File FileName="Assets/Scripts/Tilting.cs" Line="296" Column="1" />
-      <File FileName="Assets/Scripts/LevelController.cs" />
-      <File FileName="Assets/Scripts/CrystalTracker.cs" />
+      <File FileName="Assets/RotatingMovement.cs" Line="39" Column="5" />
+      <File FileName="Assets/LevelSelectController.cs" />
+      <File FileName="Assets/Scripts/LevelController.cs" Line="62" Column="17" />
+      <File FileName="Assets/Scripts/Tilting.cs" Line="226" Column="96" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="31c83666-20d4-432a-970d-7fd13bf2e1c0" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="5f9fef82-e728-4f5e-a0da-e0ded719ebdf" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

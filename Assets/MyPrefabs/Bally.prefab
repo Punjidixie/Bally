@@ -175,7 +175,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5461478641696643598}
-  m_Material: {fileID: 13400000, guid: 444e225232815497da84d4629caaed63, type: 2}
+  m_Material: {fileID: 13400000, guid: 892ece3497a28453dade223ce305dfc0, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -209,12 +209,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 544fded00c07e4d46a83a4db6a2b1fd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceSize: 8
-  magnetActive: 0
+  forceSize: 5.75
   magneticField: {fileID: 126296893199625525}
-  bouncyActive: 0
   bouncyBubble: {fileID: 2839223915965799004}
-  physicsMaterial: {fileID: 13400000, guid: 444e225232815497da84d4629caaed63, type: 2}
+  physicsMaterial: {fileID: 13400000, guid: 892ece3497a28453dade223ce305dfc0, type: 2}
   coinParticle1: {fileID: 5478678969964588052, guid: a5b8a4b0983fe48df822bed4c814c5c0,
     type: 3}
   coinParticle3: {fileID: 7823568668799692536, guid: e5cc32df7c189482f9635f7d0843350c,
@@ -228,9 +226,11 @@ MonoBehaviour:
   bounceSoundThreshold: 20
   switchSound: {fileID: 4397481708012282258, guid: afe484dd445ba43748b915e9e1657831,
     type: 3}
-  distanceToCameraNormal: 0
-  heightToCamera: 0
-  xRotationOffset: 0
+  frontTiltAngle: 15
+  sideTiltAngle: 20
+  heightToCamera: 0.5
+  lengthToCamera: 3.25
+  xRotationOffset: 15
   levelController: {fileID: 0}
 --- !u!1 &9135388946118637913
 GameObject:
