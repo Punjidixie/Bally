@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{2658D945-FE6E-398E-B85B-68178392ACB5}</ProjectGuid>
+    <ProjectGuid>{D3835E02-124B-CE67-76D0-D0B8CD06CB36}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -58,46 +58,52 @@
   <ItemGroup>
     <Compile Include="Assets/Joystick Pack/Scripts/Joysticks/DynamicJoystick.cs" />
     <Compile Include="Assets/Scripts/BetaSelTilting.cs" />
+    <Compile Include="Assets/PlayerPrefsEditor/SimpleEncryption.cs" />
+    <Compile Include="Assets/PlayerPrefsEditor/PlayerPrefsUtility.cs" />
     <Compile Include="Assets/Scripts/CameraScript.cs" />
-    <Compile Include="Assets/SwitchAction.cs" />
+    <Compile Include="Assets/Scripts/SwitchAction.cs" />
     <Compile Include="Assets/Joystick Pack/Scripts/Base/Joystick.cs" />
+    <Compile Include="Assets/Scripts/Simple/SimpleController.cs" />
+    <Compile Include="Assets/Scripts/Simple/SimpleTilting.cs" />
     <Compile Include="Assets/Scripts/Crystal.cs" />
     <Compile Include="Assets/Joystick Pack/Scripts/Joysticks/FixedJoystick.cs" />
-    <Compile Include="Assets/RotatingMovement.cs" />
+    <Compile Include="Assets/Scripts/RotatingMovement.cs" />
     <Compile Include="Assets/Joystick Pack/Scripts/Joysticks/VariableJoystick.cs" />
     <Compile Include="Assets/Scripts/OscillatingMovement.cs" />
     <Compile Include="Assets/Scripts/LevelController.cs" />
     <Compile Include="Assets/Scripts/FixedTouchField.cs" />
     <Compile Include="Assets/Simple Scroll-Snap/Examples/Example 3 (Slot Machine)/Scripts/SlotMachine.cs" />
     <Compile Include="Assets/Scripts/BetaSelController.cs" />
-    <Compile Include="Assets/LevelDragger.cs" />
-    <Compile Include="Assets/Switch.cs" />
-    <Compile Include="Assets/Bouncy.cs" />
+    <Compile Include="Assets/Scripts/Switch.cs" />
+    <Compile Include="Assets/Scripts/SkyCamera.cs" />
+    <Compile Include="Assets/Scripts/Bouncy.cs" />
     <Compile Include="Assets/Planar_Reflection_ILK/PlanarRealtimeReflection.cs" />
     <Compile Include="Assets/Simple Scroll-Snap/Examples/Example 6 (3D Shape Selection)/Scripts/Rotator.cs" />
     <Compile Include="Assets/Simple Scroll-Snap/Examples/Example 1 (macOS Finder)/Scripts/FileSelected.cs" />
-    <Compile Include="Assets/LevelSelectController.cs" />
+    <Compile Include="Assets/Scripts/LevelSelectController.cs" />
     <Compile Include="Assets/Joystick Pack/Examples/JoystickSetterExample.cs" />
     <Compile Include="Assets/Scripts/GoodCube.cs" />
-    <Compile Include="Assets/JustRotate.cs" />
+    <Compile Include="Assets/Scripts/JustRotate.cs" />
     <Compile Include="Assets/Scripts/DefaultSettings.cs" />
-    <Compile Include="Assets/MagneticField.cs" />
+    <Compile Include="Assets/Scripts/MagneticField.cs" />
     <Compile Include="Assets/Scripts/Tilting.cs" />
     <Compile Include="Assets/Scripts/UserSettings.cs" />
-    <Compile Include="Assets/StatusEffectTracker.cs" />
+    <Compile Include="Assets/Scripts/StatusEffectTracker.cs" />
     <Compile Include="Assets/Scripts/BetaStartController.cs" />
     <Compile Include="Assets/Simple Scroll-Snap/Examples/Shared Resources/Scripts/ExpandInformation.cs" />
     <Compile Include="Assets/Joystick Pack/Scripts/Joysticks/FloatingJoystick.cs" />
+    <Compile Include="Assets/Freeball.cs" />
     <Compile Include="Assets/Scripts/BetaStartOscillation.cs" />
-    <Compile Include="Assets/LevelSelectPage.cs" />
+    <Compile Include="Assets/Scripts/LevelSelectPage.cs" />
     <Compile Include="Assets/Simple Scroll-Snap/Examples/Example 5 (Dynamic Content)/Scripts/DynamicContentController.cs" />
     <Compile Include="Assets/Scripts/CrystalTracker.cs" />
     <Compile Include="Assets/Simple Scroll-Snap/Scripts/Runtime/TransitionEffect.cs" />
     <Compile Include="Assets/Joystick Pack/Examples/JoystickPlayerExample.cs" />
-    <Compile Include="Assets/Magnet.cs" />
+    <Compile Include="Assets/Scripts/Magnet.cs" />
+    <Compile Include="Assets/Scripts/InsideBall.cs" />
     <Compile Include="Assets/Simple Scroll-Snap/Scripts/Runtime/SimpleScrollSnap.cs" />
-    <Compile Include="Assets/CenterOfMassSetter.cs" />
-    <Compile Include="Assets/LevelButton.cs" />
+    <Compile Include="Assets/Scripts/CenterOfMassSetter.cs" />
+    <Compile Include="Assets/Scripts/LevelButton.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/TextMesh Pro/Resources/Shaders/TMPro.cginc" />
@@ -113,6 +119,7 @@
     <None Include="Assets/TextMesh Pro/Resources/Shaders/TMPro_Properties.cginc" />
     <None Include="Assets/TextMesh Pro/Resources/Shaders/TMPro_Surface.cginc" />
     <None Include="Assets/MyShaders/ShieldFX.shader" />
+    <None Include="Assets/PlayerPrefsEditor/README.txt" />
     <None Include="Assets/TextMesh Pro/Resources/LineBreaking Following Characters.txt" />
     <None Include="Assets/TextMesh Pro/Resources/Shaders/TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets/TextMesh Pro/Resources/Shaders/TMP_SDF Overlay.shader" />

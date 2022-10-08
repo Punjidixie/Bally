@@ -12,6 +12,7 @@ public class BetaSelController : MonoBehaviour
     public FixedTouchField scrollArea;
     public GameObject calibrateButton;
     public Dropdown dropdown;
+    public Dropdown dropdown2;
     public Slider sensitivitySlider;
     public GameObject sensitivityPanel;
     public GameObject resetConfirmPanel;
@@ -20,12 +21,12 @@ public class BetaSelController : MonoBehaviour
     void Start()
     {
         
-        UserSettings.LoadControlsFromPlayerPrefs(); //so I can use UserSettings instead of PlayerPrefs every frame (this is maybe faster)
+        UserSettings.CheckDefaults(); //so I can use UserSettings instead of PlayerPrefs every frame (this is maybe faster)
         Time.timeScale = 1;
         //sensitivitySlider.value = UserSettings.dragSensitivity;
-        sensitivitySlider.value = UserSettings.dragSensitivity;
+        sensitivitySlider.value = PlayerPrefs.GetFloat("DragSensitivity");
         //load from UserSettings
-        switch (UserSettings.movementMode)
+        switch (PlayerPrefs.GetString("MovementMode"))
         {
             case "Joystick":
                 ToJoystick();
@@ -42,6 +43,22 @@ public class BetaSelController : MonoBehaviour
             default:
                 ToJoystick();
                 dropdown.value = 0;
+                break;
+        }
+
+        switch (PlayerPrefs.GetString("CameraMode"))
+        {
+            case "Manual":
+                ToManualCam();
+                dropdown2.value = 0;
+                break;
+            case "Auto":
+                ToAutoCam();
+                dropdown2.value = 1;
+                break;
+            default:
+                ToManualCam();
+                dropdown2.value = 0;
                 break;
         }
     }
@@ -74,6 +91,32 @@ public class BetaSelController : MonoBehaviour
         }
     }
 
+    public void HandleDropdownInput2(int i)
+    {
+        switch (i)
+        {
+            case 0:
+                ToManualCam();
+                break;
+            case 1:
+                ToAutoCam();
+                break;
+            default:
+                ToManualCam();
+                break;
+        }
+    }
+
+    public void ToAutoCam()
+    {
+        PlayerPrefs.SetString("CameraMode", "Auto");
+    }
+
+    public void ToManualCam()
+    {
+        PlayerPrefs.SetString("CameraMode", "Manual");
+    }
+
     public void ToJoystick()
     {
         joystick.gameObject.SetActive(true);
@@ -83,7 +126,6 @@ public class BetaSelController : MonoBehaviour
         sensitivityPanel.SetActive(true);
 
         PlayerPrefs.SetString("MovementMode", "Joystick");
-        UserSettings.movementMode = "Joystick";
     }
 
     public void ToDeviceTilting()
@@ -95,7 +137,6 @@ public class BetaSelController : MonoBehaviour
         sensitivityPanel.SetActive(true);
 
         PlayerPrefs.SetString("MovementMode", "DeviceTilting");
-        UserSettings.movementMode = "DeviceTilting";
     }
 
     public void ToKeyboard()
@@ -107,7 +148,6 @@ public class BetaSelController : MonoBehaviour
         sensitivityPanel.SetActive(false);
 
         PlayerPrefs.SetString("MovementMode", "Keyboard");
-        UserSettings.movementMode = "Keyboard";
     }
 
     public void LoadLevel(string setName)
@@ -123,7 +163,6 @@ public class BetaSelController : MonoBehaviour
     public void ChangeDragSensitivity(float s)
     {
         PlayerPrefs.SetFloat("DragSensitivity", s);
-        UserSettings.dragSensitivity = s;
     }
 
     public void ResetEverything()

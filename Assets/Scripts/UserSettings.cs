@@ -5,23 +5,62 @@ using UnityEngine;
 public static class UserSettings
 {
     public static Vector3 tiltCalibration; //offset
-    public static string movementMode; // Keyboard Joystick DeviceTilting
-    public static float mouseSensitivity;
-    public static float dragSensitivity;
-    public static float cameraAngularSpeed; //degrees per sec
 
     public static bool cheat = true;
+
+    static Dictionary<string, string> defaultStr = new Dictionary<string, string>() {
+
+        ["MovementMode"] = "Joystick",
+        ["CameraMode"] = "Manual"
+
+    };
+
+    static Dictionary<string, float> defaultFloat = new Dictionary<string, float>()
+    {
+
+        ["MouseSensitivity"] = 10f,
+        ["DragSensitivity"] = 0.6f
+
+    };
 
     public static void CalibrateTilt()
     {
         tiltCalibration = Input.acceleration;
     }
 
-    public static void LoadControlsFromPlayerPrefs()
+    public static void CheckDefaults()
     {
-        Application.targetFrameRate = 60;
-        movementMode = PlayerPrefs.GetString("MovementMode", DefaultSettings.movementMode);
-        mouseSensitivity = PlayerPrefs.GetFloat("MouseSensitivity", DefaultSettings.mouseSensitivity);
-        dragSensitivity = PlayerPrefs.GetFloat("DragSensitivity", DefaultSettings.dragSensitivity);
+
+        foreach (KeyValuePair<string, string> entry in defaultStr)
+        {
+            if (!PlayerPrefs.HasKey(entry.Key))
+            {
+                PlayerPrefs.SetString(entry.Key, entry.Value);
+            }
+            
+        }
+
+        foreach (KeyValuePair<string, float> entry in defaultFloat)
+        {
+            if (!PlayerPrefs.HasKey(entry.Key))
+            {
+                PlayerPrefs.SetFloat(entry.Key, entry.Value);
+            }
+        }
+    }
+
+    public static void RevertDefaults()
+    {
+
+        foreach (KeyValuePair<string, string> entry in defaultStr)
+        {
+            PlayerPrefs.SetString(entry.Key, entry.Value);
+
+        }
+
+        foreach (KeyValuePair<string, float> entry in defaultFloat)
+        {
+            PlayerPrefs.SetFloat(entry.Key, entry.Value);
+        }
     }
 }

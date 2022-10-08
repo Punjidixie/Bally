@@ -8,7 +8,7 @@ public class OscillatingMovement : MonoBehaviour
     public bool alwaysMoving;
     public float period;
     public float wait;
-    public LevelController levelController; //I don't want this either but it's (kinda) necessary
+    private LevelController levelController; //I don't want this either but it's (kinda) necessary
     bool waiting = false;
     bool goingForward = true; //going in the direction of 
     Vector3 startingPosition;
@@ -18,6 +18,7 @@ public class OscillatingMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        levelController = FindObjectOfType<LevelController>();
         startingPosition = transform.position;
         midPosition = startingPosition + movementScale / 2;
     }

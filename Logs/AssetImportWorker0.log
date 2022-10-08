@@ -1,0 +1,155 @@
+Using pre-set license
+
+ COMMAND LINE ARGUMENTS:
+/Applications/Unity/Hub/Editor/2020.3.12f1/Unity.app/Contents/MacOS/Unity
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+/Users/punji/Bally
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+52866
+Successfully changed project path to: /Users/punji/Bally
+/Users/punji/Bally
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 49.39 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.3.12f1 (b3b2c6512326)
+[Subsystems] Discovering subsystems at path /Applications/Unity/Hub/Editor/2020.3.12f1/Unity.app/Contents/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path /Users/punji/Bally/Assets
+GfxDevice: creating device client; threaded=0
+2022-10-08 17:25:15.651 Unity[16546:953185] Color LCD preferred device: Intel(R) Iris(TM) Plus Graphics 655 (low power)
+2022-10-08 17:25:15.651 Unity[16546:953185] Metal devices available: 1
+2022-10-08 17:25:15.651 Unity[16546:953185] 0: Intel(R) Iris(TM) Plus Graphics 655 (low power)
+2022-10-08 17:25:15.651 Unity[16546:953185] Using device Intel(R) Iris(TM) Plus Graphics 655 (low power)
+Initializing Metal device caps: Intel(R) Iris(TM) Plus Graphics 655
+Initialize mono
+Mono path[0] = '/Applications/Unity/Hub/Editor/2020.3.12f1/Unity.app/Contents/Managed'
+Mono path[1] = '/Applications/Unity/Hub/Editor/2020.3.12f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = '/Applications/Unity/Hub/Editor/2020.3.12f1/Unity.app/Contents/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56546
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: /Applications/Unity/Hub/Editor/2020.3.12f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Registered in 0.002699 seconds.
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 40.63 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.537 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.010382 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 0.52 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.373 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launching external process: /Applications/Unity/Hub/Editor/2020.3.12f1/Unity.app/Contents/Tools/UnityShaderCompiler
+Launched and connected shader compiler UnityShaderCompiler after 0.02 seconds
+Refreshing native plugins compatible for Editor in 0.49 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1852 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 162.7 MB.
+System memory in use after: 162.7 MB.
+
+Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 2298.
+Total: 2.258794 ms (FindLiveObjects: 0.238360 ms CreateObjectMapping: 0.065697 ms MarkObjects: 1.845193 ms  DeleteObjects: 0.108678 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: b23960f63f64bdc6ff669e2cdcee2391 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  path: Assets/Materials/Fonts/Avenir Next SDF.asset
+  artifactKey: Guid(eae85b389a1d749df9fc624b9fc1ae5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Fonts/Avenir Next SDF.asset using Guid(eae85b389a1d749df9fc624b9fc1ae5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0cbf1aec357da245f26a0d6b853e5122') in 0.781648 seconds 
+  Import took 0.786260 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 932.709937 seconds.
+  path: Assets/Materials/Fonts/AvenirNext-UltraLight 1.ttf
+  artifactKey: Guid(c8ce94b10951640238344012357b544b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Fonts/AvenirNext-UltraLight 1.ttf using Guid(c8ce94b10951640238344012357b544b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2e1dba3bad42802820812bb7e06481df') in 0.513092 seconds 
+  Import took 0.536110 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 18.869563 seconds.
+  path: Assets/Materials/Fonts/Avenir Next SDF.asset
+  artifactKey: Guid(eae85b389a1d749df9fc624b9fc1ae5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Fonts/Avenir Next SDF.asset using Guid(eae85b389a1d749df9fc624b9fc1ae5c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8b886d9729ece75d02a334325bc91f4f') in 0.050958 seconds 
+  Import took 0.057384 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 40.691792 seconds.
+  path: Assets/Materials/Fonts/AvenirNext-UltraLight SDF.asset
+  artifactKey: Guid(c53321a35f660440093b5ea5f38cee62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Fonts/AvenirNext-UltraLight SDF.asset using Guid(c53321a35f660440093b5ea5f38cee62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8f4ccabcad759f92b16e638309b0c310') in 0.042998 seconds 
+  Import took 0.047632 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 83.840843 seconds.
+  path: Assets/Materials/Fonts/FontsFree-Net-Avenir-Light.ttf
+  artifactKey: Guid(75f40dd9859ce4c6cb0d606bd5992cf6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Fonts/FontsFree-Net-Avenir-Light.ttf using Guid(75f40dd9859ce4c6cb0d606bd5992cf6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dd731c962307e8a77f52cc1c24d12a73') in 0.036503 seconds 
+  Import took 0.042177 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.003866 seconds.
+  path: Assets/Materials/Fonts/FontsFree-Net-Avenir-Light.ttf
+  artifactKey: Guid(75f40dd9859ce4c6cb0d606bd5992cf6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Fonts/FontsFree-Net-Avenir-Light.ttf using Guid(75f40dd9859ce4c6cb0d606bd5992cf6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dd731c962307e8a77f52cc1c24d12a73') in 0.010103 seconds 
+  Import took 0.013742 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.288542 seconds.
+  path: Assets/Materials/Fonts/Avenir Light.ttf
+  artifactKey: Guid(75f40dd9859ce4c6cb0d606bd5992cf6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Fonts/Avenir Light.ttf using Guid(75f40dd9859ce4c6cb0d606bd5992cf6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c3bacaf411bb3411880eb5bd901c081b') in 0.047187 seconds 
+  Import took 0.051595 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 13.731730 seconds.
+  path: Assets/Materials/Fonts/Avenir Light SDF.asset
+  artifactKey: Guid(c439bdaa6eacd4240bc448cd869c16f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Fonts/Avenir Light SDF.asset using Guid(c439bdaa6eacd4240bc448cd869c16f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f3959d5e1853ddf5ddd200ebe83e2b41') in 0.039819 seconds 
+  Import took 0.047168 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000234 seconds.
+  path: Assets/Materials/Fonts/AvenirNext-UltraLight SDF.asset
+  artifactKey: Guid(c53321a35f660440093b5ea5f38cee62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Fonts/AvenirNext-UltraLight SDF.asset using Guid(c53321a35f660440093b5ea5f38cee62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dcb62acbde12c5a9f47147bcf61ced76') in 0.045060 seconds 
+  Import took 0.049268 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 141.448091 seconds.
+  path: Assets/Materials/Fonts/Avenir Light SDF.asset
+  artifactKey: Guid(c439bdaa6eacd4240bc448cd869c16f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/Fonts/Avenir Light SDF.asset using Guid(c439bdaa6eacd4240bc448cd869c16f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '696a8f479524e1863eaa3bfd73873293') in 0.064385 seconds 
+  Import took 0.085951 seconds .
+

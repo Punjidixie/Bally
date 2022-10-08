@@ -5,12 +5,16 @@ using UnityEngine.EventSystems;
 
 public class Tilting : MonoBehaviour
 {
-    Rigidbody rb;
-    Vector3 sidewayForce; //direction to the RIGHT
-    Vector3 frontForce; //direction to the FRONT
+    protected Rigidbody rb;
+    protected Vector3 sidewayForce; //direction to the RIGHT
+    protected Vector3 frontForce; //direction to the FRONT
 
 
     public float forceSize;
+
+    //input
+    protected FixedTouchField scrollArea;
+    protected Joystick joystick;
 
     //magnetic field
     bool magnetActive;
@@ -42,9 +46,9 @@ public class Tilting : MonoBehaviour
 
 
     //for camera
-    float toXRotation;
-    float toYRotation;
-    float toZRotation;
+    protected float toXRotation;
+    protected float toYRotation;
+    protected float toZRotation;
 
     //float frontTiltAngle;
     //float sideTiltAngle;
@@ -66,11 +70,13 @@ public class Tilting : MonoBehaviour
     public LevelController levelController;
 
     //other components
-    SphereCollider sphereCollider;
+    protected SphereCollider sphereCollider;
+
 
     // Start is called before the first frame update
     void Start()
     {
+
         magnetActive = false;
         bouncyActive = false;
         physicsMaterial.bounciness = 0.7f;
@@ -78,7 +84,8 @@ public class Tilting : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         sphereCollider = GetComponent<SphereCollider>();
 
-
+        scrollArea = levelController.scrollArea;
+        joystick = levelController.joystick;
 
         //frontTiltAngle = 15;
         //sideTiltAngle = 20;
@@ -97,12 +104,17 @@ public class Tilting : MonoBehaviour
     {
         if (levelController.levelState == "InGame")
         {
-            rb.AddForce(frontForce, ForceMode.Acceleration);
-            rb.AddForce(sidewayForce, ForceMode.Acceleration);
+            Move();
         }
 
-
     }
+
+    protected virtual void Move()
+    {
+        rb.AddForce(frontForce, ForceMode.Acceleration);
+        rb.AddForce(sidewayForce, ForceMode.Acceleration);
+    }
+
     // Update is called once per frame
     private void Update()
     {
@@ -114,7 +126,7 @@ public class Tilting : MonoBehaviour
             case "Panning":
                 break;
             case "InGame":
-                switch (UserSettings.movementMode)
+                switch (PlayerPrefs.GetString("MovementMode"))
                 {
                     case "Joystick":
                         TiltByJoystick();
@@ -141,17 +153,7 @@ public class Tilting : MonoBehaviour
 
     }
 
-    private void LateUpdate()
-    {
-        //switch (levelController.levelState)
-        //{
-        //    case "InGame":
-        //        UpdateCamera();
-        //        break;
-        //}
-
-    }
-    void TiltByKeyboard()
+    protected virtual void TiltByKeyboard()
     {
         toXRotation = Mathf.LerpAngle(Camera.main.transform.eulerAngles.x, xRotationOffset, Time.deltaTime / 0.1f);
         toYRotation = Camera.main.transform.eulerAngles.y;
@@ -160,20 +162,7 @@ public class Tilting : MonoBehaviour
         frontForce = Vector3.zero;
         sidewayForce = Vector3.zero;
 
-        toYRotation += Input.GetAxis("Mouse X") * UserSettings.mouseSensitivity;
-
-
-        if (Input.GetKey(KeyCode.K))
-        {
-
-            toYRotation = toYRotation - UserSettings.cameraAngularSpeed * Time.deltaTime;
-        }
-        else if (Input.GetKey(KeyCode.L))
-        {
-
-            toYRotation = toYRotation + UserSettings.cameraAngularSpeed * Time.deltaTime;
-        }
-
+        toYRotation += Input.GetAxis("Mouse X") * PlayerPrefs.GetFloat("MouseSensitivity");
 
 
         if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
@@ -204,7 +193,7 @@ public class Tilting : MonoBehaviour
 
     }
 
-    void TiltByJoystick()
+    protected void TiltByJoystick()
     {
         toXRotation = Mathf.LerpAngle(Camera.main.transform.eulerAngles.x, xRotationOffset, Time.deltaTime / 0.1f);
         toYRotation = Camera.main.transform.eulerAngles.y; //will be set via levelController
@@ -216,26 +205,26 @@ public class Tilting : MonoBehaviour
 
 
 
-        toYRotation = Camera.main.transform.eulerAngles.y + levelController.scrollArea.TouchDist.x * UserSettings.dragSensitivity;
+        toYRotation = Camera.main.transform.eulerAngles.y + scrollArea.TouchDist.x * PlayerPrefs.GetFloat("DragSensitivity");
 
 
-        if (levelController.joystick.Vertical != 0)
+        if (joystick.Vertical != 0)
         {
-            frontForce = new Vector3(Mathf.Sin(toYRotation * Mathf.Deg2Rad), 0, Mathf.Cos(toYRotation * Mathf.Deg2Rad)) * forceSize * levelController.joystick.Vertical;
+            frontForce = new Vector3(Mathf.Sin(toYRotation * Mathf.Deg2Rad), 0, Mathf.Cos(toYRotation * Mathf.Deg2Rad)) * forceSize * joystick.Vertical;
 
-            toXRotation = xRotationOffset - frontTiltAngle * levelController.joystick.Vertical;
+            toXRotation = xRotationOffset - frontTiltAngle * joystick.Vertical;
         }
 
-        if (levelController.joystick.Horizontal != 0)
+        if (joystick.Horizontal != 0)
         {
-            sidewayForce = new Vector3(Mathf.Cos(toYRotation * Mathf.Deg2Rad), 0, -Mathf.Sin(toYRotation * Mathf.Deg2Rad)) * forceSize * levelController.joystick.Horizontal;
+            sidewayForce = new Vector3(Mathf.Cos(toYRotation * Mathf.Deg2Rad), 0, -Mathf.Sin(toYRotation * Mathf.Deg2Rad)) * forceSize * joystick.Horizontal;
 
-            toZRotation = sideTiltAngle * levelController.joystick.Horizontal;
+            toZRotation = sideTiltAngle * joystick.Horizontal;
 
         }
     }
 
-    void TiltByDeviceTilting()
+    protected void TiltByDeviceTilting()
     {
         toXRotation = xRotationOffset;
         toYRotation = Camera.main.transform.eulerAngles.y;
@@ -246,7 +235,7 @@ public class Tilting : MonoBehaviour
 
 
 
-        toYRotation = Camera.main.transform.eulerAngles.y + levelController.scrollArea.TouchDist.x * UserSettings.dragSensitivity;
+        toYRotation = Camera.main.transform.eulerAngles.y + scrollArea.TouchDist.x * PlayerPrefs.GetFloat("DragSensitivity");
 
         float frontTiltness = -(Input.acceleration.z - UserSettings.tiltCalibration.z) / 0.3f;
         float sideTiltness = (Input.acceleration.x - UserSettings.tiltCalibration.x) / 0.3f;
@@ -267,8 +256,56 @@ public class Tilting : MonoBehaviour
        
     }
 
+    float ChaseParabola(float x)
+    {
+        return -4 * Mathf.Pow(x - 0.5f, 2) + 1;
+    }
+
+    void ChaseCamera()
+    {
+        float chasePerVelocity = 15;
+        
+        float yRotationTarget = Vector3.Angle(Vector3.forward, new Vector3(rb.velocity.x, 0, rb.velocity.z));
+        if (Vector3.Cross(Vector3.forward, new Vector3(rb.velocity.x, 0, rb.velocity.z)).y < 0)
+        {
+            yRotationTarget = 360 - yRotationTarget;
+        }
+
+        Vector3 targetVec = new Vector3(Mathf.Sin(yRotationTarget * Mathf.Deg2Rad), 0, Mathf.Cos(yRotationTarget * Mathf.Deg2Rad));
+        Vector3 currentVec = new Vector3(Mathf.Sin(toYRotation * Mathf.Deg2Rad), 0, Mathf.Cos(toYRotation * Mathf.Deg2Rad));
+
+        float chaseSpeedFactor = ChaseParabola(Vector3.Angle(targetVec, currentVec) / 181);
+        float chaseSpeed = chaseSpeedFactor * chasePerVelocity * Mathf.Pow(new Vector3(rb.velocity.x, 0, rb.velocity.z).magnitude, 2);
+
+        float direction = 1;
+
+        if (Vector3.Cross(currentVec, targetVec).y < 0)
+        {
+            direction = -1;
+        }
+
+        float change = direction * Time.deltaTime * chaseSpeed;
+
+        if (Mathf.Abs(change) > Vector3.Angle(targetVec, currentVec))
+        {
+            toYRotation = yRotationTarget;
+        }
+        else
+        {
+            toYRotation += change;
+        }
+    }
+
+
     public void UpdateCamera()
     {
+
+        if (PlayerPrefs.GetString("CameraMode") == "Auto")
+        {
+            ChaseCamera();
+        }
+        
+        //TrivialChase();
 
         float xRad = toXRotation * Mathf.Deg2Rad;
         float yRad = toYRotation * Mathf.Deg2Rad;
@@ -426,6 +463,7 @@ public class Tilting : MonoBehaviour
 
     public void SetAngularVelocity(Collision collision)
     {
+
         Vector3 normal = rb.position - collision.GetContact(0).point;
         normal.Normalize();
 
@@ -492,7 +530,7 @@ public class Tilting : MonoBehaviour
     IEnumerator WhileBouncyActive()
     {
         bouncyActive = true;
-        physicsMaterial.bounciness = 0.98f;
+        physicsMaterial.bounciness = 0.99f;
         bouncyBubble.SetActive(true);
 
         while (bouncyTime < bouncyMaxTime)

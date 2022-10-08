@@ -84,7 +84,7 @@ public class LevelController : MonoBehaviour
     void Start()
     {
         //PlayerPrefs.DeleteAll();
-        UserSettings.LoadControlsFromPlayerPrefs();
+        UserSettings.CheckDefaults();
 
         Time.timeScale = 1;
         levelState = "Intro";
@@ -489,7 +489,7 @@ public class LevelController : MonoBehaviour
 
     public void BringUpControls()
     {
-        switch (PlayerPrefs.GetString("MovementMode", DefaultSettings.movementMode))
+        switch (PlayerPrefs.GetString("MovementMode"))
         {
             case "DeviceTilting":
                 Cursor.visible = true;

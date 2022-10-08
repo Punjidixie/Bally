@@ -54,7 +54,7 @@ public class BetaSelTilting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        switch (UserSettings.movementMode)
+        switch (PlayerPrefs.GetString("MovementMode"))
         {
             case "Joystick":
                 TiltByJoystick();
@@ -84,24 +84,12 @@ public class BetaSelTilting : MonoBehaviour
         frontForce = Vector3.zero;
         sidewayForce = Vector3.zero;
 
-        toYRotation += Input.GetAxis("Mouse X") * UserSettings.mouseSensitivity;
+        toYRotation += Input.GetAxis("Mouse X") * PlayerPrefs.GetFloat("MouseSensitivity");
 
         //if (Input.GetKey(KeyCode.Escape))
         //{
         //    bsc.PauseGame();
         //}
-
-        if (Input.GetKey(KeyCode.K))
-        {
-
-            toYRotation = toYRotation - UserSettings.cameraAngularSpeed * Time.deltaTime;
-        }
-        else if (Input.GetKey(KeyCode.L))
-        {
-
-            toYRotation = toYRotation + UserSettings.cameraAngularSpeed * Time.deltaTime;
-        }
-
 
 
         if (Input.GetKey(KeyCode.W))
@@ -171,7 +159,7 @@ public class BetaSelTilting : MonoBehaviour
         sidewayForce = Vector3.zero;
 
 
-        toYRotation = Camera.main.transform.eulerAngles.y + bsc.scrollArea.TouchDist.x * UserSettings.dragSensitivity;
+        toYRotation = Camera.main.transform.eulerAngles.y + bsc.scrollArea.TouchDist.x * PlayerPrefs.GetFloat("DragSensitivity");
 
         if (bsc.joystick.Vertical != 0)
         {
@@ -236,7 +224,7 @@ public class BetaSelTilting : MonoBehaviour
         //    toYRotation = Mathf.LerpAngle(Camera.main.transform.eulerAngles.y, Mathf.Atan2(rb.velocity.x, rb.velocity.z) * Mathf.Rad2Deg, Time.deltaTime / 0.5f);
         //}
 
-        toYRotation = Camera.main.transform.eulerAngles.y + bsc.scrollArea.TouchDist.x * UserSettings.dragSensitivity;
+        toYRotation = Camera.main.transform.eulerAngles.y + bsc.scrollArea.TouchDist.x * PlayerPrefs.GetFloat("DragSensitivity");
 
         float frontTiltness = -(Input.acceleration.z - UserSettings.tiltCalibration.z) / 0.3f;
         float sideTiltness = (Input.acceleration.x - UserSettings.tiltCalibration.x) / 0.3f;
