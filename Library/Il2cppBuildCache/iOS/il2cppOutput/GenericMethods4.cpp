@@ -11,6 +11,17 @@
 #include <limits>
 
 
+template <typename R>
+struct VirtFuncInvoker0
+{
+	typedef R (*Func)(void*, const RuntimeMethod*);
+
+	static inline R Invoke (Il2CppMethodSlot slot, RuntimeObject* obj)
+	{
+		const VirtualInvokeData& invokeData = il2cpp_codegen_get_virtual_invoke_data(slot, obj);
+		return ((Func)invokeData.methodPtr)(obj, invokeData.method);
+	}
+};
 template <typename R, typename T1>
 struct VirtFuncInvoker1
 {
@@ -53,6 +64,28 @@ struct Action_1_t170B3E821B49B45FA7134A2CF48A2E64CA371D42;
 struct Dictionary_2_t49CB072CAA9184D326107FA696BB354C43EB5E08;
 // System.Collections.Generic.Dictionary`2<System.Int32,System.Threading.Tasks.Task>
 struct Dictionary_2_tB758E2A2593CD827EFC041BE1F1BB4B68DE1C3E8;
+// System.Collections.Generic.Dictionary`2<System.Object,System.Boolean>
+struct Dictionary_2_t8A3F8777BEF075E009D085E3BC9B9ADB00F47345;
+// System.Collections.Generic.Dictionary`2<System.Object,UnityEngine.Color>
+struct Dictionary_2_tEF5DFECD13912188BF42EF7475F555BEB0DFDDA2;
+// System.Collections.Generic.Dictionary`2<System.Object,System.Int32>
+struct Dictionary_2_t1DDD2F48B87E022F599DF2452A49BB70BE95A7F8;
+// System.Collections.Generic.Dictionary`2<System.Object,System.Object>
+struct Dictionary_2_tBD1E3221EBD04CEBDA49B84779912E91F56B958D;
+// System.Collections.Generic.Dictionary`2<System.Object,System.Single>
+struct Dictionary_2_t2231B28838CEC8CCD1492AE7CBE8B687F83856AD;
+// System.Collections.Generic.Dictionary`2<System.String,System.Boolean>
+struct Dictionary_2_t99F1CF0D8EAD35142580D7CF6EC736C063B6190C;
+// System.Collections.Generic.Dictionary`2<System.String,UnityEngine.Color>
+struct Dictionary_2_t58F425C42A4C6A64351E614E1CA156ECC23C8A0D;
+// System.Collections.Generic.Dictionary`2<System.String,System.Int32>
+struct Dictionary_2_tC94E9875910491F8130C2DC8B11E4D1548A55162;
+// System.Collections.Generic.Dictionary`2<System.String,UnityEngine.Material>
+struct Dictionary_2_tDEB9074ADF852EC40CE0399CE36596B7AE79316F;
+// System.Collections.Generic.Dictionary`2<System.String,System.Single>
+struct Dictionary_2_tB86B13980B9AA3D02B6088DAFB2F457C2C87A423;
+// System.Collections.Generic.Dictionary`2<System.String,System.String>
+struct Dictionary_2_tDE3227CA5E7A32F5070BD24C69F42204A3ADE9D5;
 // System.Collections.Generic.Dictionary`2<System.UInt32,UnityEngine.TextCore.Glyph>
 struct Dictionary_2_tDA5C03A58B5E004C6D454EF31BF9C5307FE785BE;
 // System.Collections.Generic.Dictionary`2<System.UInt32,TMPro.TMP_Character>
@@ -87,14 +120,40 @@ struct Func_3_t540BC7F75C78E0C70D6C37F2D220418DABC4B9EA;
 struct HashSet_1_tF187707BD5564B6808CE30721FBC083F00B385E5;
 // System.Collections.Generic.HashSet`1<System.UInt32>
 struct HashSet_1_tE1C51BB41CBDB9CD639DE8689780E3494FDE999B;
+// System.Collections.Generic.IEqualityComparer`1<System.String>
+struct IEqualityComparer_1_tE6A65C5E45E33FD7D9849FD0914DE3AD32B68050;
+// System.Collections.Generic.Dictionary`2/KeyCollection<System.String,System.Boolean>
+struct KeyCollection_t1A5E6B675EFA5A7901D7B04966A914995A34ECFF;
+// System.Collections.Generic.Dictionary`2/KeyCollection<System.String,UnityEngine.Color>
+struct KeyCollection_tA39698AE2232E09FD6D092A88F32ADE910FA39DD;
+// System.Collections.Generic.Dictionary`2/KeyCollection<System.String,System.Int32>
+struct KeyCollection_t61F8738ED346768CC112B2E27863BF9F73C76D90;
+// System.Collections.Generic.Dictionary`2/KeyCollection<System.String,UnityEngine.Material>
+struct KeyCollection_tCE2093699C91473BE1C1E5DE46EF68CB1FD4D3E4;
+// System.Collections.Generic.Dictionary`2/KeyCollection<System.String,System.Single>
+struct KeyCollection_t4D241C20EE62BCA1232D2371439BDE98CDB43B73;
+// System.Collections.Generic.Dictionary`2/KeyCollection<System.String,System.String>
+struct KeyCollection_t52C81163A051BCD87A36FEF95F736DD600E2305D;
+// System.Collections.Generic.List`1<System.Boolean>
+struct List_1_tD4D2BACE5281B6C85799892C1F12F5F2F81A2DF3;
 // System.Collections.Generic.List`1<UnityEngine.CanvasGroup>
 struct List_1_t34AA4AF4E7352129CA58045901530E41445AC16D;
+// System.Collections.Generic.List`1<UnityEngine.Color>
+struct List_1_t6ECA266B0EAC70596EFCED9D1D6E42D5E8A7E18E;
 // System.Collections.Generic.List`1<UnityEngine.TextCore.Glyph>
 struct List_1_tA740960861E81663EBF03A56DE52E25A9283E954;
 // System.Collections.Generic.List`1<UnityEngine.TextCore.GlyphRect>
 struct List_1_tE870449A6BC21548542BC92F18B284004FA8668A;
+// System.Collections.Generic.List`1<System.Int32>
+struct List_1_t260B41F956D673396C33A4CF94E8D6C4389EACB7;
+// System.Collections.Generic.List`1<UnityEngine.Material>
+struct List_1_t434825DCF3B4911FA61F9B2A235567430BDDD9F4;
 // System.Collections.Generic.List`1<System.Object>
 struct List_1_t3F94120C77410A62EAE48421CF166B83AB95A2F5;
+// System.Collections.Generic.List`1<System.Single>
+struct List_1_t6726F9309570A0BDC5D42E10777F3E2931C487AA;
+// System.Collections.Generic.List`1<System.String>
+struct List_1_t6C9F81EDBF0F4A31A9B0DA372D2EF34BDA3A1AF3;
 // System.Collections.Generic.List`1<TMPro.TMP_Character>
 struct List_1_tE8F1656A7A5AF5AEE27ED7B656B56CACB417FEB8;
 // System.Collections.Generic.List`1<TMPro.TMP_FontAsset>
@@ -123,6 +182,30 @@ struct Tuple_2_t6E1BB48DA437DE519C0560A93AF96D1E1F3E3EA1;
 struct TweenRunner_1_tE75A3C5885B8A7400F08DD90FD4AE5768176A7DA;
 // UnityEngine.UI.CoroutineTween.TweenRunner`1<UnityEngine.UI.CoroutineTween.ColorTween>
 struct TweenRunner_1_tD84B9953874682FCC36990AF2C54D748293908F3;
+// System.Collections.Generic.Dictionary`2/ValueCollection<System.String,System.Boolean>
+struct ValueCollection_t530059B6E09E07208AE8745C3EA5EC32BA6C17F6;
+// System.Collections.Generic.Dictionary`2/ValueCollection<System.String,UnityEngine.Color>
+struct ValueCollection_t04A60C3DD1928C71F94DBEDE58ED8E934797F382;
+// System.Collections.Generic.Dictionary`2/ValueCollection<System.String,System.Int32>
+struct ValueCollection_t17EEB7B2EDD3CB5222C660D7E739F803986BF025;
+// System.Collections.Generic.Dictionary`2/ValueCollection<System.String,UnityEngine.Material>
+struct ValueCollection_t537FFE50F2EFD5046DE3CEDD1C1F99D0D45305F6;
+// System.Collections.Generic.Dictionary`2/ValueCollection<System.String,System.Single>
+struct ValueCollection_tBDF019BF14989BB82B132CD749D27E07AB6E57A1;
+// System.Collections.Generic.Dictionary`2/ValueCollection<System.String,System.String>
+struct ValueCollection_t9161A5C97376D261665798FA27DAFD5177305C81;
+// System.Collections.Generic.Dictionary`2/Entry<System.String,System.Boolean>[]
+struct EntryU5BU5D_tE42F4CA2251E4564157940892384BFB9EBE58D61;
+// System.Collections.Generic.Dictionary`2/Entry<System.String,UnityEngine.Color>[]
+struct EntryU5BU5D_t420281657A0AA646E4F429850C70E79B395FD997;
+// System.Collections.Generic.Dictionary`2/Entry<System.String,System.Int32>[]
+struct EntryU5BU5D_tABFC31237D6642B5D4C1DBA234CA37EE851EB0AE;
+// System.Collections.Generic.Dictionary`2/Entry<System.String,UnityEngine.Material>[]
+struct EntryU5BU5D_tE699C382955B4C0A0B27B2C14CF7E9A2BF0AA7CD;
+// System.Collections.Generic.Dictionary`2/Entry<System.String,System.Single>[]
+struct EntryU5BU5D_t51F1564643B0A19F04A1EA195903453FC21D830E;
+// System.Collections.Generic.Dictionary`2/Entry<System.String,System.String>[]
+struct EntryU5BU5D_t52A654EA9927D1B5F56CA05CF209F2E4393C4510;
 // TMPro.TMP_TextProcessingStack`1<System.Int32>[]
 struct TMP_TextProcessingStack_1U5BU5D_t1E4BEAC3D61A2AD0284E919166D0F38D21540A37;
 // System.Byte[]
@@ -237,6 +320,8 @@ struct Mesh_t2F5992DBA650D5862B43D3823ACD997132A57DA6;
 struct MonoTypeInfo_tD048FE6E8A79174435DD9BA986294B02C68DFC79;
 // UnityEngine.Object
 struct Object_tF2F3778131EFF286AF62B7B013A170F95A91571A;
+// UnityEngine.ProBuilder.PreferenceDictionary
+struct PreferenceDictionary_t21003D437E50B661002CA69A795F410325CB3C7C;
 // UnityEngine.UI.RectMask2D
 struct RectMask2D_tD909811991B341D752E4C978C89EFB80FA7A2B15;
 // UnityEngine.RectTransform
@@ -311,12 +396,33 @@ struct OptionDataList_t65D7C0B329EDFEDE9B4B8B768214CB19676A4D1B;
 struct ContingentProperties_t1E249C737B8B8644ED1D60EEFA101D326B199EA0;
 
 IL2CPP_EXTERN_C RuntimeClass* ArgumentOutOfRangeException_tFAF23713820951D4A09ABBFE5CC091E445A6F3D8_il2cpp_TypeInfo_var;
+IL2CPP_EXTERN_C RuntimeClass* Boolean_t07D1E3F34E4813023D64F584DFF7B34C9D922F37_il2cpp_TypeInfo_var;
+IL2CPP_EXTERN_C RuntimeClass* Color_tF40DAF76C04FFECF3FE6024F85A294741C9CC659_il2cpp_TypeInfo_var;
+IL2CPP_EXTERN_C RuntimeClass* Debug_tEB68BCBEB8EFD60F8043C67146DC05E7F50F374B_il2cpp_TypeInfo_var;
+IL2CPP_EXTERN_C RuntimeClass* Int32_tFDE5F8CD43D10453F6A2E0C77FE48C6CC7009046_il2cpp_TypeInfo_var;
+IL2CPP_EXTERN_C RuntimeClass* Material_t8927C00353A72755313F046D0CE85178AE8218EE_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* Object_tF2F3778131EFF286AF62B7B013A170F95A91571A_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* RuntimeType_t4F49C0B3B2871AECF65AF5FA3E42BAB5B0C1FD07_il2cpp_TypeInfo_var;
+IL2CPP_EXTERN_C RuntimeClass* Single_tE07797BA3C98D4CA9B5A19413C19A76688AB899E_il2cpp_TypeInfo_var;
+IL2CPP_EXTERN_C RuntimeClass* String_t_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* Type_t_il2cpp_TypeInfo_var;
+IL2CPP_EXTERN_C String_t* _stringLiteral4DEC381C3E4418DCBAEB8E848D61D7D83379FFF1;
 IL2CPP_EXTERN_C String_t* _stringLiteralC4ADC60D7B4D387FB421586A9B670B3D4B8A0775;
+IL2CPP_EXTERN_C String_t* _stringLiteralD3AF7A49E8417ED4571101CBC6144F92B2B0CE51;
+IL2CPP_EXTERN_C const RuntimeMethod* Dictionary_2_ContainsKey_m1005090BED3DCBC26613EC3A32F04FB3EF0CB73E_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* Dictionary_2_ContainsKey_m151DB8CAF2F65A4621317E77AC025849F03D8132_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* Dictionary_2_ContainsKey_m5BB06692D9A48A3FEEB102881A86417DE6DA5027_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* Dictionary_2_ContainsKey_m7AEED858345EEDACB4251053EFDDFE254042B279_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* Dictionary_2_ContainsKey_m7FFFF1CB4C25FD222EC49171F8162B7C18EBA381_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* Dictionary_2_ContainsKey_mDC3AD2416E7463B12FC10AD8A6C816FECC11E003_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Task_FromCancellation_TisBoolean_t07D1E3F34E4813023D64F584DFF7B34C9D922F37_m11A1B226C4A180133FD582A6FBF9810BD1C1C0FA_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* Task_FromCancellation_TisRuntimeObject_mBC686B1BF5A44330A8793A0AA29F383CF55533C8_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeType* Boolean_t07D1E3F34E4813023D64F584DFF7B34C9D922F37_0_0_0_var;
+IL2CPP_EXTERN_C const RuntimeType* Color_tF40DAF76C04FFECF3FE6024F85A294741C9CC659_0_0_0_var;
+IL2CPP_EXTERN_C const RuntimeType* Int32_tFDE5F8CD43D10453F6A2E0C77FE48C6CC7009046_0_0_0_var;
+IL2CPP_EXTERN_C const RuntimeType* Material_t8927C00353A72755313F046D0CE85178AE8218EE_0_0_0_var;
+IL2CPP_EXTERN_C const RuntimeType* Single_tE07797BA3C98D4CA9B5A19413C19A76688AB899E_0_0_0_var;
+IL2CPP_EXTERN_C const RuntimeType* String_t_0_0_0_var;
 struct Color32_tDB54A78627878A7D2DE42BB028D64306A18E858D ;
 struct Exception_t_marshaled_com;
 struct Exception_t_marshaled_pinvoke;
@@ -342,6 +448,690 @@ IL2CPP_EXTERN_C_END
 #endif
 
 // System.Object
+
+
+// System.Collections.Generic.Dictionary`2<System.String,System.Boolean>
+struct Dictionary_2_t99F1CF0D8EAD35142580D7CF6EC736C063B6190C  : public RuntimeObject
+{
+public:
+	// System.Int32[] System.Collections.Generic.Dictionary`2::buckets
+	Int32U5BU5D_t70F1BDC14B1786481B176D6139A5E3B87DC54C32* ___buckets_0;
+	// System.Collections.Generic.Dictionary`2/Entry<TKey,TValue>[] System.Collections.Generic.Dictionary`2::entries
+	EntryU5BU5D_tE42F4CA2251E4564157940892384BFB9EBE58D61* ___entries_1;
+	// System.Int32 System.Collections.Generic.Dictionary`2::count
+	int32_t ___count_2;
+	// System.Int32 System.Collections.Generic.Dictionary`2::version
+	int32_t ___version_3;
+	// System.Int32 System.Collections.Generic.Dictionary`2::freeList
+	int32_t ___freeList_4;
+	// System.Int32 System.Collections.Generic.Dictionary`2::freeCount
+	int32_t ___freeCount_5;
+	// System.Collections.Generic.IEqualityComparer`1<TKey> System.Collections.Generic.Dictionary`2::comparer
+	RuntimeObject* ___comparer_6;
+	// System.Collections.Generic.Dictionary`2/KeyCollection<TKey,TValue> System.Collections.Generic.Dictionary`2::keys
+	KeyCollection_t1A5E6B675EFA5A7901D7B04966A914995A34ECFF * ___keys_7;
+	// System.Collections.Generic.Dictionary`2/ValueCollection<TKey,TValue> System.Collections.Generic.Dictionary`2::values
+	ValueCollection_t530059B6E09E07208AE8745C3EA5EC32BA6C17F6 * ___values_8;
+	// System.Object System.Collections.Generic.Dictionary`2::_syncRoot
+	RuntimeObject * ____syncRoot_9;
+
+public:
+	inline static int32_t get_offset_of_buckets_0() { return static_cast<int32_t>(offsetof(Dictionary_2_t99F1CF0D8EAD35142580D7CF6EC736C063B6190C, ___buckets_0)); }
+	inline Int32U5BU5D_t70F1BDC14B1786481B176D6139A5E3B87DC54C32* get_buckets_0() const { return ___buckets_0; }
+	inline Int32U5BU5D_t70F1BDC14B1786481B176D6139A5E3B87DC54C32** get_address_of_buckets_0() { return &___buckets_0; }
+	inline void set_buckets_0(Int32U5BU5D_t70F1BDC14B1786481B176D6139A5E3B87DC54C32* value)
+	{
+		___buckets_0 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___buckets_0), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_entries_1() { return static_cast<int32_t>(offsetof(Dictionary_2_t99F1CF0D8EAD35142580D7CF6EC736C063B6190C, ___entries_1)); }
+	inline EntryU5BU5D_tE42F4CA2251E4564157940892384BFB9EBE58D61* get_entries_1() const { return ___entries_1; }
+	inline EntryU5BU5D_tE42F4CA2251E4564157940892384BFB9EBE58D61** get_address_of_entries_1() { return &___entries_1; }
+	inline void set_entries_1(EntryU5BU5D_tE42F4CA2251E4564157940892384BFB9EBE58D61* value)
+	{
+		___entries_1 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___entries_1), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_count_2() { return static_cast<int32_t>(offsetof(Dictionary_2_t99F1CF0D8EAD35142580D7CF6EC736C063B6190C, ___count_2)); }
+	inline int32_t get_count_2() const { return ___count_2; }
+	inline int32_t* get_address_of_count_2() { return &___count_2; }
+	inline void set_count_2(int32_t value)
+	{
+		___count_2 = value;
+	}
+
+	inline static int32_t get_offset_of_version_3() { return static_cast<int32_t>(offsetof(Dictionary_2_t99F1CF0D8EAD35142580D7CF6EC736C063B6190C, ___version_3)); }
+	inline int32_t get_version_3() const { return ___version_3; }
+	inline int32_t* get_address_of_version_3() { return &___version_3; }
+	inline void set_version_3(int32_t value)
+	{
+		___version_3 = value;
+	}
+
+	inline static int32_t get_offset_of_freeList_4() { return static_cast<int32_t>(offsetof(Dictionary_2_t99F1CF0D8EAD35142580D7CF6EC736C063B6190C, ___freeList_4)); }
+	inline int32_t get_freeList_4() const { return ___freeList_4; }
+	inline int32_t* get_address_of_freeList_4() { return &___freeList_4; }
+	inline void set_freeList_4(int32_t value)
+	{
+		___freeList_4 = value;
+	}
+
+	inline static int32_t get_offset_of_freeCount_5() { return static_cast<int32_t>(offsetof(Dictionary_2_t99F1CF0D8EAD35142580D7CF6EC736C063B6190C, ___freeCount_5)); }
+	inline int32_t get_freeCount_5() const { return ___freeCount_5; }
+	inline int32_t* get_address_of_freeCount_5() { return &___freeCount_5; }
+	inline void set_freeCount_5(int32_t value)
+	{
+		___freeCount_5 = value;
+	}
+
+	inline static int32_t get_offset_of_comparer_6() { return static_cast<int32_t>(offsetof(Dictionary_2_t99F1CF0D8EAD35142580D7CF6EC736C063B6190C, ___comparer_6)); }
+	inline RuntimeObject* get_comparer_6() const { return ___comparer_6; }
+	inline RuntimeObject** get_address_of_comparer_6() { return &___comparer_6; }
+	inline void set_comparer_6(RuntimeObject* value)
+	{
+		___comparer_6 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___comparer_6), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_keys_7() { return static_cast<int32_t>(offsetof(Dictionary_2_t99F1CF0D8EAD35142580D7CF6EC736C063B6190C, ___keys_7)); }
+	inline KeyCollection_t1A5E6B675EFA5A7901D7B04966A914995A34ECFF * get_keys_7() const { return ___keys_7; }
+	inline KeyCollection_t1A5E6B675EFA5A7901D7B04966A914995A34ECFF ** get_address_of_keys_7() { return &___keys_7; }
+	inline void set_keys_7(KeyCollection_t1A5E6B675EFA5A7901D7B04966A914995A34ECFF * value)
+	{
+		___keys_7 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___keys_7), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_values_8() { return static_cast<int32_t>(offsetof(Dictionary_2_t99F1CF0D8EAD35142580D7CF6EC736C063B6190C, ___values_8)); }
+	inline ValueCollection_t530059B6E09E07208AE8745C3EA5EC32BA6C17F6 * get_values_8() const { return ___values_8; }
+	inline ValueCollection_t530059B6E09E07208AE8745C3EA5EC32BA6C17F6 ** get_address_of_values_8() { return &___values_8; }
+	inline void set_values_8(ValueCollection_t530059B6E09E07208AE8745C3EA5EC32BA6C17F6 * value)
+	{
+		___values_8 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___values_8), (void*)value);
+	}
+
+	inline static int32_t get_offset_of__syncRoot_9() { return static_cast<int32_t>(offsetof(Dictionary_2_t99F1CF0D8EAD35142580D7CF6EC736C063B6190C, ____syncRoot_9)); }
+	inline RuntimeObject * get__syncRoot_9() const { return ____syncRoot_9; }
+	inline RuntimeObject ** get_address_of__syncRoot_9() { return &____syncRoot_9; }
+	inline void set__syncRoot_9(RuntimeObject * value)
+	{
+		____syncRoot_9 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&____syncRoot_9), (void*)value);
+	}
+};
+
+
+// System.Collections.Generic.Dictionary`2<System.String,UnityEngine.Color>
+struct Dictionary_2_t58F425C42A4C6A64351E614E1CA156ECC23C8A0D  : public RuntimeObject
+{
+public:
+	// System.Int32[] System.Collections.Generic.Dictionary`2::buckets
+	Int32U5BU5D_t70F1BDC14B1786481B176D6139A5E3B87DC54C32* ___buckets_0;
+	// System.Collections.Generic.Dictionary`2/Entry<TKey,TValue>[] System.Collections.Generic.Dictionary`2::entries
+	EntryU5BU5D_t420281657A0AA646E4F429850C70E79B395FD997* ___entries_1;
+	// System.Int32 System.Collections.Generic.Dictionary`2::count
+	int32_t ___count_2;
+	// System.Int32 System.Collections.Generic.Dictionary`2::version
+	int32_t ___version_3;
+	// System.Int32 System.Collections.Generic.Dictionary`2::freeList
+	int32_t ___freeList_4;
+	// System.Int32 System.Collections.Generic.Dictionary`2::freeCount
+	int32_t ___freeCount_5;
+	// System.Collections.Generic.IEqualityComparer`1<TKey> System.Collections.Generic.Dictionary`2::comparer
+	RuntimeObject* ___comparer_6;
+	// System.Collections.Generic.Dictionary`2/KeyCollection<TKey,TValue> System.Collections.Generic.Dictionary`2::keys
+	KeyCollection_tA39698AE2232E09FD6D092A88F32ADE910FA39DD * ___keys_7;
+	// System.Collections.Generic.Dictionary`2/ValueCollection<TKey,TValue> System.Collections.Generic.Dictionary`2::values
+	ValueCollection_t04A60C3DD1928C71F94DBEDE58ED8E934797F382 * ___values_8;
+	// System.Object System.Collections.Generic.Dictionary`2::_syncRoot
+	RuntimeObject * ____syncRoot_9;
+
+public:
+	inline static int32_t get_offset_of_buckets_0() { return static_cast<int32_t>(offsetof(Dictionary_2_t58F425C42A4C6A64351E614E1CA156ECC23C8A0D, ___buckets_0)); }
+	inline Int32U5BU5D_t70F1BDC14B1786481B176D6139A5E3B87DC54C32* get_buckets_0() const { return ___buckets_0; }
+	inline Int32U5BU5D_t70F1BDC14B1786481B176D6139A5E3B87DC54C32** get_address_of_buckets_0() { return &___buckets_0; }
+	inline void set_buckets_0(Int32U5BU5D_t70F1BDC14B1786481B176D6139A5E3B87DC54C32* value)
+	{
+		___buckets_0 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___buckets_0), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_entries_1() { return static_cast<int32_t>(offsetof(Dictionary_2_t58F425C42A4C6A64351E614E1CA156ECC23C8A0D, ___entries_1)); }
+	inline EntryU5BU5D_t420281657A0AA646E4F429850C70E79B395FD997* get_entries_1() const { return ___entries_1; }
+	inline EntryU5BU5D_t420281657A0AA646E4F429850C70E79B395FD997** get_address_of_entries_1() { return &___entries_1; }
+	inline void set_entries_1(EntryU5BU5D_t420281657A0AA646E4F429850C70E79B395FD997* value)
+	{
+		___entries_1 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___entries_1), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_count_2() { return static_cast<int32_t>(offsetof(Dictionary_2_t58F425C42A4C6A64351E614E1CA156ECC23C8A0D, ___count_2)); }
+	inline int32_t get_count_2() const { return ___count_2; }
+	inline int32_t* get_address_of_count_2() { return &___count_2; }
+	inline void set_count_2(int32_t value)
+	{
+		___count_2 = value;
+	}
+
+	inline static int32_t get_offset_of_version_3() { return static_cast<int32_t>(offsetof(Dictionary_2_t58F425C42A4C6A64351E614E1CA156ECC23C8A0D, ___version_3)); }
+	inline int32_t get_version_3() const { return ___version_3; }
+	inline int32_t* get_address_of_version_3() { return &___version_3; }
+	inline void set_version_3(int32_t value)
+	{
+		___version_3 = value;
+	}
+
+	inline static int32_t get_offset_of_freeList_4() { return static_cast<int32_t>(offsetof(Dictionary_2_t58F425C42A4C6A64351E614E1CA156ECC23C8A0D, ___freeList_4)); }
+	inline int32_t get_freeList_4() const { return ___freeList_4; }
+	inline int32_t* get_address_of_freeList_4() { return &___freeList_4; }
+	inline void set_freeList_4(int32_t value)
+	{
+		___freeList_4 = value;
+	}
+
+	inline static int32_t get_offset_of_freeCount_5() { return static_cast<int32_t>(offsetof(Dictionary_2_t58F425C42A4C6A64351E614E1CA156ECC23C8A0D, ___freeCount_5)); }
+	inline int32_t get_freeCount_5() const { return ___freeCount_5; }
+	inline int32_t* get_address_of_freeCount_5() { return &___freeCount_5; }
+	inline void set_freeCount_5(int32_t value)
+	{
+		___freeCount_5 = value;
+	}
+
+	inline static int32_t get_offset_of_comparer_6() { return static_cast<int32_t>(offsetof(Dictionary_2_t58F425C42A4C6A64351E614E1CA156ECC23C8A0D, ___comparer_6)); }
+	inline RuntimeObject* get_comparer_6() const { return ___comparer_6; }
+	inline RuntimeObject** get_address_of_comparer_6() { return &___comparer_6; }
+	inline void set_comparer_6(RuntimeObject* value)
+	{
+		___comparer_6 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___comparer_6), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_keys_7() { return static_cast<int32_t>(offsetof(Dictionary_2_t58F425C42A4C6A64351E614E1CA156ECC23C8A0D, ___keys_7)); }
+	inline KeyCollection_tA39698AE2232E09FD6D092A88F32ADE910FA39DD * get_keys_7() const { return ___keys_7; }
+	inline KeyCollection_tA39698AE2232E09FD6D092A88F32ADE910FA39DD ** get_address_of_keys_7() { return &___keys_7; }
+	inline void set_keys_7(KeyCollection_tA39698AE2232E09FD6D092A88F32ADE910FA39DD * value)
+	{
+		___keys_7 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___keys_7), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_values_8() { return static_cast<int32_t>(offsetof(Dictionary_2_t58F425C42A4C6A64351E614E1CA156ECC23C8A0D, ___values_8)); }
+	inline ValueCollection_t04A60C3DD1928C71F94DBEDE58ED8E934797F382 * get_values_8() const { return ___values_8; }
+	inline ValueCollection_t04A60C3DD1928C71F94DBEDE58ED8E934797F382 ** get_address_of_values_8() { return &___values_8; }
+	inline void set_values_8(ValueCollection_t04A60C3DD1928C71F94DBEDE58ED8E934797F382 * value)
+	{
+		___values_8 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___values_8), (void*)value);
+	}
+
+	inline static int32_t get_offset_of__syncRoot_9() { return static_cast<int32_t>(offsetof(Dictionary_2_t58F425C42A4C6A64351E614E1CA156ECC23C8A0D, ____syncRoot_9)); }
+	inline RuntimeObject * get__syncRoot_9() const { return ____syncRoot_9; }
+	inline RuntimeObject ** get_address_of__syncRoot_9() { return &____syncRoot_9; }
+	inline void set__syncRoot_9(RuntimeObject * value)
+	{
+		____syncRoot_9 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&____syncRoot_9), (void*)value);
+	}
+};
+
+
+// System.Collections.Generic.Dictionary`2<System.String,System.Int32>
+struct Dictionary_2_tC94E9875910491F8130C2DC8B11E4D1548A55162  : public RuntimeObject
+{
+public:
+	// System.Int32[] System.Collections.Generic.Dictionary`2::buckets
+	Int32U5BU5D_t70F1BDC14B1786481B176D6139A5E3B87DC54C32* ___buckets_0;
+	// System.Collections.Generic.Dictionary`2/Entry<TKey,TValue>[] System.Collections.Generic.Dictionary`2::entries
+	EntryU5BU5D_tABFC31237D6642B5D4C1DBA234CA37EE851EB0AE* ___entries_1;
+	// System.Int32 System.Collections.Generic.Dictionary`2::count
+	int32_t ___count_2;
+	// System.Int32 System.Collections.Generic.Dictionary`2::version
+	int32_t ___version_3;
+	// System.Int32 System.Collections.Generic.Dictionary`2::freeList
+	int32_t ___freeList_4;
+	// System.Int32 System.Collections.Generic.Dictionary`2::freeCount
+	int32_t ___freeCount_5;
+	// System.Collections.Generic.IEqualityComparer`1<TKey> System.Collections.Generic.Dictionary`2::comparer
+	RuntimeObject* ___comparer_6;
+	// System.Collections.Generic.Dictionary`2/KeyCollection<TKey,TValue> System.Collections.Generic.Dictionary`2::keys
+	KeyCollection_t61F8738ED346768CC112B2E27863BF9F73C76D90 * ___keys_7;
+	// System.Collections.Generic.Dictionary`2/ValueCollection<TKey,TValue> System.Collections.Generic.Dictionary`2::values
+	ValueCollection_t17EEB7B2EDD3CB5222C660D7E739F803986BF025 * ___values_8;
+	// System.Object System.Collections.Generic.Dictionary`2::_syncRoot
+	RuntimeObject * ____syncRoot_9;
+
+public:
+	inline static int32_t get_offset_of_buckets_0() { return static_cast<int32_t>(offsetof(Dictionary_2_tC94E9875910491F8130C2DC8B11E4D1548A55162, ___buckets_0)); }
+	inline Int32U5BU5D_t70F1BDC14B1786481B176D6139A5E3B87DC54C32* get_buckets_0() const { return ___buckets_0; }
+	inline Int32U5BU5D_t70F1BDC14B1786481B176D6139A5E3B87DC54C32** get_address_of_buckets_0() { return &___buckets_0; }
+	inline void set_buckets_0(Int32U5BU5D_t70F1BDC14B1786481B176D6139A5E3B87DC54C32* value)
+	{
+		___buckets_0 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___buckets_0), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_entries_1() { return static_cast<int32_t>(offsetof(Dictionary_2_tC94E9875910491F8130C2DC8B11E4D1548A55162, ___entries_1)); }
+	inline EntryU5BU5D_tABFC31237D6642B5D4C1DBA234CA37EE851EB0AE* get_entries_1() const { return ___entries_1; }
+	inline EntryU5BU5D_tABFC31237D6642B5D4C1DBA234CA37EE851EB0AE** get_address_of_entries_1() { return &___entries_1; }
+	inline void set_entries_1(EntryU5BU5D_tABFC31237D6642B5D4C1DBA234CA37EE851EB0AE* value)
+	{
+		___entries_1 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___entries_1), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_count_2() { return static_cast<int32_t>(offsetof(Dictionary_2_tC94E9875910491F8130C2DC8B11E4D1548A55162, ___count_2)); }
+	inline int32_t get_count_2() const { return ___count_2; }
+	inline int32_t* get_address_of_count_2() { return &___count_2; }
+	inline void set_count_2(int32_t value)
+	{
+		___count_2 = value;
+	}
+
+	inline static int32_t get_offset_of_version_3() { return static_cast<int32_t>(offsetof(Dictionary_2_tC94E9875910491F8130C2DC8B11E4D1548A55162, ___version_3)); }
+	inline int32_t get_version_3() const { return ___version_3; }
+	inline int32_t* get_address_of_version_3() { return &___version_3; }
+	inline void set_version_3(int32_t value)
+	{
+		___version_3 = value;
+	}
+
+	inline static int32_t get_offset_of_freeList_4() { return static_cast<int32_t>(offsetof(Dictionary_2_tC94E9875910491F8130C2DC8B11E4D1548A55162, ___freeList_4)); }
+	inline int32_t get_freeList_4() const { return ___freeList_4; }
+	inline int32_t* get_address_of_freeList_4() { return &___freeList_4; }
+	inline void set_freeList_4(int32_t value)
+	{
+		___freeList_4 = value;
+	}
+
+	inline static int32_t get_offset_of_freeCount_5() { return static_cast<int32_t>(offsetof(Dictionary_2_tC94E9875910491F8130C2DC8B11E4D1548A55162, ___freeCount_5)); }
+	inline int32_t get_freeCount_5() const { return ___freeCount_5; }
+	inline int32_t* get_address_of_freeCount_5() { return &___freeCount_5; }
+	inline void set_freeCount_5(int32_t value)
+	{
+		___freeCount_5 = value;
+	}
+
+	inline static int32_t get_offset_of_comparer_6() { return static_cast<int32_t>(offsetof(Dictionary_2_tC94E9875910491F8130C2DC8B11E4D1548A55162, ___comparer_6)); }
+	inline RuntimeObject* get_comparer_6() const { return ___comparer_6; }
+	inline RuntimeObject** get_address_of_comparer_6() { return &___comparer_6; }
+	inline void set_comparer_6(RuntimeObject* value)
+	{
+		___comparer_6 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___comparer_6), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_keys_7() { return static_cast<int32_t>(offsetof(Dictionary_2_tC94E9875910491F8130C2DC8B11E4D1548A55162, ___keys_7)); }
+	inline KeyCollection_t61F8738ED346768CC112B2E27863BF9F73C76D90 * get_keys_7() const { return ___keys_7; }
+	inline KeyCollection_t61F8738ED346768CC112B2E27863BF9F73C76D90 ** get_address_of_keys_7() { return &___keys_7; }
+	inline void set_keys_7(KeyCollection_t61F8738ED346768CC112B2E27863BF9F73C76D90 * value)
+	{
+		___keys_7 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___keys_7), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_values_8() { return static_cast<int32_t>(offsetof(Dictionary_2_tC94E9875910491F8130C2DC8B11E4D1548A55162, ___values_8)); }
+	inline ValueCollection_t17EEB7B2EDD3CB5222C660D7E739F803986BF025 * get_values_8() const { return ___values_8; }
+	inline ValueCollection_t17EEB7B2EDD3CB5222C660D7E739F803986BF025 ** get_address_of_values_8() { return &___values_8; }
+	inline void set_values_8(ValueCollection_t17EEB7B2EDD3CB5222C660D7E739F803986BF025 * value)
+	{
+		___values_8 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___values_8), (void*)value);
+	}
+
+	inline static int32_t get_offset_of__syncRoot_9() { return static_cast<int32_t>(offsetof(Dictionary_2_tC94E9875910491F8130C2DC8B11E4D1548A55162, ____syncRoot_9)); }
+	inline RuntimeObject * get__syncRoot_9() const { return ____syncRoot_9; }
+	inline RuntimeObject ** get_address_of__syncRoot_9() { return &____syncRoot_9; }
+	inline void set__syncRoot_9(RuntimeObject * value)
+	{
+		____syncRoot_9 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&____syncRoot_9), (void*)value);
+	}
+};
+
+
+// System.Collections.Generic.Dictionary`2<System.String,UnityEngine.Material>
+struct Dictionary_2_tDEB9074ADF852EC40CE0399CE36596B7AE79316F  : public RuntimeObject
+{
+public:
+	// System.Int32[] System.Collections.Generic.Dictionary`2::buckets
+	Int32U5BU5D_t70F1BDC14B1786481B176D6139A5E3B87DC54C32* ___buckets_0;
+	// System.Collections.Generic.Dictionary`2/Entry<TKey,TValue>[] System.Collections.Generic.Dictionary`2::entries
+	EntryU5BU5D_tE699C382955B4C0A0B27B2C14CF7E9A2BF0AA7CD* ___entries_1;
+	// System.Int32 System.Collections.Generic.Dictionary`2::count
+	int32_t ___count_2;
+	// System.Int32 System.Collections.Generic.Dictionary`2::version
+	int32_t ___version_3;
+	// System.Int32 System.Collections.Generic.Dictionary`2::freeList
+	int32_t ___freeList_4;
+	// System.Int32 System.Collections.Generic.Dictionary`2::freeCount
+	int32_t ___freeCount_5;
+	// System.Collections.Generic.IEqualityComparer`1<TKey> System.Collections.Generic.Dictionary`2::comparer
+	RuntimeObject* ___comparer_6;
+	// System.Collections.Generic.Dictionary`2/KeyCollection<TKey,TValue> System.Collections.Generic.Dictionary`2::keys
+	KeyCollection_tCE2093699C91473BE1C1E5DE46EF68CB1FD4D3E4 * ___keys_7;
+	// System.Collections.Generic.Dictionary`2/ValueCollection<TKey,TValue> System.Collections.Generic.Dictionary`2::values
+	ValueCollection_t537FFE50F2EFD5046DE3CEDD1C1F99D0D45305F6 * ___values_8;
+	// System.Object System.Collections.Generic.Dictionary`2::_syncRoot
+	RuntimeObject * ____syncRoot_9;
+
+public:
+	inline static int32_t get_offset_of_buckets_0() { return static_cast<int32_t>(offsetof(Dictionary_2_tDEB9074ADF852EC40CE0399CE36596B7AE79316F, ___buckets_0)); }
+	inline Int32U5BU5D_t70F1BDC14B1786481B176D6139A5E3B87DC54C32* get_buckets_0() const { return ___buckets_0; }
+	inline Int32U5BU5D_t70F1BDC14B1786481B176D6139A5E3B87DC54C32** get_address_of_buckets_0() { return &___buckets_0; }
+	inline void set_buckets_0(Int32U5BU5D_t70F1BDC14B1786481B176D6139A5E3B87DC54C32* value)
+	{
+		___buckets_0 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___buckets_0), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_entries_1() { return static_cast<int32_t>(offsetof(Dictionary_2_tDEB9074ADF852EC40CE0399CE36596B7AE79316F, ___entries_1)); }
+	inline EntryU5BU5D_tE699C382955B4C0A0B27B2C14CF7E9A2BF0AA7CD* get_entries_1() const { return ___entries_1; }
+	inline EntryU5BU5D_tE699C382955B4C0A0B27B2C14CF7E9A2BF0AA7CD** get_address_of_entries_1() { return &___entries_1; }
+	inline void set_entries_1(EntryU5BU5D_tE699C382955B4C0A0B27B2C14CF7E9A2BF0AA7CD* value)
+	{
+		___entries_1 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___entries_1), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_count_2() { return static_cast<int32_t>(offsetof(Dictionary_2_tDEB9074ADF852EC40CE0399CE36596B7AE79316F, ___count_2)); }
+	inline int32_t get_count_2() const { return ___count_2; }
+	inline int32_t* get_address_of_count_2() { return &___count_2; }
+	inline void set_count_2(int32_t value)
+	{
+		___count_2 = value;
+	}
+
+	inline static int32_t get_offset_of_version_3() { return static_cast<int32_t>(offsetof(Dictionary_2_tDEB9074ADF852EC40CE0399CE36596B7AE79316F, ___version_3)); }
+	inline int32_t get_version_3() const { return ___version_3; }
+	inline int32_t* get_address_of_version_3() { return &___version_3; }
+	inline void set_version_3(int32_t value)
+	{
+		___version_3 = value;
+	}
+
+	inline static int32_t get_offset_of_freeList_4() { return static_cast<int32_t>(offsetof(Dictionary_2_tDEB9074ADF852EC40CE0399CE36596B7AE79316F, ___freeList_4)); }
+	inline int32_t get_freeList_4() const { return ___freeList_4; }
+	inline int32_t* get_address_of_freeList_4() { return &___freeList_4; }
+	inline void set_freeList_4(int32_t value)
+	{
+		___freeList_4 = value;
+	}
+
+	inline static int32_t get_offset_of_freeCount_5() { return static_cast<int32_t>(offsetof(Dictionary_2_tDEB9074ADF852EC40CE0399CE36596B7AE79316F, ___freeCount_5)); }
+	inline int32_t get_freeCount_5() const { return ___freeCount_5; }
+	inline int32_t* get_address_of_freeCount_5() { return &___freeCount_5; }
+	inline void set_freeCount_5(int32_t value)
+	{
+		___freeCount_5 = value;
+	}
+
+	inline static int32_t get_offset_of_comparer_6() { return static_cast<int32_t>(offsetof(Dictionary_2_tDEB9074ADF852EC40CE0399CE36596B7AE79316F, ___comparer_6)); }
+	inline RuntimeObject* get_comparer_6() const { return ___comparer_6; }
+	inline RuntimeObject** get_address_of_comparer_6() { return &___comparer_6; }
+	inline void set_comparer_6(RuntimeObject* value)
+	{
+		___comparer_6 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___comparer_6), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_keys_7() { return static_cast<int32_t>(offsetof(Dictionary_2_tDEB9074ADF852EC40CE0399CE36596B7AE79316F, ___keys_7)); }
+	inline KeyCollection_tCE2093699C91473BE1C1E5DE46EF68CB1FD4D3E4 * get_keys_7() const { return ___keys_7; }
+	inline KeyCollection_tCE2093699C91473BE1C1E5DE46EF68CB1FD4D3E4 ** get_address_of_keys_7() { return &___keys_7; }
+	inline void set_keys_7(KeyCollection_tCE2093699C91473BE1C1E5DE46EF68CB1FD4D3E4 * value)
+	{
+		___keys_7 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___keys_7), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_values_8() { return static_cast<int32_t>(offsetof(Dictionary_2_tDEB9074ADF852EC40CE0399CE36596B7AE79316F, ___values_8)); }
+	inline ValueCollection_t537FFE50F2EFD5046DE3CEDD1C1F99D0D45305F6 * get_values_8() const { return ___values_8; }
+	inline ValueCollection_t537FFE50F2EFD5046DE3CEDD1C1F99D0D45305F6 ** get_address_of_values_8() { return &___values_8; }
+	inline void set_values_8(ValueCollection_t537FFE50F2EFD5046DE3CEDD1C1F99D0D45305F6 * value)
+	{
+		___values_8 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___values_8), (void*)value);
+	}
+
+	inline static int32_t get_offset_of__syncRoot_9() { return static_cast<int32_t>(offsetof(Dictionary_2_tDEB9074ADF852EC40CE0399CE36596B7AE79316F, ____syncRoot_9)); }
+	inline RuntimeObject * get__syncRoot_9() const { return ____syncRoot_9; }
+	inline RuntimeObject ** get_address_of__syncRoot_9() { return &____syncRoot_9; }
+	inline void set__syncRoot_9(RuntimeObject * value)
+	{
+		____syncRoot_9 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&____syncRoot_9), (void*)value);
+	}
+};
+
+
+// System.Collections.Generic.Dictionary`2<System.String,System.Single>
+struct Dictionary_2_tB86B13980B9AA3D02B6088DAFB2F457C2C87A423  : public RuntimeObject
+{
+public:
+	// System.Int32[] System.Collections.Generic.Dictionary`2::buckets
+	Int32U5BU5D_t70F1BDC14B1786481B176D6139A5E3B87DC54C32* ___buckets_0;
+	// System.Collections.Generic.Dictionary`2/Entry<TKey,TValue>[] System.Collections.Generic.Dictionary`2::entries
+	EntryU5BU5D_t51F1564643B0A19F04A1EA195903453FC21D830E* ___entries_1;
+	// System.Int32 System.Collections.Generic.Dictionary`2::count
+	int32_t ___count_2;
+	// System.Int32 System.Collections.Generic.Dictionary`2::version
+	int32_t ___version_3;
+	// System.Int32 System.Collections.Generic.Dictionary`2::freeList
+	int32_t ___freeList_4;
+	// System.Int32 System.Collections.Generic.Dictionary`2::freeCount
+	int32_t ___freeCount_5;
+	// System.Collections.Generic.IEqualityComparer`1<TKey> System.Collections.Generic.Dictionary`2::comparer
+	RuntimeObject* ___comparer_6;
+	// System.Collections.Generic.Dictionary`2/KeyCollection<TKey,TValue> System.Collections.Generic.Dictionary`2::keys
+	KeyCollection_t4D241C20EE62BCA1232D2371439BDE98CDB43B73 * ___keys_7;
+	// System.Collections.Generic.Dictionary`2/ValueCollection<TKey,TValue> System.Collections.Generic.Dictionary`2::values
+	ValueCollection_tBDF019BF14989BB82B132CD749D27E07AB6E57A1 * ___values_8;
+	// System.Object System.Collections.Generic.Dictionary`2::_syncRoot
+	RuntimeObject * ____syncRoot_9;
+
+public:
+	inline static int32_t get_offset_of_buckets_0() { return static_cast<int32_t>(offsetof(Dictionary_2_tB86B13980B9AA3D02B6088DAFB2F457C2C87A423, ___buckets_0)); }
+	inline Int32U5BU5D_t70F1BDC14B1786481B176D6139A5E3B87DC54C32* get_buckets_0() const { return ___buckets_0; }
+	inline Int32U5BU5D_t70F1BDC14B1786481B176D6139A5E3B87DC54C32** get_address_of_buckets_0() { return &___buckets_0; }
+	inline void set_buckets_0(Int32U5BU5D_t70F1BDC14B1786481B176D6139A5E3B87DC54C32* value)
+	{
+		___buckets_0 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___buckets_0), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_entries_1() { return static_cast<int32_t>(offsetof(Dictionary_2_tB86B13980B9AA3D02B6088DAFB2F457C2C87A423, ___entries_1)); }
+	inline EntryU5BU5D_t51F1564643B0A19F04A1EA195903453FC21D830E* get_entries_1() const { return ___entries_1; }
+	inline EntryU5BU5D_t51F1564643B0A19F04A1EA195903453FC21D830E** get_address_of_entries_1() { return &___entries_1; }
+	inline void set_entries_1(EntryU5BU5D_t51F1564643B0A19F04A1EA195903453FC21D830E* value)
+	{
+		___entries_1 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___entries_1), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_count_2() { return static_cast<int32_t>(offsetof(Dictionary_2_tB86B13980B9AA3D02B6088DAFB2F457C2C87A423, ___count_2)); }
+	inline int32_t get_count_2() const { return ___count_2; }
+	inline int32_t* get_address_of_count_2() { return &___count_2; }
+	inline void set_count_2(int32_t value)
+	{
+		___count_2 = value;
+	}
+
+	inline static int32_t get_offset_of_version_3() { return static_cast<int32_t>(offsetof(Dictionary_2_tB86B13980B9AA3D02B6088DAFB2F457C2C87A423, ___version_3)); }
+	inline int32_t get_version_3() const { return ___version_3; }
+	inline int32_t* get_address_of_version_3() { return &___version_3; }
+	inline void set_version_3(int32_t value)
+	{
+		___version_3 = value;
+	}
+
+	inline static int32_t get_offset_of_freeList_4() { return static_cast<int32_t>(offsetof(Dictionary_2_tB86B13980B9AA3D02B6088DAFB2F457C2C87A423, ___freeList_4)); }
+	inline int32_t get_freeList_4() const { return ___freeList_4; }
+	inline int32_t* get_address_of_freeList_4() { return &___freeList_4; }
+	inline void set_freeList_4(int32_t value)
+	{
+		___freeList_4 = value;
+	}
+
+	inline static int32_t get_offset_of_freeCount_5() { return static_cast<int32_t>(offsetof(Dictionary_2_tB86B13980B9AA3D02B6088DAFB2F457C2C87A423, ___freeCount_5)); }
+	inline int32_t get_freeCount_5() const { return ___freeCount_5; }
+	inline int32_t* get_address_of_freeCount_5() { return &___freeCount_5; }
+	inline void set_freeCount_5(int32_t value)
+	{
+		___freeCount_5 = value;
+	}
+
+	inline static int32_t get_offset_of_comparer_6() { return static_cast<int32_t>(offsetof(Dictionary_2_tB86B13980B9AA3D02B6088DAFB2F457C2C87A423, ___comparer_6)); }
+	inline RuntimeObject* get_comparer_6() const { return ___comparer_6; }
+	inline RuntimeObject** get_address_of_comparer_6() { return &___comparer_6; }
+	inline void set_comparer_6(RuntimeObject* value)
+	{
+		___comparer_6 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___comparer_6), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_keys_7() { return static_cast<int32_t>(offsetof(Dictionary_2_tB86B13980B9AA3D02B6088DAFB2F457C2C87A423, ___keys_7)); }
+	inline KeyCollection_t4D241C20EE62BCA1232D2371439BDE98CDB43B73 * get_keys_7() const { return ___keys_7; }
+	inline KeyCollection_t4D241C20EE62BCA1232D2371439BDE98CDB43B73 ** get_address_of_keys_7() { return &___keys_7; }
+	inline void set_keys_7(KeyCollection_t4D241C20EE62BCA1232D2371439BDE98CDB43B73 * value)
+	{
+		___keys_7 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___keys_7), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_values_8() { return static_cast<int32_t>(offsetof(Dictionary_2_tB86B13980B9AA3D02B6088DAFB2F457C2C87A423, ___values_8)); }
+	inline ValueCollection_tBDF019BF14989BB82B132CD749D27E07AB6E57A1 * get_values_8() const { return ___values_8; }
+	inline ValueCollection_tBDF019BF14989BB82B132CD749D27E07AB6E57A1 ** get_address_of_values_8() { return &___values_8; }
+	inline void set_values_8(ValueCollection_tBDF019BF14989BB82B132CD749D27E07AB6E57A1 * value)
+	{
+		___values_8 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___values_8), (void*)value);
+	}
+
+	inline static int32_t get_offset_of__syncRoot_9() { return static_cast<int32_t>(offsetof(Dictionary_2_tB86B13980B9AA3D02B6088DAFB2F457C2C87A423, ____syncRoot_9)); }
+	inline RuntimeObject * get__syncRoot_9() const { return ____syncRoot_9; }
+	inline RuntimeObject ** get_address_of__syncRoot_9() { return &____syncRoot_9; }
+	inline void set__syncRoot_9(RuntimeObject * value)
+	{
+		____syncRoot_9 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&____syncRoot_9), (void*)value);
+	}
+};
+
+
+// System.Collections.Generic.Dictionary`2<System.String,System.String>
+struct Dictionary_2_tDE3227CA5E7A32F5070BD24C69F42204A3ADE9D5  : public RuntimeObject
+{
+public:
+	// System.Int32[] System.Collections.Generic.Dictionary`2::buckets
+	Int32U5BU5D_t70F1BDC14B1786481B176D6139A5E3B87DC54C32* ___buckets_0;
+	// System.Collections.Generic.Dictionary`2/Entry<TKey,TValue>[] System.Collections.Generic.Dictionary`2::entries
+	EntryU5BU5D_t52A654EA9927D1B5F56CA05CF209F2E4393C4510* ___entries_1;
+	// System.Int32 System.Collections.Generic.Dictionary`2::count
+	int32_t ___count_2;
+	// System.Int32 System.Collections.Generic.Dictionary`2::version
+	int32_t ___version_3;
+	// System.Int32 System.Collections.Generic.Dictionary`2::freeList
+	int32_t ___freeList_4;
+	// System.Int32 System.Collections.Generic.Dictionary`2::freeCount
+	int32_t ___freeCount_5;
+	// System.Collections.Generic.IEqualityComparer`1<TKey> System.Collections.Generic.Dictionary`2::comparer
+	RuntimeObject* ___comparer_6;
+	// System.Collections.Generic.Dictionary`2/KeyCollection<TKey,TValue> System.Collections.Generic.Dictionary`2::keys
+	KeyCollection_t52C81163A051BCD87A36FEF95F736DD600E2305D * ___keys_7;
+	// System.Collections.Generic.Dictionary`2/ValueCollection<TKey,TValue> System.Collections.Generic.Dictionary`2::values
+	ValueCollection_t9161A5C97376D261665798FA27DAFD5177305C81 * ___values_8;
+	// System.Object System.Collections.Generic.Dictionary`2::_syncRoot
+	RuntimeObject * ____syncRoot_9;
+
+public:
+	inline static int32_t get_offset_of_buckets_0() { return static_cast<int32_t>(offsetof(Dictionary_2_tDE3227CA5E7A32F5070BD24C69F42204A3ADE9D5, ___buckets_0)); }
+	inline Int32U5BU5D_t70F1BDC14B1786481B176D6139A5E3B87DC54C32* get_buckets_0() const { return ___buckets_0; }
+	inline Int32U5BU5D_t70F1BDC14B1786481B176D6139A5E3B87DC54C32** get_address_of_buckets_0() { return &___buckets_0; }
+	inline void set_buckets_0(Int32U5BU5D_t70F1BDC14B1786481B176D6139A5E3B87DC54C32* value)
+	{
+		___buckets_0 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___buckets_0), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_entries_1() { return static_cast<int32_t>(offsetof(Dictionary_2_tDE3227CA5E7A32F5070BD24C69F42204A3ADE9D5, ___entries_1)); }
+	inline EntryU5BU5D_t52A654EA9927D1B5F56CA05CF209F2E4393C4510* get_entries_1() const { return ___entries_1; }
+	inline EntryU5BU5D_t52A654EA9927D1B5F56CA05CF209F2E4393C4510** get_address_of_entries_1() { return &___entries_1; }
+	inline void set_entries_1(EntryU5BU5D_t52A654EA9927D1B5F56CA05CF209F2E4393C4510* value)
+	{
+		___entries_1 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___entries_1), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_count_2() { return static_cast<int32_t>(offsetof(Dictionary_2_tDE3227CA5E7A32F5070BD24C69F42204A3ADE9D5, ___count_2)); }
+	inline int32_t get_count_2() const { return ___count_2; }
+	inline int32_t* get_address_of_count_2() { return &___count_2; }
+	inline void set_count_2(int32_t value)
+	{
+		___count_2 = value;
+	}
+
+	inline static int32_t get_offset_of_version_3() { return static_cast<int32_t>(offsetof(Dictionary_2_tDE3227CA5E7A32F5070BD24C69F42204A3ADE9D5, ___version_3)); }
+	inline int32_t get_version_3() const { return ___version_3; }
+	inline int32_t* get_address_of_version_3() { return &___version_3; }
+	inline void set_version_3(int32_t value)
+	{
+		___version_3 = value;
+	}
+
+	inline static int32_t get_offset_of_freeList_4() { return static_cast<int32_t>(offsetof(Dictionary_2_tDE3227CA5E7A32F5070BD24C69F42204A3ADE9D5, ___freeList_4)); }
+	inline int32_t get_freeList_4() const { return ___freeList_4; }
+	inline int32_t* get_address_of_freeList_4() { return &___freeList_4; }
+	inline void set_freeList_4(int32_t value)
+	{
+		___freeList_4 = value;
+	}
+
+	inline static int32_t get_offset_of_freeCount_5() { return static_cast<int32_t>(offsetof(Dictionary_2_tDE3227CA5E7A32F5070BD24C69F42204A3ADE9D5, ___freeCount_5)); }
+	inline int32_t get_freeCount_5() const { return ___freeCount_5; }
+	inline int32_t* get_address_of_freeCount_5() { return &___freeCount_5; }
+	inline void set_freeCount_5(int32_t value)
+	{
+		___freeCount_5 = value;
+	}
+
+	inline static int32_t get_offset_of_comparer_6() { return static_cast<int32_t>(offsetof(Dictionary_2_tDE3227CA5E7A32F5070BD24C69F42204A3ADE9D5, ___comparer_6)); }
+	inline RuntimeObject* get_comparer_6() const { return ___comparer_6; }
+	inline RuntimeObject** get_address_of_comparer_6() { return &___comparer_6; }
+	inline void set_comparer_6(RuntimeObject* value)
+	{
+		___comparer_6 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___comparer_6), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_keys_7() { return static_cast<int32_t>(offsetof(Dictionary_2_tDE3227CA5E7A32F5070BD24C69F42204A3ADE9D5, ___keys_7)); }
+	inline KeyCollection_t52C81163A051BCD87A36FEF95F736DD600E2305D * get_keys_7() const { return ___keys_7; }
+	inline KeyCollection_t52C81163A051BCD87A36FEF95F736DD600E2305D ** get_address_of_keys_7() { return &___keys_7; }
+	inline void set_keys_7(KeyCollection_t52C81163A051BCD87A36FEF95F736DD600E2305D * value)
+	{
+		___keys_7 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___keys_7), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_values_8() { return static_cast<int32_t>(offsetof(Dictionary_2_tDE3227CA5E7A32F5070BD24C69F42204A3ADE9D5, ___values_8)); }
+	inline ValueCollection_t9161A5C97376D261665798FA27DAFD5177305C81 * get_values_8() const { return ___values_8; }
+	inline ValueCollection_t9161A5C97376D261665798FA27DAFD5177305C81 ** get_address_of_values_8() { return &___values_8; }
+	inline void set_values_8(ValueCollection_t9161A5C97376D261665798FA27DAFD5177305C81 * value)
+	{
+		___values_8 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___values_8), (void*)value);
+	}
+
+	inline static int32_t get_offset_of__syncRoot_9() { return static_cast<int32_t>(offsetof(Dictionary_2_tDE3227CA5E7A32F5070BD24C69F42204A3ADE9D5, ____syncRoot_9)); }
+	inline RuntimeObject * get__syncRoot_9() const { return ____syncRoot_9; }
+	inline RuntimeObject ** get_address_of__syncRoot_9() { return &____syncRoot_9; }
+	inline void set__syncRoot_9(RuntimeObject * value)
+	{
+		____syncRoot_9 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&____syncRoot_9), (void*)value);
+	}
+};
 
 
 // System.Collections.Generic.EqualityComparer`1<System.Boolean>
@@ -651,6 +1441,15 @@ public:
 
 // System.Reflection.MemberInfo
 struct MemberInfo_t  : public RuntimeObject
+{
+public:
+
+public:
+};
+
+
+// UnityEngine.Resources
+struct Resources_t90EC380141241F7E4B284EC353EF4F0386218419  : public RuntimeObject
 {
 public:
 
@@ -6810,6 +7609,15 @@ public:
 };
 
 
+// UnityEngine.Material
+struct Material_t8927C00353A72755313F046D0CE85178AE8218EE  : public Object_tF2F3778131EFF286AF62B7B013A170F95A91571A
+{
+public:
+
+public:
+};
+
+
 // UnityEngine.UI.Navigation
 struct Navigation_t1CF0FFB22C0357CD64714FB7A40A275F899D363A 
 {
@@ -8017,6 +8825,212 @@ struct Behaviour_t1A3DDDCF73B4627928FBFE02ED52B7251777DBD9  : public Component_t
 public:
 
 public:
+};
+
+
+// UnityEngine.ProBuilder.PreferenceDictionary
+struct PreferenceDictionary_t21003D437E50B661002CA69A795F410325CB3C7C  : public ScriptableObject_t4361E08CEBF052C650D3666C7CEC37EB31DE116A
+{
+public:
+	// System.Collections.Generic.Dictionary`2<System.String,System.Boolean> UnityEngine.ProBuilder.PreferenceDictionary::m_Bool
+	Dictionary_2_t99F1CF0D8EAD35142580D7CF6EC736C063B6190C * ___m_Bool_4;
+	// System.Collections.Generic.Dictionary`2<System.String,System.Int32> UnityEngine.ProBuilder.PreferenceDictionary::m_Int
+	Dictionary_2_tC94E9875910491F8130C2DC8B11E4D1548A55162 * ___m_Int_5;
+	// System.Collections.Generic.Dictionary`2<System.String,System.Single> UnityEngine.ProBuilder.PreferenceDictionary::m_Float
+	Dictionary_2_tB86B13980B9AA3D02B6088DAFB2F457C2C87A423 * ___m_Float_6;
+	// System.Collections.Generic.Dictionary`2<System.String,System.String> UnityEngine.ProBuilder.PreferenceDictionary::m_String
+	Dictionary_2_tDE3227CA5E7A32F5070BD24C69F42204A3ADE9D5 * ___m_String_7;
+	// System.Collections.Generic.Dictionary`2<System.String,UnityEngine.Color> UnityEngine.ProBuilder.PreferenceDictionary::m_Color
+	Dictionary_2_t58F425C42A4C6A64351E614E1CA156ECC23C8A0D * ___m_Color_8;
+	// System.Collections.Generic.Dictionary`2<System.String,UnityEngine.Material> UnityEngine.ProBuilder.PreferenceDictionary::m_Material
+	Dictionary_2_tDEB9074ADF852EC40CE0399CE36596B7AE79316F * ___m_Material_9;
+	// System.Collections.Generic.List`1<System.String> UnityEngine.ProBuilder.PreferenceDictionary::m_Bool_keys
+	List_1_t6C9F81EDBF0F4A31A9B0DA372D2EF34BDA3A1AF3 * ___m_Bool_keys_10;
+	// System.Collections.Generic.List`1<System.String> UnityEngine.ProBuilder.PreferenceDictionary::m_Int_keys
+	List_1_t6C9F81EDBF0F4A31A9B0DA372D2EF34BDA3A1AF3 * ___m_Int_keys_11;
+	// System.Collections.Generic.List`1<System.String> UnityEngine.ProBuilder.PreferenceDictionary::m_Float_keys
+	List_1_t6C9F81EDBF0F4A31A9B0DA372D2EF34BDA3A1AF3 * ___m_Float_keys_12;
+	// System.Collections.Generic.List`1<System.String> UnityEngine.ProBuilder.PreferenceDictionary::m_String_keys
+	List_1_t6C9F81EDBF0F4A31A9B0DA372D2EF34BDA3A1AF3 * ___m_String_keys_13;
+	// System.Collections.Generic.List`1<System.String> UnityEngine.ProBuilder.PreferenceDictionary::m_Color_keys
+	List_1_t6C9F81EDBF0F4A31A9B0DA372D2EF34BDA3A1AF3 * ___m_Color_keys_14;
+	// System.Collections.Generic.List`1<System.String> UnityEngine.ProBuilder.PreferenceDictionary::m_Material_keys
+	List_1_t6C9F81EDBF0F4A31A9B0DA372D2EF34BDA3A1AF3 * ___m_Material_keys_15;
+	// System.Collections.Generic.List`1<System.Boolean> UnityEngine.ProBuilder.PreferenceDictionary::m_Bool_values
+	List_1_tD4D2BACE5281B6C85799892C1F12F5F2F81A2DF3 * ___m_Bool_values_16;
+	// System.Collections.Generic.List`1<System.Int32> UnityEngine.ProBuilder.PreferenceDictionary::m_Int_values
+	List_1_t260B41F956D673396C33A4CF94E8D6C4389EACB7 * ___m_Int_values_17;
+	// System.Collections.Generic.List`1<System.Single> UnityEngine.ProBuilder.PreferenceDictionary::m_Float_values
+	List_1_t6726F9309570A0BDC5D42E10777F3E2931C487AA * ___m_Float_values_18;
+	// System.Collections.Generic.List`1<System.String> UnityEngine.ProBuilder.PreferenceDictionary::m_String_values
+	List_1_t6C9F81EDBF0F4A31A9B0DA372D2EF34BDA3A1AF3 * ___m_String_values_19;
+	// System.Collections.Generic.List`1<UnityEngine.Color> UnityEngine.ProBuilder.PreferenceDictionary::m_Color_values
+	List_1_t6ECA266B0EAC70596EFCED9D1D6E42D5E8A7E18E * ___m_Color_values_20;
+	// System.Collections.Generic.List`1<UnityEngine.Material> UnityEngine.ProBuilder.PreferenceDictionary::m_Material_values
+	List_1_t434825DCF3B4911FA61F9B2A235567430BDDD9F4 * ___m_Material_values_21;
+
+public:
+	inline static int32_t get_offset_of_m_Bool_4() { return static_cast<int32_t>(offsetof(PreferenceDictionary_t21003D437E50B661002CA69A795F410325CB3C7C, ___m_Bool_4)); }
+	inline Dictionary_2_t99F1CF0D8EAD35142580D7CF6EC736C063B6190C * get_m_Bool_4() const { return ___m_Bool_4; }
+	inline Dictionary_2_t99F1CF0D8EAD35142580D7CF6EC736C063B6190C ** get_address_of_m_Bool_4() { return &___m_Bool_4; }
+	inline void set_m_Bool_4(Dictionary_2_t99F1CF0D8EAD35142580D7CF6EC736C063B6190C * value)
+	{
+		___m_Bool_4 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___m_Bool_4), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_m_Int_5() { return static_cast<int32_t>(offsetof(PreferenceDictionary_t21003D437E50B661002CA69A795F410325CB3C7C, ___m_Int_5)); }
+	inline Dictionary_2_tC94E9875910491F8130C2DC8B11E4D1548A55162 * get_m_Int_5() const { return ___m_Int_5; }
+	inline Dictionary_2_tC94E9875910491F8130C2DC8B11E4D1548A55162 ** get_address_of_m_Int_5() { return &___m_Int_5; }
+	inline void set_m_Int_5(Dictionary_2_tC94E9875910491F8130C2DC8B11E4D1548A55162 * value)
+	{
+		___m_Int_5 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___m_Int_5), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_m_Float_6() { return static_cast<int32_t>(offsetof(PreferenceDictionary_t21003D437E50B661002CA69A795F410325CB3C7C, ___m_Float_6)); }
+	inline Dictionary_2_tB86B13980B9AA3D02B6088DAFB2F457C2C87A423 * get_m_Float_6() const { return ___m_Float_6; }
+	inline Dictionary_2_tB86B13980B9AA3D02B6088DAFB2F457C2C87A423 ** get_address_of_m_Float_6() { return &___m_Float_6; }
+	inline void set_m_Float_6(Dictionary_2_tB86B13980B9AA3D02B6088DAFB2F457C2C87A423 * value)
+	{
+		___m_Float_6 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___m_Float_6), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_m_String_7() { return static_cast<int32_t>(offsetof(PreferenceDictionary_t21003D437E50B661002CA69A795F410325CB3C7C, ___m_String_7)); }
+	inline Dictionary_2_tDE3227CA5E7A32F5070BD24C69F42204A3ADE9D5 * get_m_String_7() const { return ___m_String_7; }
+	inline Dictionary_2_tDE3227CA5E7A32F5070BD24C69F42204A3ADE9D5 ** get_address_of_m_String_7() { return &___m_String_7; }
+	inline void set_m_String_7(Dictionary_2_tDE3227CA5E7A32F5070BD24C69F42204A3ADE9D5 * value)
+	{
+		___m_String_7 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___m_String_7), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_m_Color_8() { return static_cast<int32_t>(offsetof(PreferenceDictionary_t21003D437E50B661002CA69A795F410325CB3C7C, ___m_Color_8)); }
+	inline Dictionary_2_t58F425C42A4C6A64351E614E1CA156ECC23C8A0D * get_m_Color_8() const { return ___m_Color_8; }
+	inline Dictionary_2_t58F425C42A4C6A64351E614E1CA156ECC23C8A0D ** get_address_of_m_Color_8() { return &___m_Color_8; }
+	inline void set_m_Color_8(Dictionary_2_t58F425C42A4C6A64351E614E1CA156ECC23C8A0D * value)
+	{
+		___m_Color_8 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___m_Color_8), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_m_Material_9() { return static_cast<int32_t>(offsetof(PreferenceDictionary_t21003D437E50B661002CA69A795F410325CB3C7C, ___m_Material_9)); }
+	inline Dictionary_2_tDEB9074ADF852EC40CE0399CE36596B7AE79316F * get_m_Material_9() const { return ___m_Material_9; }
+	inline Dictionary_2_tDEB9074ADF852EC40CE0399CE36596B7AE79316F ** get_address_of_m_Material_9() { return &___m_Material_9; }
+	inline void set_m_Material_9(Dictionary_2_tDEB9074ADF852EC40CE0399CE36596B7AE79316F * value)
+	{
+		___m_Material_9 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___m_Material_9), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_m_Bool_keys_10() { return static_cast<int32_t>(offsetof(PreferenceDictionary_t21003D437E50B661002CA69A795F410325CB3C7C, ___m_Bool_keys_10)); }
+	inline List_1_t6C9F81EDBF0F4A31A9B0DA372D2EF34BDA3A1AF3 * get_m_Bool_keys_10() const { return ___m_Bool_keys_10; }
+	inline List_1_t6C9F81EDBF0F4A31A9B0DA372D2EF34BDA3A1AF3 ** get_address_of_m_Bool_keys_10() { return &___m_Bool_keys_10; }
+	inline void set_m_Bool_keys_10(List_1_t6C9F81EDBF0F4A31A9B0DA372D2EF34BDA3A1AF3 * value)
+	{
+		___m_Bool_keys_10 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___m_Bool_keys_10), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_m_Int_keys_11() { return static_cast<int32_t>(offsetof(PreferenceDictionary_t21003D437E50B661002CA69A795F410325CB3C7C, ___m_Int_keys_11)); }
+	inline List_1_t6C9F81EDBF0F4A31A9B0DA372D2EF34BDA3A1AF3 * get_m_Int_keys_11() const { return ___m_Int_keys_11; }
+	inline List_1_t6C9F81EDBF0F4A31A9B0DA372D2EF34BDA3A1AF3 ** get_address_of_m_Int_keys_11() { return &___m_Int_keys_11; }
+	inline void set_m_Int_keys_11(List_1_t6C9F81EDBF0F4A31A9B0DA372D2EF34BDA3A1AF3 * value)
+	{
+		___m_Int_keys_11 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___m_Int_keys_11), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_m_Float_keys_12() { return static_cast<int32_t>(offsetof(PreferenceDictionary_t21003D437E50B661002CA69A795F410325CB3C7C, ___m_Float_keys_12)); }
+	inline List_1_t6C9F81EDBF0F4A31A9B0DA372D2EF34BDA3A1AF3 * get_m_Float_keys_12() const { return ___m_Float_keys_12; }
+	inline List_1_t6C9F81EDBF0F4A31A9B0DA372D2EF34BDA3A1AF3 ** get_address_of_m_Float_keys_12() { return &___m_Float_keys_12; }
+	inline void set_m_Float_keys_12(List_1_t6C9F81EDBF0F4A31A9B0DA372D2EF34BDA3A1AF3 * value)
+	{
+		___m_Float_keys_12 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___m_Float_keys_12), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_m_String_keys_13() { return static_cast<int32_t>(offsetof(PreferenceDictionary_t21003D437E50B661002CA69A795F410325CB3C7C, ___m_String_keys_13)); }
+	inline List_1_t6C9F81EDBF0F4A31A9B0DA372D2EF34BDA3A1AF3 * get_m_String_keys_13() const { return ___m_String_keys_13; }
+	inline List_1_t6C9F81EDBF0F4A31A9B0DA372D2EF34BDA3A1AF3 ** get_address_of_m_String_keys_13() { return &___m_String_keys_13; }
+	inline void set_m_String_keys_13(List_1_t6C9F81EDBF0F4A31A9B0DA372D2EF34BDA3A1AF3 * value)
+	{
+		___m_String_keys_13 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___m_String_keys_13), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_m_Color_keys_14() { return static_cast<int32_t>(offsetof(PreferenceDictionary_t21003D437E50B661002CA69A795F410325CB3C7C, ___m_Color_keys_14)); }
+	inline List_1_t6C9F81EDBF0F4A31A9B0DA372D2EF34BDA3A1AF3 * get_m_Color_keys_14() const { return ___m_Color_keys_14; }
+	inline List_1_t6C9F81EDBF0F4A31A9B0DA372D2EF34BDA3A1AF3 ** get_address_of_m_Color_keys_14() { return &___m_Color_keys_14; }
+	inline void set_m_Color_keys_14(List_1_t6C9F81EDBF0F4A31A9B0DA372D2EF34BDA3A1AF3 * value)
+	{
+		___m_Color_keys_14 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___m_Color_keys_14), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_m_Material_keys_15() { return static_cast<int32_t>(offsetof(PreferenceDictionary_t21003D437E50B661002CA69A795F410325CB3C7C, ___m_Material_keys_15)); }
+	inline List_1_t6C9F81EDBF0F4A31A9B0DA372D2EF34BDA3A1AF3 * get_m_Material_keys_15() const { return ___m_Material_keys_15; }
+	inline List_1_t6C9F81EDBF0F4A31A9B0DA372D2EF34BDA3A1AF3 ** get_address_of_m_Material_keys_15() { return &___m_Material_keys_15; }
+	inline void set_m_Material_keys_15(List_1_t6C9F81EDBF0F4A31A9B0DA372D2EF34BDA3A1AF3 * value)
+	{
+		___m_Material_keys_15 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___m_Material_keys_15), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_m_Bool_values_16() { return static_cast<int32_t>(offsetof(PreferenceDictionary_t21003D437E50B661002CA69A795F410325CB3C7C, ___m_Bool_values_16)); }
+	inline List_1_tD4D2BACE5281B6C85799892C1F12F5F2F81A2DF3 * get_m_Bool_values_16() const { return ___m_Bool_values_16; }
+	inline List_1_tD4D2BACE5281B6C85799892C1F12F5F2F81A2DF3 ** get_address_of_m_Bool_values_16() { return &___m_Bool_values_16; }
+	inline void set_m_Bool_values_16(List_1_tD4D2BACE5281B6C85799892C1F12F5F2F81A2DF3 * value)
+	{
+		___m_Bool_values_16 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___m_Bool_values_16), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_m_Int_values_17() { return static_cast<int32_t>(offsetof(PreferenceDictionary_t21003D437E50B661002CA69A795F410325CB3C7C, ___m_Int_values_17)); }
+	inline List_1_t260B41F956D673396C33A4CF94E8D6C4389EACB7 * get_m_Int_values_17() const { return ___m_Int_values_17; }
+	inline List_1_t260B41F956D673396C33A4CF94E8D6C4389EACB7 ** get_address_of_m_Int_values_17() { return &___m_Int_values_17; }
+	inline void set_m_Int_values_17(List_1_t260B41F956D673396C33A4CF94E8D6C4389EACB7 * value)
+	{
+		___m_Int_values_17 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___m_Int_values_17), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_m_Float_values_18() { return static_cast<int32_t>(offsetof(PreferenceDictionary_t21003D437E50B661002CA69A795F410325CB3C7C, ___m_Float_values_18)); }
+	inline List_1_t6726F9309570A0BDC5D42E10777F3E2931C487AA * get_m_Float_values_18() const { return ___m_Float_values_18; }
+	inline List_1_t6726F9309570A0BDC5D42E10777F3E2931C487AA ** get_address_of_m_Float_values_18() { return &___m_Float_values_18; }
+	inline void set_m_Float_values_18(List_1_t6726F9309570A0BDC5D42E10777F3E2931C487AA * value)
+	{
+		___m_Float_values_18 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___m_Float_values_18), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_m_String_values_19() { return static_cast<int32_t>(offsetof(PreferenceDictionary_t21003D437E50B661002CA69A795F410325CB3C7C, ___m_String_values_19)); }
+	inline List_1_t6C9F81EDBF0F4A31A9B0DA372D2EF34BDA3A1AF3 * get_m_String_values_19() const { return ___m_String_values_19; }
+	inline List_1_t6C9F81EDBF0F4A31A9B0DA372D2EF34BDA3A1AF3 ** get_address_of_m_String_values_19() { return &___m_String_values_19; }
+	inline void set_m_String_values_19(List_1_t6C9F81EDBF0F4A31A9B0DA372D2EF34BDA3A1AF3 * value)
+	{
+		___m_String_values_19 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___m_String_values_19), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_m_Color_values_20() { return static_cast<int32_t>(offsetof(PreferenceDictionary_t21003D437E50B661002CA69A795F410325CB3C7C, ___m_Color_values_20)); }
+	inline List_1_t6ECA266B0EAC70596EFCED9D1D6E42D5E8A7E18E * get_m_Color_values_20() const { return ___m_Color_values_20; }
+	inline List_1_t6ECA266B0EAC70596EFCED9D1D6E42D5E8A7E18E ** get_address_of_m_Color_values_20() { return &___m_Color_values_20; }
+	inline void set_m_Color_values_20(List_1_t6ECA266B0EAC70596EFCED9D1D6E42D5E8A7E18E * value)
+	{
+		___m_Color_values_20 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___m_Color_values_20), (void*)value);
+	}
+
+	inline static int32_t get_offset_of_m_Material_values_21() { return static_cast<int32_t>(offsetof(PreferenceDictionary_t21003D437E50B661002CA69A795F410325CB3C7C, ___m_Material_values_21)); }
+	inline List_1_t434825DCF3B4911FA61F9B2A235567430BDDD9F4 * get_m_Material_values_21() const { return ___m_Material_values_21; }
+	inline List_1_t434825DCF3B4911FA61F9B2A235567430BDDD9F4 ** get_address_of_m_Material_values_21() { return &___m_Material_values_21; }
+	inline void set_m_Material_values_21(List_1_t434825DCF3B4911FA61F9B2A235567430BDDD9F4 * value)
+	{
+		___m_Material_values_21 = value;
+		Il2CppCodeGenWriteBarrier((void**)(&___m_Material_values_21), (void*)value);
+	}
 };
 
 
@@ -13809,9 +14823,73 @@ public:
 };
 
 
+// System.Boolean System.Collections.Generic.Dictionary`2<System.Object,System.Int32>::ContainsKey(!0)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool Dictionary_2_ContainsKey_m71AD9A0E45BC55BFE609CB88752829A7C810E68D_gshared (Dictionary_2_t1DDD2F48B87E022F599DF2452A49BB70BE95A7F8 * __this, RuntimeObject * ___key0, const RuntimeMethod* method);
+// System.Boolean System.Collections.Generic.Dictionary`2<System.Object,System.Single>::ContainsKey(!0)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool Dictionary_2_ContainsKey_m9F6FE66133303B8D8BD726B882F6C72F05708805_gshared (Dictionary_2_t2231B28838CEC8CCD1492AE7CBE8B687F83856AD * __this, RuntimeObject * ___key0, const RuntimeMethod* method);
+// System.Boolean System.Collections.Generic.Dictionary`2<System.Object,System.Boolean>::ContainsKey(!0)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool Dictionary_2_ContainsKey_mBED865063DDDFF84201F60834B14B70FAEFC6A90_gshared (Dictionary_2_t8A3F8777BEF075E009D085E3BC9B9ADB00F47345 * __this, RuntimeObject * ___key0, const RuntimeMethod* method);
+// System.Boolean System.Collections.Generic.Dictionary`2<System.Object,System.Object>::ContainsKey(!0)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool Dictionary_2_ContainsKey_m4F01DBE7409811CAB0BBA7AEFBAB4BC028D26FA6_gshared (Dictionary_2_tBD1E3221EBD04CEBDA49B84779912E91F56B958D * __this, RuntimeObject * ___key0, const RuntimeMethod* method);
+// System.Boolean System.Collections.Generic.Dictionary`2<System.Object,UnityEngine.Color>::ContainsKey(!0)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool Dictionary_2_ContainsKey_mB5D299F64E93E0D68F6D15A78B77562B4475F35B_gshared (Dictionary_2_tEF5DFECD13912188BF42EF7475F555BEB0DFDDA2 * __this, RuntimeObject * ___key0, const RuntimeMethod* method);
 
 // System.Type System.Type::GetTypeFromHandle(System.RuntimeTypeHandle)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Type_t * Type_GetTypeFromHandle_m8BB57524FF7F9DB1803BC561D2B3A4DBACEB385E (RuntimeTypeHandle_tC33965ADA3E041E0C94AF05E5CB527B56482CEF9  ___handle0, const RuntimeMethod* method);
+// System.Boolean System.Type::op_Equality(System.Type,System.Type)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool Type_op_Equality_mA438719A1FDF103C7BBBB08AEF564E7FAEEA0046 (Type_t * ___left0, Type_t * ___right1, const RuntimeMethod* method);
+// System.Boolean System.Collections.Generic.Dictionary`2<System.String,System.Int32>::ContainsKey(!0)
+inline bool Dictionary_2_ContainsKey_m151DB8CAF2F65A4621317E77AC025849F03D8132 (Dictionary_2_tC94E9875910491F8130C2DC8B11E4D1548A55162 * __this, String_t* ___key0, const RuntimeMethod* method)
+{
+	return ((  bool (*) (Dictionary_2_tC94E9875910491F8130C2DC8B11E4D1548A55162 *, String_t*, const RuntimeMethod*))Dictionary_2_ContainsKey_m71AD9A0E45BC55BFE609CB88752829A7C810E68D_gshared)(__this, ___key0, method);
+}
+// System.Boolean System.Collections.Generic.Dictionary`2<System.String,System.Single>::ContainsKey(!0)
+inline bool Dictionary_2_ContainsKey_m1005090BED3DCBC26613EC3A32F04FB3EF0CB73E (Dictionary_2_tB86B13980B9AA3D02B6088DAFB2F457C2C87A423 * __this, String_t* ___key0, const RuntimeMethod* method)
+{
+	return ((  bool (*) (Dictionary_2_tB86B13980B9AA3D02B6088DAFB2F457C2C87A423 *, String_t*, const RuntimeMethod*))Dictionary_2_ContainsKey_m9F6FE66133303B8D8BD726B882F6C72F05708805_gshared)(__this, ___key0, method);
+}
+// System.Boolean System.Collections.Generic.Dictionary`2<System.String,System.Boolean>::ContainsKey(!0)
+inline bool Dictionary_2_ContainsKey_mDC3AD2416E7463B12FC10AD8A6C816FECC11E003 (Dictionary_2_t99F1CF0D8EAD35142580D7CF6EC736C063B6190C * __this, String_t* ___key0, const RuntimeMethod* method)
+{
+	return ((  bool (*) (Dictionary_2_t99F1CF0D8EAD35142580D7CF6EC736C063B6190C *, String_t*, const RuntimeMethod*))Dictionary_2_ContainsKey_mBED865063DDDFF84201F60834B14B70FAEFC6A90_gshared)(__this, ___key0, method);
+}
+// System.Boolean System.Collections.Generic.Dictionary`2<System.String,System.String>::ContainsKey(!0)
+inline bool Dictionary_2_ContainsKey_m5BB06692D9A48A3FEEB102881A86417DE6DA5027 (Dictionary_2_tDE3227CA5E7A32F5070BD24C69F42204A3ADE9D5 * __this, String_t* ___key0, const RuntimeMethod* method)
+{
+	return ((  bool (*) (Dictionary_2_tDE3227CA5E7A32F5070BD24C69F42204A3ADE9D5 *, String_t*, const RuntimeMethod*))Dictionary_2_ContainsKey_m4F01DBE7409811CAB0BBA7AEFBAB4BC028D26FA6_gshared)(__this, ___key0, method);
+}
+// System.Boolean System.Collections.Generic.Dictionary`2<System.String,UnityEngine.Color>::ContainsKey(!0)
+inline bool Dictionary_2_ContainsKey_m7FFFF1CB4C25FD222EC49171F8162B7C18EBA381 (Dictionary_2_t58F425C42A4C6A64351E614E1CA156ECC23C8A0D * __this, String_t* ___key0, const RuntimeMethod* method)
+{
+	return ((  bool (*) (Dictionary_2_t58F425C42A4C6A64351E614E1CA156ECC23C8A0D *, String_t*, const RuntimeMethod*))Dictionary_2_ContainsKey_mB5D299F64E93E0D68F6D15A78B77562B4475F35B_gshared)(__this, ___key0, method);
+}
+// System.Boolean System.Collections.Generic.Dictionary`2<System.String,UnityEngine.Material>::ContainsKey(!0)
+inline bool Dictionary_2_ContainsKey_m7AEED858345EEDACB4251053EFDDFE254042B279 (Dictionary_2_tDEB9074ADF852EC40CE0399CE36596B7AE79316F * __this, String_t* ___key0, const RuntimeMethod* method)
+{
+	return ((  bool (*) (Dictionary_2_tDEB9074ADF852EC40CE0399CE36596B7AE79316F *, String_t*, const RuntimeMethod*))Dictionary_2_ContainsKey_m4F01DBE7409811CAB0BBA7AEFBAB4BC028D26FA6_gshared)(__this, ___key0, method);
+}
+// System.String System.String::Format(System.String,System.Object,System.Object)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* String_Format_m8D1CB0410C35E052A53AE957C914C841E54BAB66 (String_t* ___format0, RuntimeObject * ___arg01, RuntimeObject * ___arg12, const RuntimeMethod* method);
+// System.Void UnityEngine.Debug::LogWarning(System.Object)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Debug_LogWarning_m24085D883C9E74D7AB423F0625E13259923960E7 (RuntimeObject * ___message0, const RuntimeMethod* method);
+// System.Void UnityEngine.ProBuilder.PreferenceDictionary::SetInt(System.String,System.Int32)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PreferenceDictionary_SetInt_m90F93C7A8EC81EB79739A7D0440D8BE8F0058E21 (PreferenceDictionary_t21003D437E50B661002CA69A795F410325CB3C7C * __this, String_t* ___key0, int32_t ___value1, const RuntimeMethod* method);
+// System.Void UnityEngine.ProBuilder.PreferenceDictionary::SetFloat(System.String,System.Single)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PreferenceDictionary_SetFloat_mDDDF7AF6D6FCD9D77072A9A7512378043E2FDFD2 (PreferenceDictionary_t21003D437E50B661002CA69A795F410325CB3C7C * __this, String_t* ___key0, float ___value1, const RuntimeMethod* method);
+// System.Void UnityEngine.ProBuilder.PreferenceDictionary::SetBool(System.String,System.Boolean)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PreferenceDictionary_SetBool_m0E92264C13258DBEDF2E260EACF78C866D84FAE3 (PreferenceDictionary_t21003D437E50B661002CA69A795F410325CB3C7C * __this, String_t* ___key0, bool ___value1, const RuntimeMethod* method);
+// System.Void UnityEngine.ProBuilder.PreferenceDictionary::SetString(System.String,System.String)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PreferenceDictionary_SetString_mE5ED09DF84F9E6A8D22E6E45AB1A24BA7B145982 (PreferenceDictionary_t21003D437E50B661002CA69A795F410325CB3C7C * __this, String_t* ___key0, String_t* ___value1, const RuntimeMethod* method);
+// System.Void UnityEngine.ProBuilder.PreferenceDictionary::SetColor(System.String,UnityEngine.Color)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PreferenceDictionary_SetColor_mC488251D31F13B9010D4FDD43B855355409D5C5B (PreferenceDictionary_t21003D437E50B661002CA69A795F410325CB3C7C * __this, String_t* ___key0, Color_tF40DAF76C04FFECF3FE6024F85A294741C9CC659  ___value1, const RuntimeMethod* method);
+// System.Void UnityEngine.ProBuilder.PreferenceDictionary::SetMaterial(System.String,UnityEngine.Material)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PreferenceDictionary_SetMaterial_mCA44A8FF1DAB3BB9911E8F7ED8E5ED118E87FCC3 (PreferenceDictionary_t21003D437E50B661002CA69A795F410325CB3C7C * __this, String_t* ___key0, Material_t8927C00353A72755313F046D0CE85178AE8218EE * ___value1, const RuntimeMethod* method);
+// System.String System.String::Format(System.String,System.Object,System.Object,System.Object)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* String_Format_m039737CCD992C5BFC8D16DFD681F5E8786E87FA6 (String_t* ___format0, RuntimeObject * ___arg01, RuntimeObject * ___arg12, RuntimeObject * ___arg23, const RuntimeMethod* method);
+// UnityEngine.Object UnityEngine.Resources::GetBuiltinResource(System.Type,System.String)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Object_tF2F3778131EFF286AF62B7B013A170F95A91571A * Resources_GetBuiltinResource_m59A7993A48D44A0002E532B7DD79BDA426E0C8A6 (Type_t * ___type0, String_t* ___path1, const RuntimeMethod* method);
+// UnityEngine.Object UnityEngine.Resources::Load(System.String,System.Type)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Object_tF2F3778131EFF286AF62B7B013A170F95A91571A * Resources_Load_m6E8E5EA02A03F3AFC8FD2D775263DBBC64BF205C (String_t* ___path0, Type_t * ___systemTypeInstance1, const RuntimeMethod* method);
 // System.Boolean System.Type::get_IsValueType()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool Type_get_IsValueType_m9CCCB4759C2D5A890096F8DBA66DAAEFE9D913FB (Type_t * __this, const RuntimeMethod* method);
 // System.Boolean System.RuntimeTypeHandle::HasReferences(System.RuntimeType)
@@ -13838,6 +14916,414 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool CancellationToken_get_IsCancellationRequ
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ArgumentOutOfRangeException__ctor_m329C2882A4CB69F185E98D0DD7E853AA9220960A (ArgumentOutOfRangeException_tFAF23713820951D4A09ABBFE5CC091E445A6F3D8 * __this, String_t* ___paramName0, const RuntimeMethod* method);
 // System.Void System.ThrowHelper::ThrowArgumentNullException(System.ExceptionArgument)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ThrowHelper_ThrowArgumentNullException_m539081110B94B71D92C9761B273E617B23B4BBA5 (int32_t ___argument0, const RuntimeMethod* method);
+// System.Boolean UnityEngine.ProBuilder.PreferenceDictionary::HasKey<System.Object>(System.String)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool PreferenceDictionary_HasKey_TisRuntimeObject_mA2A258877EEC7A4633B62EBBD941C1FF8E8985B3_gshared (PreferenceDictionary_t21003D437E50B661002CA69A795F410325CB3C7C * __this, String_t* ___key0, const RuntimeMethod* method)
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Boolean_t07D1E3F34E4813023D64F584DFF7B34C9D922F37_0_0_0_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Color_tF40DAF76C04FFECF3FE6024F85A294741C9CC659_0_0_0_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Debug_tEB68BCBEB8EFD60F8043C67146DC05E7F50F374B_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Dictionary_2_ContainsKey_m1005090BED3DCBC26613EC3A32F04FB3EF0CB73E_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Dictionary_2_ContainsKey_m151DB8CAF2F65A4621317E77AC025849F03D8132_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Dictionary_2_ContainsKey_m5BB06692D9A48A3FEEB102881A86417DE6DA5027_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Dictionary_2_ContainsKey_m7AEED858345EEDACB4251053EFDDFE254042B279_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Dictionary_2_ContainsKey_m7FFFF1CB4C25FD222EC49171F8162B7C18EBA381_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Dictionary_2_ContainsKey_mDC3AD2416E7463B12FC10AD8A6C816FECC11E003_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Int32_tFDE5F8CD43D10453F6A2E0C77FE48C6CC7009046_0_0_0_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Material_t8927C00353A72755313F046D0CE85178AE8218EE_0_0_0_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Single_tE07797BA3C98D4CA9B5A19413C19A76688AB899E_0_0_0_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&String_t_0_0_0_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Type_t_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralD3AF7A49E8417ED4571101CBC6144F92B2B0CE51);
+		s_Il2CppMethodInitialized = true;
+	}
+	Type_t * V_0 = NULL;
+	{
+		// System.Type type = typeof(T);
+		RuntimeTypeHandle_tC33965ADA3E041E0C94AF05E5CB527B56482CEF9  L_0 = { reinterpret_cast<intptr_t> (IL2CPP_RGCTX_TYPE(method->rgctx_data, 0)) };
+		IL2CPP_RUNTIME_CLASS_INIT(Type_t_il2cpp_TypeInfo_var);
+		Type_t * L_1;
+		L_1 = Type_GetTypeFromHandle_m8BB57524FF7F9DB1803BC561D2B3A4DBACEB385E((RuntimeTypeHandle_tC33965ADA3E041E0C94AF05E5CB527B56482CEF9 )L_0, /*hidden argument*/NULL);
+		V_0 = (Type_t *)L_1;
+		// if (type == typeof(int))
+		Type_t * L_2 = V_0;
+		RuntimeTypeHandle_tC33965ADA3E041E0C94AF05E5CB527B56482CEF9  L_3 = { reinterpret_cast<intptr_t> (Int32_tFDE5F8CD43D10453F6A2E0C77FE48C6CC7009046_0_0_0_var) };
+		Type_t * L_4;
+		L_4 = Type_GetTypeFromHandle_m8BB57524FF7F9DB1803BC561D2B3A4DBACEB385E((RuntimeTypeHandle_tC33965ADA3E041E0C94AF05E5CB527B56482CEF9 )L_3, /*hidden argument*/NULL);
+		bool L_5;
+		L_5 = Type_op_Equality_mA438719A1FDF103C7BBBB08AEF564E7FAEEA0046((Type_t *)L_2, (Type_t *)L_4, /*hidden argument*/NULL);
+		if (!L_5)
+		{
+			goto IL_002a;
+		}
+	}
+	{
+		// return m_Int.ContainsKey(key);
+		Dictionary_2_tC94E9875910491F8130C2DC8B11E4D1548A55162 * L_6 = (Dictionary_2_tC94E9875910491F8130C2DC8B11E4D1548A55162 *)__this->get_m_Int_5();
+		String_t* L_7 = ___key0;
+		NullCheck((Dictionary_2_tC94E9875910491F8130C2DC8B11E4D1548A55162 *)L_6);
+		bool L_8;
+		L_8 = Dictionary_2_ContainsKey_m151DB8CAF2F65A4621317E77AC025849F03D8132((Dictionary_2_tC94E9875910491F8130C2DC8B11E4D1548A55162 *)L_6, (String_t*)L_7, /*hidden argument*/Dictionary_2_ContainsKey_m151DB8CAF2F65A4621317E77AC025849F03D8132_RuntimeMethod_var);
+		return (bool)L_8;
+	}
+
+IL_002a:
+	{
+		// else if (type == typeof(float))
+		Type_t * L_9 = V_0;
+		RuntimeTypeHandle_tC33965ADA3E041E0C94AF05E5CB527B56482CEF9  L_10 = { reinterpret_cast<intptr_t> (Single_tE07797BA3C98D4CA9B5A19413C19A76688AB899E_0_0_0_var) };
+		IL2CPP_RUNTIME_CLASS_INIT(Type_t_il2cpp_TypeInfo_var);
+		Type_t * L_11;
+		L_11 = Type_GetTypeFromHandle_m8BB57524FF7F9DB1803BC561D2B3A4DBACEB385E((RuntimeTypeHandle_tC33965ADA3E041E0C94AF05E5CB527B56482CEF9 )L_10, /*hidden argument*/NULL);
+		bool L_12;
+		L_12 = Type_op_Equality_mA438719A1FDF103C7BBBB08AEF564E7FAEEA0046((Type_t *)L_9, (Type_t *)L_11, /*hidden argument*/NULL);
+		if (!L_12)
+		{
+			goto IL_0049;
+		}
+	}
+	{
+		// return m_Float.ContainsKey(key);
+		Dictionary_2_tB86B13980B9AA3D02B6088DAFB2F457C2C87A423 * L_13 = (Dictionary_2_tB86B13980B9AA3D02B6088DAFB2F457C2C87A423 *)__this->get_m_Float_6();
+		String_t* L_14 = ___key0;
+		NullCheck((Dictionary_2_tB86B13980B9AA3D02B6088DAFB2F457C2C87A423 *)L_13);
+		bool L_15;
+		L_15 = Dictionary_2_ContainsKey_m1005090BED3DCBC26613EC3A32F04FB3EF0CB73E((Dictionary_2_tB86B13980B9AA3D02B6088DAFB2F457C2C87A423 *)L_13, (String_t*)L_14, /*hidden argument*/Dictionary_2_ContainsKey_m1005090BED3DCBC26613EC3A32F04FB3EF0CB73E_RuntimeMethod_var);
+		return (bool)L_15;
+	}
+
+IL_0049:
+	{
+		// else if (type == typeof(bool))
+		Type_t * L_16 = V_0;
+		RuntimeTypeHandle_tC33965ADA3E041E0C94AF05E5CB527B56482CEF9  L_17 = { reinterpret_cast<intptr_t> (Boolean_t07D1E3F34E4813023D64F584DFF7B34C9D922F37_0_0_0_var) };
+		IL2CPP_RUNTIME_CLASS_INIT(Type_t_il2cpp_TypeInfo_var);
+		Type_t * L_18;
+		L_18 = Type_GetTypeFromHandle_m8BB57524FF7F9DB1803BC561D2B3A4DBACEB385E((RuntimeTypeHandle_tC33965ADA3E041E0C94AF05E5CB527B56482CEF9 )L_17, /*hidden argument*/NULL);
+		bool L_19;
+		L_19 = Type_op_Equality_mA438719A1FDF103C7BBBB08AEF564E7FAEEA0046((Type_t *)L_16, (Type_t *)L_18, /*hidden argument*/NULL);
+		if (!L_19)
+		{
+			goto IL_0068;
+		}
+	}
+	{
+		// return m_Bool.ContainsKey(key);
+		Dictionary_2_t99F1CF0D8EAD35142580D7CF6EC736C063B6190C * L_20 = (Dictionary_2_t99F1CF0D8EAD35142580D7CF6EC736C063B6190C *)__this->get_m_Bool_4();
+		String_t* L_21 = ___key0;
+		NullCheck((Dictionary_2_t99F1CF0D8EAD35142580D7CF6EC736C063B6190C *)L_20);
+		bool L_22;
+		L_22 = Dictionary_2_ContainsKey_mDC3AD2416E7463B12FC10AD8A6C816FECC11E003((Dictionary_2_t99F1CF0D8EAD35142580D7CF6EC736C063B6190C *)L_20, (String_t*)L_21, /*hidden argument*/Dictionary_2_ContainsKey_mDC3AD2416E7463B12FC10AD8A6C816FECC11E003_RuntimeMethod_var);
+		return (bool)L_22;
+	}
+
+IL_0068:
+	{
+		// else if (type == typeof(string))
+		Type_t * L_23 = V_0;
+		RuntimeTypeHandle_tC33965ADA3E041E0C94AF05E5CB527B56482CEF9  L_24 = { reinterpret_cast<intptr_t> (String_t_0_0_0_var) };
+		IL2CPP_RUNTIME_CLASS_INIT(Type_t_il2cpp_TypeInfo_var);
+		Type_t * L_25;
+		L_25 = Type_GetTypeFromHandle_m8BB57524FF7F9DB1803BC561D2B3A4DBACEB385E((RuntimeTypeHandle_tC33965ADA3E041E0C94AF05E5CB527B56482CEF9 )L_24, /*hidden argument*/NULL);
+		bool L_26;
+		L_26 = Type_op_Equality_mA438719A1FDF103C7BBBB08AEF564E7FAEEA0046((Type_t *)L_23, (Type_t *)L_25, /*hidden argument*/NULL);
+		if (!L_26)
+		{
+			goto IL_0087;
+		}
+	}
+	{
+		// return m_String.ContainsKey(key);
+		Dictionary_2_tDE3227CA5E7A32F5070BD24C69F42204A3ADE9D5 * L_27 = (Dictionary_2_tDE3227CA5E7A32F5070BD24C69F42204A3ADE9D5 *)__this->get_m_String_7();
+		String_t* L_28 = ___key0;
+		NullCheck((Dictionary_2_tDE3227CA5E7A32F5070BD24C69F42204A3ADE9D5 *)L_27);
+		bool L_29;
+		L_29 = Dictionary_2_ContainsKey_m5BB06692D9A48A3FEEB102881A86417DE6DA5027((Dictionary_2_tDE3227CA5E7A32F5070BD24C69F42204A3ADE9D5 *)L_27, (String_t*)L_28, /*hidden argument*/Dictionary_2_ContainsKey_m5BB06692D9A48A3FEEB102881A86417DE6DA5027_RuntimeMethod_var);
+		return (bool)L_29;
+	}
+
+IL_0087:
+	{
+		// else if (type == typeof(Color))
+		Type_t * L_30 = V_0;
+		RuntimeTypeHandle_tC33965ADA3E041E0C94AF05E5CB527B56482CEF9  L_31 = { reinterpret_cast<intptr_t> (Color_tF40DAF76C04FFECF3FE6024F85A294741C9CC659_0_0_0_var) };
+		IL2CPP_RUNTIME_CLASS_INIT(Type_t_il2cpp_TypeInfo_var);
+		Type_t * L_32;
+		L_32 = Type_GetTypeFromHandle_m8BB57524FF7F9DB1803BC561D2B3A4DBACEB385E((RuntimeTypeHandle_tC33965ADA3E041E0C94AF05E5CB527B56482CEF9 )L_31, /*hidden argument*/NULL);
+		bool L_33;
+		L_33 = Type_op_Equality_mA438719A1FDF103C7BBBB08AEF564E7FAEEA0046((Type_t *)L_30, (Type_t *)L_32, /*hidden argument*/NULL);
+		if (!L_33)
+		{
+			goto IL_00a6;
+		}
+	}
+	{
+		// return m_Color.ContainsKey(key);
+		Dictionary_2_t58F425C42A4C6A64351E614E1CA156ECC23C8A0D * L_34 = (Dictionary_2_t58F425C42A4C6A64351E614E1CA156ECC23C8A0D *)__this->get_m_Color_8();
+		String_t* L_35 = ___key0;
+		NullCheck((Dictionary_2_t58F425C42A4C6A64351E614E1CA156ECC23C8A0D *)L_34);
+		bool L_36;
+		L_36 = Dictionary_2_ContainsKey_m7FFFF1CB4C25FD222EC49171F8162B7C18EBA381((Dictionary_2_t58F425C42A4C6A64351E614E1CA156ECC23C8A0D *)L_34, (String_t*)L_35, /*hidden argument*/Dictionary_2_ContainsKey_m7FFFF1CB4C25FD222EC49171F8162B7C18EBA381_RuntimeMethod_var);
+		return (bool)L_36;
+	}
+
+IL_00a6:
+	{
+		// else if (type == typeof(Material))
+		Type_t * L_37 = V_0;
+		RuntimeTypeHandle_tC33965ADA3E041E0C94AF05E5CB527B56482CEF9  L_38 = { reinterpret_cast<intptr_t> (Material_t8927C00353A72755313F046D0CE85178AE8218EE_0_0_0_var) };
+		IL2CPP_RUNTIME_CLASS_INIT(Type_t_il2cpp_TypeInfo_var);
+		Type_t * L_39;
+		L_39 = Type_GetTypeFromHandle_m8BB57524FF7F9DB1803BC561D2B3A4DBACEB385E((RuntimeTypeHandle_tC33965ADA3E041E0C94AF05E5CB527B56482CEF9 )L_38, /*hidden argument*/NULL);
+		bool L_40;
+		L_40 = Type_op_Equality_mA438719A1FDF103C7BBBB08AEF564E7FAEEA0046((Type_t *)L_37, (Type_t *)L_39, /*hidden argument*/NULL);
+		if (!L_40)
+		{
+			goto IL_00c5;
+		}
+	}
+	{
+		// return m_Material.ContainsKey(key);
+		Dictionary_2_tDEB9074ADF852EC40CE0399CE36596B7AE79316F * L_41 = (Dictionary_2_tDEB9074ADF852EC40CE0399CE36596B7AE79316F *)__this->get_m_Material_9();
+		String_t* L_42 = ___key0;
+		NullCheck((Dictionary_2_tDEB9074ADF852EC40CE0399CE36596B7AE79316F *)L_41);
+		bool L_43;
+		L_43 = Dictionary_2_ContainsKey_m7AEED858345EEDACB4251053EFDDFE254042B279((Dictionary_2_tDEB9074ADF852EC40CE0399CE36596B7AE79316F *)L_41, (String_t*)L_42, /*hidden argument*/Dictionary_2_ContainsKey_m7AEED858345EEDACB4251053EFDDFE254042B279_RuntimeMethod_var);
+		return (bool)L_43;
+	}
+
+IL_00c5:
+	{
+		// Debug.LogWarning(string.Format("HasKey<{0}>({1}) not valid preference type.",
+		//         typeof(T).ToString(),
+		//         key));
+		RuntimeTypeHandle_tC33965ADA3E041E0C94AF05E5CB527B56482CEF9  L_44 = { reinterpret_cast<intptr_t> (IL2CPP_RGCTX_TYPE(method->rgctx_data, 0)) };
+		IL2CPP_RUNTIME_CLASS_INIT(Type_t_il2cpp_TypeInfo_var);
+		Type_t * L_45;
+		L_45 = Type_GetTypeFromHandle_m8BB57524FF7F9DB1803BC561D2B3A4DBACEB385E((RuntimeTypeHandle_tC33965ADA3E041E0C94AF05E5CB527B56482CEF9 )L_44, /*hidden argument*/NULL);
+		NullCheck((RuntimeObject *)L_45);
+		String_t* L_46;
+		L_46 = VirtFuncInvoker0< String_t* >::Invoke(3 /* System.String System.Object::ToString() */, (RuntimeObject *)L_45);
+		String_t* L_47 = ___key0;
+		String_t* L_48;
+		L_48 = String_Format_m8D1CB0410C35E052A53AE957C914C841E54BAB66((String_t*)_stringLiteralD3AF7A49E8417ED4571101CBC6144F92B2B0CE51, (RuntimeObject *)L_46, (RuntimeObject *)L_47, /*hidden argument*/NULL);
+		IL2CPP_RUNTIME_CLASS_INIT(Debug_tEB68BCBEB8EFD60F8043C67146DC05E7F50F374B_il2cpp_TypeInfo_var);
+		Debug_LogWarning_m24085D883C9E74D7AB423F0625E13259923960E7((RuntimeObject *)L_48, /*hidden argument*/NULL);
+		// return false;
+		return (bool)0;
+	}
+}
+// System.Void UnityEngine.ProBuilder.PreferenceDictionary::Set<System.Object>(System.String,T)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PreferenceDictionary_Set_TisRuntimeObject_m449E082213BB82B13CFE4C70700EBEB2A6C308EF_gshared (PreferenceDictionary_t21003D437E50B661002CA69A795F410325CB3C7C * __this, String_t* ___key0, RuntimeObject * ___value1, const RuntimeMethod* method)
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Boolean_t07D1E3F34E4813023D64F584DFF7B34C9D922F37_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Color_tF40DAF76C04FFECF3FE6024F85A294741C9CC659_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Debug_tEB68BCBEB8EFD60F8043C67146DC05E7F50F374B_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Int32_tFDE5F8CD43D10453F6A2E0C77FE48C6CC7009046_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Material_t8927C00353A72755313F046D0CE85178AE8218EE_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Single_tE07797BA3C98D4CA9B5A19413C19A76688AB899E_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&String_t_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Type_t_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral4DEC381C3E4418DCBAEB8E848D61D7D83379FFF1);
+		s_Il2CppMethodInitialized = true;
+	}
+	RuntimeObject * V_0 = NULL;
+	{
+		// object o = (object)value;
+		RuntimeObject * L_0 = ___value1;
+		V_0 = (RuntimeObject *)L_0;
+		// if (value is int)
+		RuntimeObject * L_1 = ___value1;
+		if (!((RuntimeObject *)IsInst((RuntimeObject*)L_1, Int32_tFDE5F8CD43D10453F6A2E0C77FE48C6CC7009046_il2cpp_TypeInfo_var)))
+		{
+			goto IL_0022;
+		}
+	}
+	{
+		// SetInt(key, (int)o);
+		String_t* L_2 = ___key0;
+		RuntimeObject * L_3 = V_0;
+		NullCheck((PreferenceDictionary_t21003D437E50B661002CA69A795F410325CB3C7C *)__this);
+		PreferenceDictionary_SetInt_m90F93C7A8EC81EB79739A7D0440D8BE8F0058E21((PreferenceDictionary_t21003D437E50B661002CA69A795F410325CB3C7C *)__this, (String_t*)L_2, (int32_t)((*(int32_t*)((int32_t*)UnBox(L_3, Int32_tFDE5F8CD43D10453F6A2E0C77FE48C6CC7009046_il2cpp_TypeInfo_var)))), /*hidden argument*/NULL);
+		return;
+	}
+
+IL_0022:
+	{
+		// else if (value is float)
+		RuntimeObject * L_4 = ___value1;
+		if (!((RuntimeObject *)IsInst((RuntimeObject*)L_4, Single_tE07797BA3C98D4CA9B5A19413C19A76688AB899E_il2cpp_TypeInfo_var)))
+		{
+			goto IL_003d;
+		}
+	}
+	{
+		// SetFloat(key, (float)o);
+		String_t* L_5 = ___key0;
+		RuntimeObject * L_6 = V_0;
+		NullCheck((PreferenceDictionary_t21003D437E50B661002CA69A795F410325CB3C7C *)__this);
+		PreferenceDictionary_SetFloat_mDDDF7AF6D6FCD9D77072A9A7512378043E2FDFD2((PreferenceDictionary_t21003D437E50B661002CA69A795F410325CB3C7C *)__this, (String_t*)L_5, (float)((*(float*)((float*)UnBox(L_6, Single_tE07797BA3C98D4CA9B5A19413C19A76688AB899E_il2cpp_TypeInfo_var)))), /*hidden argument*/NULL);
+		return;
+	}
+
+IL_003d:
+	{
+		// else if (value is bool)
+		RuntimeObject * L_7 = ___value1;
+		if (!((RuntimeObject *)IsInst((RuntimeObject*)L_7, Boolean_t07D1E3F34E4813023D64F584DFF7B34C9D922F37_il2cpp_TypeInfo_var)))
+		{
+			goto IL_0058;
+		}
+	}
+	{
+		// SetBool(key, (bool)o);
+		String_t* L_8 = ___key0;
+		RuntimeObject * L_9 = V_0;
+		NullCheck((PreferenceDictionary_t21003D437E50B661002CA69A795F410325CB3C7C *)__this);
+		PreferenceDictionary_SetBool_m0E92264C13258DBEDF2E260EACF78C866D84FAE3((PreferenceDictionary_t21003D437E50B661002CA69A795F410325CB3C7C *)__this, (String_t*)L_8, (bool)((*(bool*)((bool*)UnBox(L_9, Boolean_t07D1E3F34E4813023D64F584DFF7B34C9D922F37_il2cpp_TypeInfo_var)))), /*hidden argument*/NULL);
+		return;
+	}
+
+IL_0058:
+	{
+		// else if (value is string)
+		RuntimeObject * L_10 = ___value1;
+		if (!((String_t*)IsInst((RuntimeObject*)L_10, String_t_il2cpp_TypeInfo_var)))
+		{
+			goto IL_0073;
+		}
+	}
+	{
+		// SetString(key, (string)o);
+		String_t* L_11 = ___key0;
+		RuntimeObject * L_12 = V_0;
+		NullCheck((PreferenceDictionary_t21003D437E50B661002CA69A795F410325CB3C7C *)__this);
+		PreferenceDictionary_SetString_mE5ED09DF84F9E6A8D22E6E45AB1A24BA7B145982((PreferenceDictionary_t21003D437E50B661002CA69A795F410325CB3C7C *)__this, (String_t*)L_11, (String_t*)((String_t*)Castclass((RuntimeObject*)L_12, String_t_il2cpp_TypeInfo_var)), /*hidden argument*/NULL);
+		return;
+	}
+
+IL_0073:
+	{
+		// else if (value is Color)
+		RuntimeObject * L_13 = ___value1;
+		if (!((RuntimeObject *)IsInst((RuntimeObject*)L_13, Color_tF40DAF76C04FFECF3FE6024F85A294741C9CC659_il2cpp_TypeInfo_var)))
+		{
+			goto IL_008e;
+		}
+	}
+	{
+		// SetColor(key, (Color)o);
+		String_t* L_14 = ___key0;
+		RuntimeObject * L_15 = V_0;
+		NullCheck((PreferenceDictionary_t21003D437E50B661002CA69A795F410325CB3C7C *)__this);
+		PreferenceDictionary_SetColor_mC488251D31F13B9010D4FDD43B855355409D5C5B((PreferenceDictionary_t21003D437E50B661002CA69A795F410325CB3C7C *)__this, (String_t*)L_14, (Color_tF40DAF76C04FFECF3FE6024F85A294741C9CC659 )((*(Color_tF40DAF76C04FFECF3FE6024F85A294741C9CC659 *)((Color_tF40DAF76C04FFECF3FE6024F85A294741C9CC659 *)UnBox(L_15, Color_tF40DAF76C04FFECF3FE6024F85A294741C9CC659_il2cpp_TypeInfo_var)))), /*hidden argument*/NULL);
+		return;
+	}
+
+IL_008e:
+	{
+		// else if (value is Material)
+		RuntimeObject * L_16 = ___value1;
+		if (!((Material_t8927C00353A72755313F046D0CE85178AE8218EE *)IsInst((RuntimeObject*)L_16, Material_t8927C00353A72755313F046D0CE85178AE8218EE_il2cpp_TypeInfo_var)))
+		{
+			goto IL_00a9;
+		}
+	}
+	{
+		// SetMaterial(key, (Material)o);
+		String_t* L_17 = ___key0;
+		RuntimeObject * L_18 = V_0;
+		NullCheck((PreferenceDictionary_t21003D437E50B661002CA69A795F410325CB3C7C *)__this);
+		PreferenceDictionary_SetMaterial_mCA44A8FF1DAB3BB9911E8F7ED8E5ED118E87FCC3((PreferenceDictionary_t21003D437E50B661002CA69A795F410325CB3C7C *)__this, (String_t*)L_17, (Material_t8927C00353A72755313F046D0CE85178AE8218EE *)((Material_t8927C00353A72755313F046D0CE85178AE8218EE *)Castclass((RuntimeObject*)L_18, Material_t8927C00353A72755313F046D0CE85178AE8218EE_il2cpp_TypeInfo_var)), /*hidden argument*/NULL);
+		return;
+	}
+
+IL_00a9:
+	{
+		// Debug.LogWarning(string.Format("Set<{0}>({1}, {2}) not valid preference type.",
+		//         typeof(T).ToString(),
+		//         key,
+		//         value.ToString()));
+		RuntimeTypeHandle_tC33965ADA3E041E0C94AF05E5CB527B56482CEF9  L_19 = { reinterpret_cast<intptr_t> (IL2CPP_RGCTX_TYPE(method->rgctx_data, 1)) };
+		IL2CPP_RUNTIME_CLASS_INIT(Type_t_il2cpp_TypeInfo_var);
+		Type_t * L_20;
+		L_20 = Type_GetTypeFromHandle_m8BB57524FF7F9DB1803BC561D2B3A4DBACEB385E((RuntimeTypeHandle_tC33965ADA3E041E0C94AF05E5CB527B56482CEF9 )L_19, /*hidden argument*/NULL);
+		NullCheck((RuntimeObject *)L_20);
+		String_t* L_21;
+		L_21 = VirtFuncInvoker0< String_t* >::Invoke(3 /* System.String System.Object::ToString() */, (RuntimeObject *)L_20);
+		String_t* L_22 = ___key0;
+		NullCheck((RuntimeObject *)(___value1));
+		String_t* L_23;
+		L_23 = VirtFuncInvoker0< String_t* >::Invoke(3 /* System.String System.Object::ToString() */, (RuntimeObject *)(___value1));
+		String_t* L_24;
+		L_24 = String_Format_m039737CCD992C5BFC8D16DFD681F5E8786E87FA6((String_t*)_stringLiteral4DEC381C3E4418DCBAEB8E848D61D7D83379FFF1, (RuntimeObject *)L_21, (RuntimeObject *)L_22, (RuntimeObject *)L_23, /*hidden argument*/NULL);
+		IL2CPP_RUNTIME_CLASS_INIT(Debug_tEB68BCBEB8EFD60F8043C67146DC05E7F50F374B_il2cpp_TypeInfo_var);
+		Debug_LogWarning_m24085D883C9E74D7AB423F0625E13259923960E7((RuntimeObject *)L_24, /*hidden argument*/NULL);
+		// }
+		return;
+	}
+}
+// T UnityEngine.Resources::GetBuiltinResource<System.Object>(System.String)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject * Resources_GetBuiltinResource_TisRuntimeObject_mEFE806C359F59E719E60AD86FFF7C2577FB98ED2_gshared (String_t* ___path0, const RuntimeMethod* method)
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Type_t_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	RuntimeObject * V_0 = NULL;
+	{
+		RuntimeTypeHandle_tC33965ADA3E041E0C94AF05E5CB527B56482CEF9  L_0 = { reinterpret_cast<intptr_t> (IL2CPP_RGCTX_TYPE(method->rgctx_data, 0)) };
+		IL2CPP_RUNTIME_CLASS_INIT(Type_t_il2cpp_TypeInfo_var);
+		Type_t * L_1;
+		L_1 = Type_GetTypeFromHandle_m8BB57524FF7F9DB1803BC561D2B3A4DBACEB385E((RuntimeTypeHandle_tC33965ADA3E041E0C94AF05E5CB527B56482CEF9 )L_0, /*hidden argument*/NULL);
+		String_t* L_2 = ___path0;
+		Object_tF2F3778131EFF286AF62B7B013A170F95A91571A * L_3;
+		L_3 = Resources_GetBuiltinResource_m59A7993A48D44A0002E532B7DD79BDA426E0C8A6((Type_t *)L_1, (String_t*)L_2, /*hidden argument*/NULL);
+		V_0 = (RuntimeObject *)((RuntimeObject *)Castclass((RuntimeObject*)L_3, IL2CPP_RGCTX_DATA(method->rgctx_data, 1)));
+		goto IL_0019;
+	}
+
+IL_0019:
+	{
+		RuntimeObject * L_4 = V_0;
+		return (RuntimeObject *)L_4;
+	}
+}
+// T UnityEngine.Resources::Load<System.Object>(System.String)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject * Resources_Load_TisRuntimeObject_m39B6A35CFE684CD1FFF77873E20D7297B36A55E8_gshared (String_t* ___path0, const RuntimeMethod* method)
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Type_t_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	RuntimeObject * V_0 = NULL;
+	{
+		String_t* L_0 = ___path0;
+		RuntimeTypeHandle_tC33965ADA3E041E0C94AF05E5CB527B56482CEF9  L_1 = { reinterpret_cast<intptr_t> (IL2CPP_RGCTX_TYPE(method->rgctx_data, 0)) };
+		IL2CPP_RUNTIME_CLASS_INIT(Type_t_il2cpp_TypeInfo_var);
+		Type_t * L_2;
+		L_2 = Type_GetTypeFromHandle_m8BB57524FF7F9DB1803BC561D2B3A4DBACEB385E((RuntimeTypeHandle_tC33965ADA3E041E0C94AF05E5CB527B56482CEF9 )L_1, /*hidden argument*/NULL);
+		Object_tF2F3778131EFF286AF62B7B013A170F95A91571A * L_3;
+		L_3 = Resources_Load_m6E8E5EA02A03F3AFC8FD2D775263DBBC64BF205C((String_t*)L_0, (Type_t *)L_2, /*hidden argument*/NULL);
+		V_0 = (RuntimeObject *)((RuntimeObject *)Castclass((RuntimeObject*)L_3, IL2CPP_RGCTX_DATA(method->rgctx_data, 1)));
+		goto IL_0019;
+	}
+
+IL_0019:
+	{
+		RuntimeObject * L_4 = V_0;
+		return (RuntimeObject *)L_4;
+	}
+}
 // System.Boolean System.Runtime.CompilerServices.RuntimeHelpers::IsReferenceOrContainsReferences<UnityEngine.ProBuilder.Edge>()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool RuntimeHelpers_IsReferenceOrContainsReferences_TisEdge_t59DC4A6451BF45A4BB245CB1D084FCD1E447EF4D_mD9E39967FCC9587A040E1934302ECCF6E4F39BF8_gshared (const RuntimeMethod* method)
 {

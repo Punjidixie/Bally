@@ -67,6 +67,7 @@ public class Tilting : MonoBehaviour
     public float lengthToCamera; //C'
     public float xRotationOffset;
 
+    [HideInInspector]
     public LevelController levelController;
 
     //other components
@@ -84,20 +85,11 @@ public class Tilting : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         sphereCollider = GetComponent<SphereCollider>();
 
+        levelController = FindObjectOfType<LevelController>();
+
         scrollArea = levelController.scrollArea;
         joystick = levelController.joystick;
 
-        //frontTiltAngle = 15;
-        //sideTiltAngle = 20;
-
-
-        //heightToCamera = 0.8f;
-        //xRotationOffset = 20f;
-
-        //distanceToCameraNormal = 3.75f;
-        //distanceToCameraMax = distanceToCameraNormal + 0.5f;
-        //distanceToCameraMin = distanceToCameraNormal - 0.5f;
-        //distanceToCamera = distanceToCameraNormal;
     }
 
     private void FixedUpdate()
@@ -303,9 +295,7 @@ public class Tilting : MonoBehaviour
         if (PlayerPrefs.GetString("CameraMode") == "Auto")
         {
             ChaseCamera();
-        }
-        
-        //TrivialChase();
+        } 
 
         float xRad = toXRotation * Mathf.Deg2Rad;
         float yRad = toYRotation * Mathf.Deg2Rad;
@@ -505,6 +495,8 @@ public class Tilting : MonoBehaviour
             float r = Mathf.Sqrt(deltaX * deltaX + deltaZ * deltaZ);
 
             Quaternion q = Quaternion.AngleAxis(90, Vector3.up);
+
+            //Rotate by 90 degrees
             return q * new Vector3(deltaX, 0, deltaZ).normalized * otherRb.angularVelocity.y * r; //Note: q must be first (point * q wouldn't compile)
         }
         return Vector3.zero;

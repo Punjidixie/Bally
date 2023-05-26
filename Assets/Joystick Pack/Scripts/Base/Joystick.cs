@@ -75,7 +75,7 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
         //input = (eventData.position - position) / (radius * canvas.scaleFactor);
 
         //my code
-        input = (eventData.position - position) / (radius / 2 * canvas.scaleFactor);
+        input = (eventData.position - position) / (radius * canvas.scaleFactor);
 
 
         FormatInput();

@@ -9,8 +9,11 @@ public class FloatingJoystick : Joystick
     protected override void Start()
     {
         base.Start();
+    }
+
+    private void Awake()
+    {
         startingPos = background.position;
-        //background.gameObject.SetActive(false);
     }
 
     public override void OnPointerDown(PointerEventData eventData)

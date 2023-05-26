@@ -3,19 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class LevelController : MonoBehaviour
 {
     public float maxTime;
+
+    //crystal information
     public float reqCrystal1;
     public float reqCrystal2;
     public float reqCrystal3;
     public float fallOutHeight;
 
-    public string setName;
-    public int levelNumber;
+    public string levelName;
+
+
+    [System.NonSerialized] public string setName;
+    [System.NonSerialized] public int levelNumber;
     
-    public GameObject ball;
     Tilting tilting;
 
     //panning after intro
@@ -30,6 +35,9 @@ public class LevelController : MonoBehaviour
 
     //intro panel
     public GameObject introPanel;
+    public TMP_Text setNameText;
+    public TMP_Text levelNumberText;
+    public TMP_Text levelNameText;
 
     //countdown
     public GameObject countDownPanel;
@@ -42,20 +50,21 @@ public class LevelController : MonoBehaviour
     public StatusEffectTracker statusEffectTracker;
 
     //win panel
-    public GameObject winPanel;
-    public Text winningMessage;
-    public Text timeTakenText;
-    public Text timeTakenTextMs;
-    public Text crystalsWinText;
-    public GameObject winStar1;
-    public GameObject winStar2;
-    public GameObject winStar3;
-    public Text bestTimeMessage;
-    public Text bestCrystalMessage;
+    public WinPanel winPanel;
+    //public GameObject winPanel;
+    //public TMP_Text winningMessage;
+    //public TMP_Text timeTakenText;
+    //public TMP_Text timeTakenTextMs;
+    //public TMP_Text crystalsWinText;
+    //public GameObject winStar1;
+    //public GameObject winStar2;
+    //public GameObject winStar3;
+    //public Text bestTimeMessage;
+    //public Text bestCrystalMessage;
 
     //lose panel
     public GameObject losePanel;
-    public Text losingMessage;
+    public TMP_Text losingMessage;
 
     //movement inputs
     public Joystick joystick;
@@ -70,14 +79,19 @@ public class LevelController : MonoBehaviour
 
     //name text
     public GameObject namePanel;
-    public Text nameText;
+    public TMP_Text nameText;
 
+    //debug
     public Text speedText;
-    Vector3 previousSpeed;
     public Text framerateText;
-    
-    float timePassed;
+
+    [HideInInspector]
+    public float timePassed;
+
+    [HideInInspector]
     public int crystals;
+
+    [HideInInspector]
     public string levelState; // Intro -> Panning -> InGame -> Winning -> End
 
     // Start is called before the first frame update
@@ -92,15 +106,15 @@ public class LevelController : MonoBehaviour
         cameraStartPosition = Camera.main.transform.position;
         cameraStartRotation = Camera.main.transform.rotation;
 
-        tilting = ball.GetComponent<Tilting>();
+        tilting = FindObjectOfType<Tilting>();
 
-        
         timePassed = 0;
 
         crystals = 0;
 
+        LoadTopManagerInfo();
         nameText.text = setName + " " + levelNumber.ToString();
-
+        levelNameText.text = levelName;
 
 
         if (reqCrystal1 == 0)
@@ -115,8 +129,20 @@ public class LevelController : MonoBehaviour
         StartCoroutine(FramerateCounterUpdate());
        
     }
-   
 
+    void LoadTopManagerInfo()
+    {
+        if (TopManager.instantiated)
+        {
+            levelNumber = TopManager.levelIndex + 1;
+            setName = TopManager.levelSetSCO.setName;
+
+            levelNumberText.text = "Level " + levelNumber.ToString();
+            setNameText.text = setName;
+        }
+        
+    }
+   
     IEnumerator FramerateCounterUpdate()
     {
         int framesPassed = 0;
@@ -136,14 +162,30 @@ public class LevelController : MonoBehaviour
         }
         
     }
-    
+
     // Update is called once per frame
     void Update()
     {
-        speedText.text = "Speed: " + Mathf.Round(ball.GetComponent<Rigidbody>().velocity.magnitude * 100) / 100f;
-        //previousSpeed = ball.GetComponent<Rigidbody>().velocity;
-        timePassed += Time.deltaTime;
+        if (Application.isPlaying)
+        {
+            UpdateRuntime();
+        }
+        else
+        {
+            UpdateEditor();
+        }
+    }
 
+    void UpdateEditor()
+    {
+        levelNameText.text = levelName;
+    }
+
+    void UpdateRuntime()
+    {
+        speedText.text = "Speed: " + Mathf.Round(tilting.GetComponent<Rigidbody>().velocity.magnitude * 100) / 100f;
+        //previousSpeed = ball.GetComponent<Rigidbody>().velocity;
+        
         switch (levelState)
         {
             case "Intro":
@@ -168,12 +210,13 @@ public class LevelController : MonoBehaviour
                 {
                     StartCoroutine(TimesUpRoutine());
                 }
-                else if (ball.transform.position.y <= fallOutHeight)
+                else if (tilting.transform.position.y <= fallOutHeight)
                 {
                     StartCoroutine(FallOutRoutine());
                 }
                 else
                 {
+                    timePassed += Time.deltaTime;
                     UpdateClock();
                 }
                 break;
@@ -188,6 +231,7 @@ public class LevelController : MonoBehaviour
         }
         
     }
+
     void UpdateClock()
     {
         //update clock time
@@ -209,7 +253,7 @@ public class LevelController : MonoBehaviour
         if (millisecs < 10)
         {
             millisecsString = "0" + millisecs.ToString();
-        }
+        } 
         else
         {
             millisecsString = millisecs.ToString();
@@ -220,7 +264,7 @@ public class LevelController : MonoBehaviour
     
     public IEnumerator WinRoutine() //called from Tilting.cs, setup for Winning state
     {
-        StartCoroutine(WinCrystalStarAnimation());
+        
         PlayerPrefs.SetInt(setName + levelNumber + "Completed", 1);
         
         levelState = "Winning";
@@ -228,72 +272,28 @@ public class LevelController : MonoBehaviour
         HideEssentials();
         HideControls();
 
-        winPanel.SetActive(true);
-        winningMessage.text = "Level Completed!\n" + setName + " " + levelNumber.ToString();
+        winPanel.gameObject.SetActive(true);
+        
 
-        //calculate time taken
-        float minutes = Mathf.Floor(timePassed / 60f);
-        float seconds = Mathf.Floor(timePassed - 60 * minutes);
-        float millisecs = Mathf.Floor((timePassed - 60 * minutes - seconds) * 100);
+        string sceneName = SceneManager.GetActiveScene().name;
+        LevelRecord previousRecord = JsonHelper.GetLevelRecord(sceneName);
 
-        string minutesString = minutes.ToString();
-        string secondsString;
-        string millisecsString;
-        if (seconds < 10)
-        {
-            secondsString = "0" + seconds.ToString();
-        }
-        else
-        {
-            secondsString = seconds.ToString();
-        }
-        if (millisecs < 10)
-        {
-            millisecsString = "0" + millisecs.ToString();
-        }
-        else
-        {
-            millisecsString = millisecs.ToString();
-        }
-        timeTakenText.text = minutesString + ":" + secondsString;
-        timeTakenTextMs.text = ":" + millisecsString;
+       winPanel.SetWinInfo(previousRecord);
 
-        //new record
-        if (crystals > PlayerPrefs.GetInt(setName + levelNumber + "BestCrystal", -1))
+        LevelRecord thisRecord = new LevelRecord
         {
-            bestCrystalMessage.gameObject.SetActive(true);
-            PlayerPrefs.SetInt(setName + levelNumber + "BestCrystal", crystals);
-        }
+            sceneName = sceneName,
+            unlocked = true,
+            completed = true,
+            stars = crystalTracker.stars,
+            crystals = crystals,
+            time = timePassed,
+            threeStarTime = (crystalTracker.stars == 3) ? timePassed : Mathf.Infinity
+        };
 
-        if (crystalTracker.stars > PlayerPrefs.GetInt(setName + levelNumber + "BestStar", 0))
+        if (TopManager.instantiated)
         {
-            int oldStars = PlayerPrefs.GetInt(setName + levelNumber + "BestStar", 0);
-            PlayerPrefs.SetInt(setName + levelNumber + "BestStar", crystalTracker.stars);
-            PlayerPrefs.SetInt("TotalStar", PlayerPrefs.GetInt("TotalStar", 0) - oldStars + crystalTracker.stars);
-
-        }
-
-        bool hasBestTime = timePassed < PlayerPrefs.GetFloat(setName + levelNumber + "BestTime", Mathf.Infinity);
-        bool hasBest3sTime = timePassed < PlayerPrefs.GetFloat(setName + levelNumber + "Best3sTime", Mathf.Infinity) && crystalTracker.stars == 3;
-
-        if (hasBestTime && hasBest3sTime)
-        {
-            bestTimeMessage.gameObject.SetActive(true);
-            bestTimeMessage.text = "New best time & 3-star time!";
-            PlayerPrefs.SetFloat(setName + levelNumber + "BestTime", timePassed);
-            PlayerPrefs.SetFloat(setName + levelNumber + "Best3sTime", timePassed);
-        }
-        else if (hasBestTime)
-        {
-            bestTimeMessage.gameObject.SetActive(true);
-            bestTimeMessage.text = "New best time!";
-            PlayerPrefs.SetFloat(setName + levelNumber + "BestTime", timePassed);
-        }
-        else if (hasBest3sTime)
-        {
-            bestTimeMessage.gameObject.SetActive(true);
-            bestTimeMessage.text = "New best 3-star time!";
-            PlayerPrefs.SetFloat(setName + levelNumber + "Best3sTime", timePassed);
+            TopManager.CompleteCurrentLevel(thisRecord);
         }
 
         yield return new WaitForSecondsRealtime(1.5f);
@@ -301,39 +301,8 @@ public class LevelController : MonoBehaviour
         Time.timeScale = 0;
         PlayerPrefs.Save();
     }
-    public IEnumerator WinCrystalStarAnimation()
-    {
-        float t = 0;
-        float spamRate = 30f; //crystals per second
-        int currentStar = 0;
-        while (t <= 1)
-        {
-            t += Time.unscaledDeltaTime / (crystals / spamRate);
-            float number = Mathf.Round(Mathf.Lerp(0, crystals, t));
-            crystalsWinText.text = number.ToString();
 
-            if (number >= reqCrystal1 && currentStar < 1)
-            {
-                winStar1.GetComponent<Image>().color = crystalTracker.yellow;
-                winStar1.GetComponent<Animator>().SetTrigger("Boop");
-                currentStar = 1;
-            }
-            if (number >= reqCrystal2 && currentStar < 2)
-            {
-                winStar2.GetComponent<Image>().color = crystalTracker.yellow;
-                winStar2.GetComponent<Animator>().SetTrigger("Boop");
-                currentStar = 2;
-            }
-            if (number >= reqCrystal3 && currentStar < 3)
-            {
-                winStar3.GetComponent<Image>().color = crystalTracker.yellow;
-                winStar3.GetComponent<Animator>().SetTrigger("Boop");
-                currentStar = 3;
-            }
-            yield return null;
-        }
-        crystalsWinText.text = crystals.ToString();
-    }
+   
     
     public IEnumerator LoseRoutine()
     {
@@ -345,7 +314,6 @@ public class LevelController : MonoBehaviour
         introPanel.SetActive(false);
         countDownPanel.SetActive(true);
         levelState = "Panning";
-        timePassed = 0;
         float t = 0;
 
         while (t < 3)
@@ -355,7 +323,7 @@ public class LevelController : MonoBehaviour
 
             float h = tilting.lengthToCamera * Mathf.Cos(tilting.xRotationOffset * Mathf.Deg2Rad) - tilting.heightToCamera * Mathf.Sin(tilting.xRotationOffset * Mathf.Deg2Rad);
             float v = tilting.heightToCamera * Mathf.Cos(tilting.xRotationOffset * Mathf.Deg2Rad) + tilting.lengthToCamera * Mathf.Sin(tilting.xRotationOffset * Mathf.Deg2Rad);
-            Camera.main.transform.position = Vector3.Lerp(cameraStartPosition, ball.transform.position + new Vector3(0, v, -h), t / 3f);
+            Camera.main.transform.position = Vector3.Lerp(cameraStartPosition, tilting.transform.position + new Vector3(0, v, -h), t / 3f);
             Camera.main.transform.rotation = Quaternion.Lerp(cameraStartRotation, Quaternion.Euler(tilting.xRotationOffset, 0, 0), t / 3f);
             Camera.main.transform.rotation = Quaternion.Euler(Camera.main.transform.eulerAngles.x, Camera.main.transform.eulerAngles.y, 0);
             yield return null;
@@ -368,10 +336,10 @@ public class LevelController : MonoBehaviour
     public IEnumerator InGameRoutine()
     {
         StopCoroutine(WhilePanning());
-        ball.GetComponent<Rigidbody>().useGravity = true;
+        tilting.GetComponent<Rigidbody>().useGravity = true;
         float h = tilting.lengthToCamera * Mathf.Cos(tilting.xRotationOffset * Mathf.Deg2Rad) - tilting.heightToCamera * Mathf.Sin(tilting.xRotationOffset * Mathf.Deg2Rad);
         float v = tilting.heightToCamera * Mathf.Cos(tilting.xRotationOffset * Mathf.Deg2Rad) + tilting.lengthToCamera * Mathf.Sin(tilting.xRotationOffset * Mathf.Deg2Rad);
-        Camera.main.transform.position = ball.transform.position + new Vector3(0, v, -h);
+        Camera.main.transform.position = tilting.transform.position + new Vector3(0, v, -h);
         Camera.main.transform.rotation = Quaternion.Euler(tilting.xRotationOffset, 0, 0);
 
         BringUpEssentials();
@@ -388,23 +356,22 @@ public class LevelController : MonoBehaviour
         
     }
 
-    public void LoadScene(string name)
-    {
-        SceneManager.LoadScene(name);
-        Time.timeScale = 1;
-    }
     public void RestartLevel()
     {
 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        TopManager.RestartLevel();
         
+    }
+
+    public void ToLevelSelect()
+    {
+        SceneManager.LoadScene("Level Select");
     }
 
     public void NextLevel()
     {
 
-        
-        SceneManager.LoadScene(setName + (levelNumber + 1));
+        TopManager.NextLevel();
         
     }
 
@@ -447,7 +414,7 @@ public class LevelController : MonoBehaviour
         HideEssentials();
         HideControls();
 
-        ball.GetComponent<Tilting>().UpdateCamera();
+        tilting.GetComponent<Tilting>().UpdateCamera();
         pausePanel.SetActive(true);
         Time.timeScale = 0;
         levelState = "Paused";

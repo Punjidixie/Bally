@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27f0810a9eea343029a5fe8ee9e5369f, type: 3}
+  m_Name: FinalBeta
+  m_EditorClassIdentifier: 
+  setName: some sort of european town
+  setId: FinalBeta
+  consececutiveUnlock: 1
+  requiredStars: 60
+  levels:
+  - {fileID: 11400000, guid: d0066b92c26eb44b5be027402a80f329, type: 2}
+  - {fileID: 11400000, guid: 8476cc4e1e13048469029bb4587971ff, type: 2}
+  - {fileID: 11400000, guid: d97f6555f106847b986321a14c1a7b06, type: 2}
+  - {fileID: 11400000, guid: ec16ca37cdda445a4848ce5c4a14b4a7, type: 2}
+  - {fileID: 11400000, guid: 5c649c9c518074b48b81cdc3c39a31e6, type: 2}
+  - {fileID: 11400000, guid: 993a2eec6f9924f108bf4d76f88e5bb2, type: 2}
+  - {fileID: 11400000, guid: e842ced105a9545a58d45e1db62379a6, type: 2}

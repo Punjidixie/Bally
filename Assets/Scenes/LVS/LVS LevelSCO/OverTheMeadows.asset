@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27f0810a9eea343029a5fe8ee9e5369f, type: 3}
+  m_Name: OverTheMeadows
+  m_EditorClassIdentifier: 
+  setName: Over the Meadows
+  setId: LVS
+  consececutiveUnlock: 1
+  requiredStars: 0
+  levels:
+  - {fileID: 11400000, guid: 34dde03089f7d464085583a67d4c71be, type: 2}
+  - {fileID: 11400000, guid: 857a29a70878449849113baf77ce46d4, type: 2}
+  - {fileID: 11400000, guid: 961daec07778f4cfeb7de358194ed9a3, type: 2}
+  - {fileID: 11400000, guid: 274d4f39eed3642829dd78248e0545fe, type: 2}
+  - {fileID: 11400000, guid: ddd115ebe0bbc4cc99d8e567aa3360fe, type: 2}
+  - {fileID: 11400000, guid: 54f0cdc801a194393a3aca106230d791, type: 2}
+  - {fileID: 11400000, guid: 0240ab0814ceb4003811de54f25782ba, type: 2}
+  - {fileID: 11400000, guid: 40663d77234f041639dc39c3b073075c, type: 2}
+  - {fileID: 11400000, guid: f699551e861bc4fb2bfe6cb6d106ba61, type: 2}
+  - {fileID: 11400000, guid: 858117bc70cba4eb18b9ad170d939d76, type: 2}
+  - {fileID: 11400000, guid: 7523bddc29cee433ea261c0332afa967, type: 2}
+  - {fileID: 11400000, guid: c5eccec238a2748bcbbe09201a54ef67, type: 2}
+  - {fileID: 11400000, guid: f3834a219f2ff4dfbaa95983df3f9716, type: 2}
+  - {fileID: 11400000, guid: 6e2436fa353be4d5a8fb3bd7b432245e, type: 2}
+  - {fileID: 11400000, guid: eacf81d3a49d44f2cb0c388c428bac5b, type: 2}
+  - {fileID: 11400000, guid: 6db90fe906e9c468eb7ad33bb95375e9, type: 2}
+  - {fileID: 11400000, guid: 64606efac9d704b4b8bef76792212f93, type: 2}
+  - {fileID: 11400000, guid: 0e04493907f75447eb77792f4bb60a94, type: 2}
+  - {fileID: 11400000, guid: 2f5af847b28c34d978807936388b0b32, type: 2}
+  - {fileID: 11400000, guid: 4aad06ec9397d40f8b984e06dccb4569, type: 2}

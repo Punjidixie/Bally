@@ -166,11 +166,11 @@ class SphereCollider; template <> void RegisterUnityClass<SphereCollider>(const 
 class TerrainCollider; 
 class WheelCollider; 
 class FakeComponent; 
-namespace Unity { class Joint; } template <> void RegisterUnityClass<Unity::Joint>(const char*);
+namespace Unity { class Joint; } 
 namespace Unity { class CharacterJoint; } 
 namespace Unity { class ConfigurableJoint; } 
 namespace Unity { class FixedJoint; } 
-namespace Unity { class HingeJoint; } template <> void RegisterUnityClass<Unity::HingeJoint>(const char*);
+namespace Unity { class HingeJoint; } 
 namespace Unity { class SpringJoint; } 
 class LODGroup; 
 class MeshFilter; template <> void RegisterUnityClass<MeshFilter>(const char*);
@@ -303,7 +303,7 @@ void RegisterAllClasses()
 {
 void RegisterBuiltinTypes();
 RegisterBuiltinTypes();
-	//Total: 82 non stripped classes
+	//Total: 80 non stripped classes
 	//0. AnimationClip
 	RegisterUnityClass<AnimationClip>("Animation");
 	//1. Animator
@@ -444,29 +444,25 @@ RegisterBuiltinTypes();
 	RegisterUnityClass<CapsuleCollider>("Physics");
 	//69. Collider
 	RegisterUnityClass<Collider>("Physics");
-	//70. Unity::HingeJoint
-	RegisterUnityClass<Unity::HingeJoint>("Physics");
-	//71. Unity::Joint
-	RegisterUnityClass<Unity::Joint>("Physics");
-	//72. MeshCollider
+	//70. MeshCollider
 	RegisterUnityClass<MeshCollider>("Physics");
-	//73. PhysicMaterial
+	//71. PhysicMaterial
 	RegisterUnityClass<PhysicMaterial>("Physics");
-	//74. PhysicsManager
+	//72. PhysicsManager
 	RegisterUnityClass<PhysicsManager>("Physics");
-	//75. Rigidbody
+	//73. Rigidbody
 	RegisterUnityClass<Rigidbody>("Physics");
-	//76. SphereCollider
+	//74. SphereCollider
 	RegisterUnityClass<SphereCollider>("Physics");
-	//77. TextRendering::Font
+	//75. TextRendering::Font
 	RegisterUnityClass<TextRendering::Font>("TextRendering");
-	//78. UI::Canvas
+	//76. UI::Canvas
 	RegisterUnityClass<UI::Canvas>("UI");
-	//79. UI::CanvasGroup
+	//77. UI::CanvasGroup
 	RegisterUnityClass<UI::CanvasGroup>("UI");
-	//80. UI::CanvasRenderer
+	//78. UI::CanvasRenderer
 	RegisterUnityClass<UI::CanvasRenderer>("UI");
-	//81. UnityConnectSettings
+	//79. UnityConnectSettings
 	RegisterUnityClass<UnityConnectSettings>("UnityConnect");
 
 }

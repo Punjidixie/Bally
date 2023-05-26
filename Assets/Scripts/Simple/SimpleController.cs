@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SimpleController : MonoBehaviour
@@ -195,5 +196,10 @@ public class SimpleController : MonoBehaviour
     public void CalibrateTilt()
     {
         UserSettings.tiltCalibration = Input.acceleration;
+    }
+
+    public void Back()
+    {
+        SceneManager.LoadScene("Level Select");
     }
 }
