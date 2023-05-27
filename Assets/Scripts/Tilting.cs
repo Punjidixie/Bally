@@ -50,16 +50,6 @@ public class Tilting : MonoBehaviour
     protected float toYRotation;
     protected float toZRotation;
 
-    //float frontTiltAngle;
-    //float sideTiltAngle;
-
-    //public float distanceToCameraNormal;
-    //public float heightToCamera;
-    //public float xRotationOffset;
-    //float distanceToCameraMax;
-    //float distanceToCameraMin;
-    //float distanceToCamera;
-
     public float frontTiltAngle;
     public float sideTiltAngle;
 
@@ -73,22 +63,26 @@ public class Tilting : MonoBehaviour
     //other components
     protected SphereCollider sphereCollider;
 
+    private int frame;
 
     // Start is called before the first frame update
     void Start()
     {
-
-        magnetActive = false;
-        bouncyActive = false;
-        physicsMaterial.bounciness = 0.7f;
-
         rb = GetComponent<Rigidbody>();
         sphereCollider = GetComponent<SphereCollider>();
 
         levelController = FindObjectOfType<LevelController>();
 
+        magnetActive = false;
+        bouncyActive = false;
+        physicsMaterial.bounciness = 0.7f;
+
         scrollArea = levelController.scrollArea;
         joystick = levelController.joystick;
+
+        toXRotation = xRotationOffset;
+        toYRotation = 0;
+        toZRotation = 0;
 
     }
 
@@ -96,7 +90,7 @@ public class Tilting : MonoBehaviour
     {
         if (levelController.levelState == "InGame")
         {
-            Move();
+            Move(); // Apply force
         }
 
     }
@@ -133,7 +127,7 @@ public class Tilting : MonoBehaviour
                         TiltByKeyboard();
                         break;
                 }
-                UpdateCamera();
+                //UpdateCamera();
                 break;
             case "Winning":
                 PanWinning();
@@ -143,6 +137,17 @@ public class Tilting : MonoBehaviour
                 break;
         }
 
+
+    }
+
+    private void LateUpdate()
+    {
+        switch (levelController.levelState)
+        {
+            case "InGame":
+                UpdateCamera();
+                break;
+        }
     }
 
     protected virtual void TiltByKeyboard()

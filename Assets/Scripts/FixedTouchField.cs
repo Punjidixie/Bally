@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿// TOOK THIS FROM https://gist.github.com/ditzel/0257d74a7a04626efce7bd1f7a6cfaa0
+// Punji thanks you.
+
+using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class FixedTouchField : MonoBehaviour, IPointerDownHandler, IPointerUpHandler

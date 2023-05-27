@@ -51,16 +51,6 @@ public class LevelController : MonoBehaviour
 
     //win panel
     public WinPanel winPanel;
-    //public GameObject winPanel;
-    //public TMP_Text winningMessage;
-    //public TMP_Text timeTakenText;
-    //public TMP_Text timeTakenTextMs;
-    //public TMP_Text crystalsWinText;
-    //public GameObject winStar1;
-    //public GameObject winStar2;
-    //public GameObject winStar3;
-    //public Text bestTimeMessage;
-    //public Text bestCrystalMessage;
 
     //lose panel
     public GameObject losePanel;

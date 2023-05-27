@@ -26,9 +26,11 @@ public class SkyCamera : MonoBehaviour
                 case "Winning":
                 case "Losing":
                 case "End":
+                    // If not tilted, the main camera defauts to ball.xRotationOffset.
                     transform.rotation = Quaternion.Euler(ball.xRotationOffset, Camera.main.transform.eulerAngles.y, 0);
                     break;
                 default:
+                    // Sky camera and main camera should sync up, unless while tilted.
                     transform.rotation = Camera.main.transform.rotation;
                     break;
                 
