@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/LVS/L4-Uplifting.unity
+- path: Assets/Scenes/AfterLVS/AL2-Up.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
