@@ -52,69 +52,66 @@
     <UnityBuildTarget>iOS:9</UnityBuildTarget>
     <UnityVersion>2020.3.12f1</UnityVersion>
   </PropertyGroup>
-  <PropertyGroup>
-    <CodeAnalysisRuleSet></CodeAnalysisRuleSet>
-  </PropertyGroup>
   <ItemGroup>
     <Analyzer Include="/Applications/Visual Studio.app/Contents/Resources/lib/monodevelop/AddIns/MonoDevelop.Unity/Analyzers/Microsoft.Unity.Analyzers.dll" />
-    <Analyzer Include="Assets/Plugins/UDP/UDP.dll" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets/Third Party Stuffs/Joystick Pack/Scripts/Joysticks/DynamicJoystick.cs" />
     <Compile Include="Assets/Scripts/Scriptable Objects/LevelSetSCO.cs" />
     <Compile Include="Assets/Third Party Stuffs/PlayerPrefsEditor/SimpleEncryption.cs" />
     <Compile Include="Assets/Third Party Stuffs/PlayerPrefsEditor/PlayerPrefsUtility.cs" />
-    <Compile Include="Assets/Scripts/CameraScript.cs" />
-    <Compile Include="Assets/Scripts/SwitchAction.cs" />
+    <Compile Include="Assets/Scripts/Experimental/CameraScript.cs" />
+    <Compile Include="Assets/Scripts/Movement Automation/SwitchAction.cs" />
     <Compile Include="Assets/Third Party Stuffs/Joystick Pack/Scripts/Base/Joystick.cs" />
     <Compile Include="Assets/Scripts/Simple/SimpleController.cs" />
     <Compile Include="Assets/Scripts/Simple/SimpleTilting.cs" />
-    <Compile Include="Assets/Scripts/Crystal.cs" />
+    <Compile Include="Assets/Scripts/Collectibles/Crystal.cs" />
     <Compile Include="Assets/Scripts/Level Select/LevelButtonsScroller.cs" />
     <Compile Include="Assets/Third Party Stuffs/Joystick Pack/Scripts/Joysticks/FixedJoystick.cs" />
     <Compile Include="Assets/Scripts/Simple/Beta/BetaSelTilting.cs" />
-    <Compile Include="Assets/Scripts/RotatingMovement.cs" />
+    <Compile Include="Assets/Scripts/Movement Automation/RotatingMovement.cs" />
     <Compile Include="Assets/Third Party Stuffs/Joystick Pack/Scripts/Joysticks/VariableJoystick.cs" />
-    <Compile Include="Assets/Scripts/OscillatingMovement.cs" />
+    <Compile Include="Assets/Scripts/Movement Automation/OscillatingMovement.cs" />
     <Compile Include="Assets/Scripts/Save System/JsonHelper.cs" />
-    <Compile Include="Assets/Scripts/LevelController.cs" />
+    <Compile Include="Assets/Scripts/Ingame Controllers/LevelController.cs" />
     <Compile Include="Assets/Scripts/Simple/Beta/BetaStartController.cs" />
-    <Compile Include="Assets/Scripts/FixedTouchField.cs" />
+    <Compile Include="Assets/Scripts/Ingame Controllers/FixedTouchField.cs" />
     <Compile Include="Assets/Third Party Stuffs/Simple Scroll-Snap/Examples/Example 3 (Slot Machine)/Scripts/SlotMachine.cs" />
-    <Compile Include="Assets/Scripts/UI/WinPanel.cs" />
-    <Compile Include="Assets/Scripts/Switch.cs" />
-    <Compile Include="Assets/Scripts/SkyCamera.cs" />
-    <Compile Include="Assets/Scripts/Bouncy.cs" />
+    <Compile Include="Assets/Scripts/Ingame UI/WinPanel.cs" />
+    <Compile Include="Assets/Scripts/Game Mechanics/Switch.cs" />
+    <Compile Include="Assets/Scripts/Ingame Controllers/SkyCamera.cs" />
+    <Compile Include="Assets/Scripts/Collectibles/Bouncy.cs" />
     <Compile Include="Assets/Third Party Stuffs/Planar_Reflection_ILK/PlanarRealtimeReflection.cs" />
     <Compile Include="Assets/Third Party Stuffs/Simple Scroll-Snap/Examples/Example 6 (3D Shape Selection)/Scripts/Rotator.cs" />
     <Compile Include="Assets/Third Party Stuffs/Simple Scroll-Snap/Examples/Example 1 (macOS Finder)/Scripts/FileSelected.cs" />
     <Compile Include="Assets/Scripts/Level Select/LevelSelectController.cs" />
     <Compile Include="Assets/Third Party Stuffs/Joystick Pack/Examples/JoystickSetterExample.cs" />
     <Compile Include="Assets/Scripts/Simple/Beta/BetaSelController.cs" />
-    <Compile Include="Assets/Scripts/GoodCube.cs" />
-    <Compile Include="Assets/Scripts/JustRotate.cs" />
+    <Compile Include="Assets/Scripts/Game Mechanics/GoodCube.cs" />
+    <Compile Include="Assets/Scripts/Movement Automation/JustRotate.cs" />
     <Compile Include="Assets/Scripts/Simple/Beta/BetaStartOscillation.cs" />
-    <Compile Include="Assets/Scripts/DefaultSettings.cs" />
-    <Compile Include="Assets/Scripts/MagneticField.cs" />
+    <Compile Include="Assets/Scripts/Game Mechanics/Breakable.cs" />
+    <Compile Include="Assets/Scripts/Save System/DefaultSettings.cs" />
+    <Compile Include="Assets/Scripts/Game Mechanics/MagneticField.cs" />
     <Compile Include="Assets/Scripts/Scriptable Objects/LevelSCO.cs" />
-    <Compile Include="Assets/Scripts/Tilting.cs" />
+    <Compile Include="Assets/Scripts/Ingame Controllers/Tilting.cs" />
     <Compile Include="Assets/Scripts/Level Select/LevelSelectPage.cs" />
-    <Compile Include="Assets/Scripts/UserSettings.cs" />
-    <Compile Include="Assets/Scripts/UI/StatusEffectTracker.cs" />
+    <Compile Include="Assets/Scripts/Save System/UserSettings.cs" />
+    <Compile Include="Assets/Scripts/Ingame UI/StatusEffectTracker.cs" />
     <Compile Include="Assets/Third Party Stuffs/Simple Scroll-Snap/Examples/Shared Resources/Scripts/ExpandInformation.cs" />
     <Compile Include="Assets/Third Party Stuffs/Joystick Pack/Scripts/Joysticks/FloatingJoystick.cs" />
-    <Compile Include="Assets/Freeball.cs" />
+    <Compile Include="Assets/Scripts/Experimental/Freeball.cs" />
     <Compile Include="Assets/Third Party Stuffs/Simple Scroll-Snap/Examples/Example 5 (Dynamic Content)/Scripts/DynamicContentController.cs" />
-    <Compile Include="Assets/Scripts/UI/CrystalTracker.cs" />
+    <Compile Include="Assets/Scripts/Ingame UI/CrystalTracker.cs" />
     <Compile Include="Assets/Third Party Stuffs/Simple Scroll-Snap/Scripts/Runtime/TransitionEffect.cs" />
     <Compile Include="Assets/Third Party Stuffs/Joystick Pack/Examples/JoystickPlayerExample.cs" />
     <Compile Include="Assets/Scripts/Save System/LevelRecord.cs" />
-    <Compile Include="Assets/Scripts/Magnet.cs" />
-    <Compile Include="Assets/Scripts/TopManager.cs" />
-    <Compile Include="Assets/Scripts/UI/LevelEndButtons.cs" />
-    <Compile Include="Assets/Scripts/InsideBall.cs" />
+    <Compile Include="Assets/Scripts/Collectibles/Magnet.cs" />
+    <Compile Include="Assets/Scripts/Ingame Controllers/TopManager.cs" />
+    <Compile Include="Assets/Scripts/Ingame UI/LevelEndButtons.cs" />
+    <Compile Include="Assets/Scripts/Experimental/InsideBall.cs" />
     <Compile Include="Assets/Third Party Stuffs/Simple Scroll-Snap/Scripts/Runtime/SimpleScrollSnap.cs" />
-    <Compile Include="Assets/Scripts/CenterOfMassSetter.cs" />
+    <Compile Include="Assets/Scripts/Experimental/CenterOfMassSetter.cs" />
     <Compile Include="Assets/Scripts/Save System/AllRecord.cs" />
     <Compile Include="Assets/Scripts/Level Select/LevelButton.cs" />
   </ItemGroup>

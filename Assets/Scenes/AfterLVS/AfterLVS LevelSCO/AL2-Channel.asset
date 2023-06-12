@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a10fc184b0e7466185cbe34c7124a8f, type: 3}
   m_Name: AL2-Channel
   m_EditorClassIdentifier: 
-  sceneName: AL2-Channel
+  sceneName: AL2-Channels

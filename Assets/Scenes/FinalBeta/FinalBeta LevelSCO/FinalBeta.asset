@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27f0810a9eea343029a5fe8ee9e5369f, type: 3}
   m_Name: FinalBeta
   m_EditorClassIdentifier: 
-  setName: some sort of european town
+  setName: Autumn in Mapletown
   setId: FinalBeta
   consececutiveUnlock: 1
   requiredStars: 60
@@ -24,3 +24,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5c649c9c518074b48b81cdc3c39a31e6, type: 2}
   - {fileID: 11400000, guid: 993a2eec6f9924f108bf4d76f88e5bb2, type: 2}
   - {fileID: 11400000, guid: e842ced105a9545a58d45e1db62379a6, type: 2}
+  - {fileID: 11400000, guid: b9a60aedd813f488f9c5fc6c20e31a4c, type: 2}
+  - {fileID: 11400000, guid: 1916cd4a530014b1bbb5ffc5cd39298e, type: 2}
+  - {fileID: 11400000, guid: da1b2bc85fd494b59a40eeb86589edaa, type: 2}
+  - {fileID: 11400000, guid: 74566f051812145b4a9bb7496f55bee8, type: 2}
+  - {fileID: 11400000, guid: ede48f038e09c4601a702cb73807850a, type: 2}
+  - {fileID: 11400000, guid: 38748313794c5495dbdaddb31a82cda9, type: 2}
+  - {fileID: 11400000, guid: 483faeb9de69543f0b5302ef2d011970, type: 2}
+  - {fileID: 11400000, guid: 2550bd22066544ee982ae73abac0f8c2, type: 2}

@@ -76,13 +76,15 @@ public class LevelSelectController : MonoBehaviour
     //Called from clicking on the middle of a page (invisible huge button)
     public void BringUpLevelButtonScroller(LevelSetSCO levelSetSCO)
     {
-        //Movement stuffs
+        //Animations
         scrollSnap.GetComponent<Animator>().SetTrigger("MakeWay");
         scrollSnap.GetComponent<Animator>().ResetTrigger("ComeBack");
         scrollSnapBlocker.SetActive(true);
 
         levelButtonScroller.GetComponent<Animator>().SetTrigger("ComeIn");
         levelButtonScroller.GetComponent<Animator>().ResetTrigger("ComeOut");
+
+        //This is to scroll it up back to the top every time it comes back.
         levelButtonScroller.GetComponent<ScrollRect>().verticalNormalizedPosition = 1;
 
         backButton.SetActive(true);

@@ -1,0 +1,36 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class JustRotate : MonoBehaviour
+{
+    public bool rotateX, rotateY, rotateZ = false;
+    public bool clockwise;
+    public float period;
+    
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        float toXRotation = transform.localRotation.eulerAngles.x;
+        float toYRotation = transform.localRotation.eulerAngles.y;
+        float toZRotation = transform.localRotation.eulerAngles.z;
+
+        if (rotateX && clockwise) { toXRotation += (Time.fixedDeltaTime / period) * 360; }
+        if (rotateY && clockwise) { toYRotation += (Time.fixedDeltaTime / period) * 360; }
+        if (rotateZ && clockwise) { toZRotation += (Time.fixedDeltaTime / period) * 360; }
+
+        if (rotateX && !clockwise) { toXRotation -= (Time.fixedDeltaTime / period) * 360; }
+        if (rotateY && !clockwise) { toYRotation -= (Time.fixedDeltaTime / period) * 360; }
+        if (rotateZ && !clockwise) { toZRotation -= (Time.fixedDeltaTime / period) * 360; }
+
+        transform.localRotation = Quaternion.Euler(toXRotation, toYRotation, toZRotation);
+    }
+
+
+}

@@ -254,7 +254,7 @@ MonoBehaviour:
     type: 3}
   bounceSound: {fileID: 4397481708012282258, guid: 572c53a45a55949f8a77f574817f85c9,
     type: 3}
-  bounceSoundThreshold: 20
+  bounceSoundThreshold: 1.5
   switchSound: {fileID: 4397481708012282258, guid: afe484dd445ba43748b915e9e1657831,
     type: 3}
   frontTiltAngle: 15

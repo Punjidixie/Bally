@@ -155,4 +155,28 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FinalBeta/FB2-RoundTrip.unity
     guid: 437d46e960dc84bbb96d1f661fe2812a
+  - enabled: 1
+    path: Assets/Scenes/FinalBeta/FB2-DropBounce.unity
+    guid: 8268d9a6cc0fb4d8fb84f57d4db9750e
+  - enabled: 1
+    path: Assets/Scenes/FinalBeta/FB2-Slants.unity
+    guid: a2cbb02480ec34e82987e0885d1b408f
+  - enabled: 1
+    path: Assets/Scenes/FinalBeta/FB2-RoundRobin.unity
+    guid: c9e15582358bb4620b0e8d06ae8b0291
+  - enabled: 1
+    path: Assets/Scenes/FinalBeta/FB3-Break.unity
+    guid: f3f3880a31f754145a690400092a9f8c
+  - enabled: 1
+    path: Assets/Scenes/FinalBeta/FB3-Shake.unity
+    guid: 8a01c7b45138944b4bd52b8000c5d7a9
+  - enabled: 1
+    path: Assets/Scenes/FinalBeta/FB3-BounceBreak.unity
+    guid: 010174dd7ecf7400d966fa9837a878de
+  - enabled: 1
+    path: Assets/Scenes/FinalBeta/FB3-JumpBreak.unity
+    guid: bfdf9f38c05a645fa95339208869ea2f
+  - enabled: 1
+    path: Assets/Scenes/FinalBeta/FB3-Hammer.unity
+    guid: 68aad82957d36465a99bf7c4c5c8c4a8
   m_configObjects: {}
