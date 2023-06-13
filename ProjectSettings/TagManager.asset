@@ -11,6 +11,7 @@ TagManager:
   - Magnet
   - Bouncy
   - Switch
+  - Triggerable
   layers:
   - Default
   - TransparentFX

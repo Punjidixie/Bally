@@ -30,20 +30,11 @@ public class Tilting : MonoBehaviour
     float bouncyTime;
 
     //particles
-    public ParticleSystem coinParticle1;
-    public ParticleSystem coinParticle3;
     public GameObject impulseParticle;
-
-    //crystal sound
-    public GameObject crystalSound;
 
     //bouncy sound
     public GameObject bounceSound;
     public float bounceSoundThreshold;
-
-    //switch sound
-    public GameObject switchSound;
-
 
     //for camera
     protected float toXRotation;
@@ -332,108 +323,85 @@ public class Tilting : MonoBehaviour
         UpdateCamera();
     }
 
+    void AddCrystal(int count)
+    {
+        levelController.crystals += count;
+        levelController.crystalTracker.AddCrystal(count);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         
         if (levelController.levelState == "InGame")
         {
-            switch (other.gameObject.tag)
+            if (other.gameObject.CompareTag("Triggerable"))
             {
-                case "WinBox":
+                Triggerable triggerable = other.gameObject.GetComponent<Triggerable>();
+                Debug.Log(triggerable.triggerType);
+                switch (triggerable.triggerType)
+                {
+                    case TriggerType.WinBox:
 
-                    if (other.gameObject.GetComponent<GoodCube>().active)
-                    {
-                        //Destroy(other.gameObject);
+                        GoodCube cubeComp = triggerable as GoodCube;
 
-                        rb.AddForce(new Vector3(0, 25, 0), ForceMode.VelocityChange);
-
-                        StartCoroutine(levelController.WinRoutine());
-                    }
-                    break;
-
-                case "Crystal":
-
-                    levelController.crystalTracker.AddCrystal(other.gameObject.GetComponent<Crystal>().value);
-                    Destroy(other.gameObject);
-
-                    ParticleSystem particle;
-                    switch (other.gameObject.GetComponent<Crystal>().value)
-                    {
-                        case 1:
-                            particle = Instantiate(coinParticle1, other.transform.position, Quaternion.Euler(-90, 0, 0));
-                            break;
-                        case 3:
-                            particle = Instantiate(coinParticle3, other.transform.position, Quaternion.Euler(-90, 0, 0));
-                            break;
-                        default:
-                            particle = Instantiate(coinParticle1, other.transform.position, Quaternion.Euler(-90, 0, 0));
-                            break;
-
-                    }
-                    
-                    Destroy(particle, 5);
-
-                    GameObject sound = Instantiate(crystalSound);
-                    Destroy(sound, 5);
-
-                    break;
-                case "Switch":
-                    Switch switchScript = other.gameObject.GetComponent<Switch>();
-
-                    if (switchScript.canRetrigger)
-                    {
-                        if (!switchScript.switchOn)
+                        if (cubeComp.active)
                         {
-                            switchScript.TurnOn();
-                        }
-                        else if (switchScript.switchOn)
-                        {
-                            switchScript.TurnOff();
-                        }
-                        GameObject s = Instantiate(switchSound);
-                        Destroy(s, 5);
-                    }
-                    else if (!switchScript.canRetrigger)
-                    {
-                        if (!switchScript.switchOn)
-                        {
-                            GameObject s = Instantiate(switchSound);
-                            Destroy(s, 5);
-                            switchScript.TurnOn();
-                        }
-                    }
-                    
-                    break;
-                case "Magnet":
-                    magnetTime = 0;
-                    magnetMaxTime = other.gameObject.GetComponent<Magnet>().maxTime;
-                    levelController.statusEffectTracker.magnetSlider.maxValue = magnetMaxTime;
-                    levelController.statusEffectTracker.magnetSlider.value = magnetMaxTime;
-                    levelController.statusEffectTracker.magnetTracker.SetActive(true);
-                    levelController.statusEffectTracker.magnetTracker.transform.SetSiblingIndex(0);
+                            rb.AddForce(new Vector3(0, 25, 0), ForceMode.VelocityChange);
 
-                    if (!magnetActive)
-                    {
-                        StartCoroutine(WhileMagnetActive()); 
-                    }
-                    Destroy(other.gameObject);
-                    break;
-                case "Bouncy":
-                    bouncyTime = 0;
-                    bouncyMaxTime = other.gameObject.GetComponent<Bouncy>().maxTime;
-                    levelController.statusEffectTracker.bouncySlider.maxValue = bouncyMaxTime;
-                    levelController.statusEffectTracker.bouncySlider.value = bouncyMaxTime;
-                    levelController.statusEffectTracker.bouncyTracker.SetActive(true);
-                    levelController.statusEffectTracker.bouncyTracker.transform.SetSiblingIndex(0);
+                            StartCoroutine(levelController.WinRoutine());
+                        }
+                        break;
 
-                    if (!bouncyActive)
-                    {
-                        StartCoroutine(WhileBouncyActive());
-                    }
-                    Destroy(other.gameObject);
-                    break;
-                default:
-                    break;
+                    case TriggerType.Crystal:
+
+                        Crystal crystalComp = triggerable as Crystal;
+
+                        AddCrystal(crystalComp.value);
+                        crystalComp.GetCollected();
+
+                        break;
+
+                    case TriggerType.Switch:
+
+                        Switch switchComp = triggerable as Switch;
+
+                        switchComp.TriggerSwitch();
+
+                        break;
+
+                    case TriggerType.Magnet:
+
+                        magnetTime = 0;
+                        magnetMaxTime = other.gameObject.GetComponent<Magnet>().maxTime;
+                        levelController.statusEffectTracker.magnetSlider.maxValue = magnetMaxTime;
+                        levelController.statusEffectTracker.magnetSlider.value = magnetMaxTime;
+                        levelController.statusEffectTracker.magnetTracker.SetActive(true);
+                        levelController.statusEffectTracker.magnetTracker.transform.SetSiblingIndex(0);
+
+                        if (!magnetActive)
+                        {
+                            StartCoroutine(WhileMagnetActive());
+                        }
+                        Destroy(other.gameObject);
+                        break;
+
+                    case TriggerType.Bouncy:
+                        bouncyTime = 0;
+                        bouncyMaxTime = other.gameObject.GetComponent<Bouncy>().maxTime;
+                        levelController.statusEffectTracker.bouncySlider.maxValue = bouncyMaxTime;
+                        levelController.statusEffectTracker.bouncySlider.value = bouncyMaxTime;
+                        levelController.statusEffectTracker.bouncyTracker.SetActive(true);
+                        levelController.statusEffectTracker.bouncyTracker.transform.SetSiblingIndex(0);
+
+                        if (!bouncyActive)
+                        {
+                            StartCoroutine(WhileBouncyActive());
+                        }
+                        Destroy(other.gameObject);
+                        break;
+                    default:
+                        break;
+                }
             }
         }
         

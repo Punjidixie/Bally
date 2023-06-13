@@ -86,7 +86,7 @@ public class CrystalTracker : MonoBehaviour
 
     public void AddCrystal(int count)
     {
-        int newCount = levelController.crystals + count;
+        int newCount = levelController.crystals;
         if (newCount >= levelController.reqCrystal1 && stars < 1)
         {
             foreach (GameObject winBox in GameObject.FindGameObjectsWithTag("WinBox"))
@@ -128,7 +128,6 @@ public class CrystalTracker : MonoBehaviour
             slider.value = levelController.crystals;
         }
         
-        levelController.crystals += count;
         crystalText.text = levelController.crystals.ToString();
         crystalText.gameObject.GetComponent<Animator>().SetTrigger("Boop");
 

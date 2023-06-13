@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bouncy : MonoBehaviour
+public class Bouncy : Triggerable
 {
     public int maxTime;
 
@@ -11,6 +11,9 @@ public class Bouncy : MonoBehaviour
     float angularVelocity;
     float timePassed;
     Vector3 startingPosition;
+
+    // Inherit TriggerType
+    public Bouncy() { triggerType = TriggerType.Bouncy; }
     // Start is called before the first frame update
     void Start()
     {

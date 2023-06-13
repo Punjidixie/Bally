@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Magnet : MonoBehaviour
+public class Magnet : Triggerable
 {
     public int maxTime;
 
@@ -11,6 +11,10 @@ public class Magnet : MonoBehaviour
     float angularVelocity;
     float timePassed;
     Vector3 startingPosition;
+
+    // Inherit TriggerType
+    public Magnet() { triggerType = TriggerType.Magnet; }
+
     // Start is called before the first frame update
     void Start()
     {

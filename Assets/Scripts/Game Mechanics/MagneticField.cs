@@ -29,7 +29,7 @@ public class MagneticField : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Crystal")
+        if (other.gameObject.GetComponent<Crystal>())
         {
             crystalsInEffect.Add(other.gameObject);
         }
@@ -37,7 +37,7 @@ public class MagneticField : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.tag == "Crystal")
+        if (other.gameObject.GetComponent<Crystal>())
         {
            
             Vector3 direction = transform.position - other.gameObject.transform.position;
@@ -57,7 +57,7 @@ public class MagneticField : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Crystal")
+        if (other.gameObject.GetComponent<Crystal>())
         {
             other.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
             crystalsInEffect.Remove(other.gameObject);

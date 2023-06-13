@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GoodCube : MonoBehaviour
+public class GoodCube : Triggerable
 {
 
     public GameObject winLight;
@@ -16,7 +16,10 @@ public class GoodCube : MonoBehaviour
     Vector3 startingPosition;
 
     LevelController levelController;
-    
+
+    // Inherit TriggerType
+    public GoodCube() { triggerType = TriggerType.WinBox; }
+
     // Start is called before the first frame update
     void Start()
     {

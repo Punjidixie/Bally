@@ -10,6 +10,8 @@ public class SwitchAction : MonoBehaviour
     public float moveTime;
     public float startDelayTime;
 
+    public bool onlyOnce = true;
+
     Vector3 startPosition;
     Quaternion startRotation;
     Rigidbody rb;
@@ -31,7 +33,7 @@ public class SwitchAction : MonoBehaviour
 
     public void Move()
     {
-        if (!moved)
+        if (!moved || !onlyOnce)
         {
             moved = true;
             StartCoroutine(MoveRoutine());
@@ -39,7 +41,7 @@ public class SwitchAction : MonoBehaviour
     }
     public void MoveSine()
     {
-        if (!moved)
+        if (!moved || !onlyOnce)
         {
             moved = true;
             StartCoroutine(MoveSineRoutine());

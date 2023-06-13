@@ -2942,7 +2942,7 @@ GameObject:
   - component: {fileID: 1360130229769217720}
   m_Layer: 0
   m_Name: Switch
-  m_TagString: Switch
+  m_TagString: Triggerable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2989,6 +2989,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f71362444481c47eba8387ab20dc8a9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  triggerType: 5
   canRetrigger: 0
   switchOn: 0
   onSwitchOn:
@@ -3005,6 +3006,8 @@ MonoBehaviour:
   spotlight: {fileID: 1360130228437812339}
   onMaterial: {fileID: 2100000, guid: 599fb151eca2d48e1a835a3eb5ae668a, type: 2}
   offMaterial: {fileID: 2100000, guid: a998f5b7fa6f04b1d915e7934abd61ba, type: 2}
+  switchSound: {fileID: 4397481708012282258, guid: afe484dd445ba43748b915e9e1657831,
+    type: 3}
 --- !u!1 &1360130230090044511
 GameObject:
   m_ObjectHideFlags: 0

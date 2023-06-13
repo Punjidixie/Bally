@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8960346547549934465}
   m_Layer: 0
   m_Name: CrystalV1
-  m_TagString: Crystal
+  m_TagString: Triggerable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46,7 +46,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bb69422f4d414389b0327b0b4b9ee4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  triggerType: 0
   value: 1
+  collectParticles: {fileID: 7884611121167879072, guid: a5b8a4b0983fe48df822bed4c814c5c0,
+    type: 3}
+  collectSound: {fileID: 4982908729633609493, guid: 7dff9c2ed926f47ef97c649af8a923bb,
+    type: 3}
 --- !u!135 &4325983830070104334
 SphereCollider:
   m_ObjectHideFlags: 0

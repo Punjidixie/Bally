@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Switch : MonoBehaviour
+public class Switch : Triggerable
 {
 
     public bool canRetrigger;
@@ -23,11 +23,16 @@ public class Switch : MonoBehaviour
     public Material onMaterial;
     public Material offMaterial;
 
+    public GameObject switchSound;
+
     float transitionTime;
     float conesTiltAngle;
     //float spotlightHighIntensity;
     //float spotlightLowIntensity;
-    
+
+    // Inherit TriggerType
+    public Switch() { triggerType = TriggerType.Switch; }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +47,34 @@ public class Switch : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void TriggerSwitch()
+    {
+        if (canRetrigger)
+        {
+            if (!switchOn)
+            {
+                TurnOn();
+            }
+
+            else
+            {
+                TurnOff();
+            }
+
+            GameObject s = Instantiate(switchSound);
+            Destroy(s, 5);
+        }
+        else if (!canRetrigger)
+        {
+            if (!switchOn)
+            {
+                TurnOn();
+                GameObject s = Instantiate(switchSound);
+                Destroy(s, 5);
+            }
+        }
     }
 
     public void TurnOn()
@@ -79,9 +112,6 @@ public class Switch : MonoBehaviour
             //l.intensity = Mathf.Lerp(spotlightLowIntensity, spotlightHighIntensity, t / transitionTime);
             yield return null;
         }
-
-        
-
     }
 
     IEnumerator ArchDownCoroutine()
