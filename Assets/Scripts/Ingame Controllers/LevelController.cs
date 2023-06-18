@@ -87,7 +87,7 @@ public class LevelController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //PlayerPrefs.DeleteAll();
+        //The FPS is not used here. It will always be default if not run from the level select.
         UserSettings.CheckDefaults();
 
         Time.timeScale = 1;
@@ -109,10 +109,10 @@ public class LevelController : MonoBehaviour
 
         if (reqCrystal1 == 0)
         {
-            foreach (GameObject winBox in GameObject.FindGameObjectsWithTag("WinBox"))
+            foreach (GoodCube winBox in FindObjectsOfType<GoodCube>())
             {
-                winBox.GetComponent<GoodCube>().active = true;
-                winBox.GetComponent<GoodCube>().winLight.SetActive(true);
+                winBox.active = true;
+                winBox.winLight.SetActive(true);
             }
         }
 
@@ -254,8 +254,6 @@ public class LevelController : MonoBehaviour
     
     public IEnumerator WinRoutine() //called from Tilting.cs, setup for Winning state
     {
-        
-        PlayerPrefs.SetInt(setName + levelNumber + "Completed", 1);
         
         levelState = "Winning";
         

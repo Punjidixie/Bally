@@ -337,7 +337,6 @@ public class Tilting : MonoBehaviour
             if (other.gameObject.CompareTag("Triggerable"))
             {
                 Triggerable triggerable = other.gameObject.GetComponent<Triggerable>();
-                Debug.Log(triggerable.triggerType);
                 switch (triggerable.triggerType)
                 {
                     case TriggerType.WinBox:
@@ -369,36 +368,49 @@ public class Tilting : MonoBehaviour
 
                         break;
 
-                    case TriggerType.Magnet:
+                    //Status effects
+                    case TriggerType.StatusEffectObject:
 
-                        magnetTime = 0;
-                        magnetMaxTime = other.gameObject.GetComponent<Magnet>().maxTime;
-                        levelController.statusEffectTracker.magnetSlider.maxValue = magnetMaxTime;
-                        levelController.statusEffectTracker.magnetSlider.value = magnetMaxTime;
-                        levelController.statusEffectTracker.magnetTracker.SetActive(true);
-                        levelController.statusEffectTracker.magnetTracker.transform.SetSiblingIndex(0);
+                        StatusEffectObject statComp = triggerable as StatusEffectObject;
 
-                        if (!magnetActive)
+                        switch (statComp.statusEffectType)
                         {
-                            StartCoroutine(WhileMagnetActive());
-                        }
-                        Destroy(other.gameObject);
-                        break;
+                            case StatusEffectType.Magnet:
 
-                    case TriggerType.Bouncy:
-                        bouncyTime = 0;
-                        bouncyMaxTime = other.gameObject.GetComponent<Bouncy>().maxTime;
-                        levelController.statusEffectTracker.bouncySlider.maxValue = bouncyMaxTime;
-                        levelController.statusEffectTracker.bouncySlider.value = bouncyMaxTime;
-                        levelController.statusEffectTracker.bouncyTracker.SetActive(true);
-                        levelController.statusEffectTracker.bouncyTracker.transform.SetSiblingIndex(0);
+                                magnetTime = 0;
+                                magnetMaxTime = other.gameObject.GetComponent<Magnet>().maxTime;
+                                levelController.statusEffectTracker.magnetSlider.maxValue = magnetMaxTime;
+                                levelController.statusEffectTracker.magnetSlider.value = magnetMaxTime;
+                                levelController.statusEffectTracker.magnetTracker.SetActive(true);
+                                levelController.statusEffectTracker.magnetTracker.transform.SetSiblingIndex(0);
 
-                        if (!bouncyActive)
-                        {
-                            StartCoroutine(WhileBouncyActive());
+                                if (!magnetActive)
+                                {
+                                    StartCoroutine(WhileMagnetActive());
+                                }
+                                Destroy(other.gameObject);
+                                break;
+
+                            case StatusEffectType.Bouncy:
+                                bouncyTime = 0;
+                                bouncyMaxTime = other.gameObject.GetComponent<Bouncy>().maxTime;
+                                levelController.statusEffectTracker.bouncySlider.maxValue = bouncyMaxTime;
+                                levelController.statusEffectTracker.bouncySlider.value = bouncyMaxTime;
+                                levelController.statusEffectTracker.bouncyTracker.SetActive(true);
+                                levelController.statusEffectTracker.bouncyTracker.transform.SetSiblingIndex(0);
+
+                                if (!bouncyActive)
+                                {
+                                    StartCoroutine(WhileBouncyActive());
+                                }
+                                Destroy(other.gameObject);
+                                break;
+
+                            default:
+                                break;
                         }
-                        Destroy(other.gameObject);
                         break;
+                    
                     default:
                         break;
                 }

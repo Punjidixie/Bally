@@ -11,7 +11,7 @@ public static class UserSettings
     static Dictionary<string, string> defaultStr = new Dictionary<string, string>() {
 
         ["MovementMode"] = "Joystick",
-        ["CameraMode"] = "Manual"
+        ["CameraMode"] = "Manual",
 
     };
 
@@ -19,7 +19,8 @@ public static class UserSettings
     {
 
         ["MouseSensitivity"] = 10f,
-        ["DragSensitivity"] = 0.6f
+        ["DragSensitivity"] = 0.3f,
+        ["FPS"] = -1f
 
     };
 
@@ -28,6 +29,7 @@ public static class UserSettings
         tiltCalibration = Input.acceleration;
     }
 
+    // Check player prefs, set default value if key not present
     public static void CheckDefaults()
     {
 

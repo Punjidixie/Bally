@@ -89,10 +89,10 @@ public class CrystalTracker : MonoBehaviour
         int newCount = levelController.crystals;
         if (newCount >= levelController.reqCrystal1 && stars < 1)
         {
-            foreach (GameObject winBox in GameObject.FindGameObjectsWithTag("WinBox"))
+            foreach (GoodCube winBox in FindObjectsOfType<GoodCube>())
             {
-                winBox.GetComponent<GoodCube>().active = true;
-                winBox.GetComponent<GoodCube>().winLight.SetActive(true);
+                winBox.active = true;
+                winBox.winLight.SetActive(true);
             }
             star1.GetComponent<Image>().color = Color.yellow;
             text1.color = brown;

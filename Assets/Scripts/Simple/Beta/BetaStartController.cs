@@ -8,6 +8,7 @@ public class BetaStartController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Application.targetFrameRate = (int)PlayerPrefs.GetFloat("FPS", -1);
         Time.timeScale = 1;
         
     }

@@ -13,7 +13,6 @@ public enum TriggerType
     Crystal,
     WinBox,
     Switch,
-    Magnet,
-    Bouncy,
+    StatusEffectObject,
     None
 }

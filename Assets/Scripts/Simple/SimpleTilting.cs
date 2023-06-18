@@ -37,15 +37,19 @@ public class SimpleTilting : Tilting
                 TiltByKeyboard();
                 break;
         }
-        UpdateCamera();
+        //UpdateCamera();
     }
 
     private void FixedUpdate()
     {
         rb.AddForce(frontForce, ForceMode.Acceleration);
         rb.AddForce(sidewayForce, ForceMode.Acceleration);
-
     }
 
-    
+    private void LateUpdate()
+    {
+        UpdateCamera();
+    }
+
+
 }

@@ -14,6 +14,7 @@ public class SimpleController : MonoBehaviour
     public GameObject calibrateButton;
     public Dropdown dropdown;
     public Dropdown dropdown2;
+    public Dropdown dropdown3;
 
     public Slider mouseSensitivitySlider;
     public GameObject mouseSensitivityObj;
@@ -85,6 +86,19 @@ public class SimpleController : MonoBehaviour
                 dropdown2.value = 0;
                 break;
         }
+
+        Dictionary<float, int> fpsDict = new Dictionary<float, int>()
+        {
+
+            [-1f] = 0,
+            [30f] = 1,
+            [60f] = 2,
+            [120f] = 3
+
+        };
+        Application.targetFrameRate = (int)PlayerPrefs.GetFloat("FPS");
+        dropdown3.value = fpsDict[PlayerPrefs.GetFloat("FPS")];
+        
     }
 
     public void ChangeDragSensitivity(float s)
@@ -130,6 +144,13 @@ public class SimpleController : MonoBehaviour
                 ToManualCam();
                 break;
         }
+    }
+
+    public void SetFPS(int i)
+    {
+        int[] fpsArray = { -1, 30, 60, 120 };
+        PlayerPrefs.SetFloat("FPS", fpsArray[i]);
+        Application.targetFrameRate = fpsArray[i];
     }
 
     public void ToAutoCam()

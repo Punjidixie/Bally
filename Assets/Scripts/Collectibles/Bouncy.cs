@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bouncy : Triggerable
+public class Bouncy : StatusEffectObject
 {
-    public int maxTime;
-
     float amplitude;
     float period;
     float angularVelocity;
@@ -13,7 +11,7 @@ public class Bouncy : Triggerable
     Vector3 startingPosition;
 
     // Inherit TriggerType
-    public Bouncy() { triggerType = TriggerType.Bouncy; }
+    public Bouncy() { statusEffectType = StatusEffectType.Bouncy; }
     // Start is called before the first frame update
     void Start()
     {

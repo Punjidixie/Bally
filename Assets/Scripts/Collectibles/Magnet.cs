@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Magnet : Triggerable
+public class Magnet : StatusEffectObject
 {
-    public int maxTime;
-
     float amplitude;
     float period;
     float angularVelocity;
@@ -13,7 +11,7 @@ public class Magnet : Triggerable
     Vector3 startingPosition;
 
     // Inherit TriggerType
-    public Magnet() { triggerType = TriggerType.Magnet; }
+    public Magnet() { statusEffectType = StatusEffectType.Magnet; }
 
     // Start is called before the first frame update
     void Start()
