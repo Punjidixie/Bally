@@ -244,19 +244,11 @@ MonoBehaviour:
   magneticField: {fileID: 126296893199625525}
   bouncyBubble: {fileID: 2839223915965799004}
   physicsMaterial: {fileID: 13400000, guid: 892ece3497a28453dade223ce305dfc0, type: 2}
-  coinParticle1: {fileID: 5478678969964588052, guid: a5b8a4b0983fe48df822bed4c814c5c0,
-    type: 3}
-  coinParticle3: {fileID: 7823568668799692536, guid: e5cc32df7c189482f9635f7d0843350c,
-    type: 3}
   impulseParticle: {fileID: 841444000747576592, guid: 12116ba175c074d52b878725195a96c4,
-    type: 3}
-  crystalSound: {fileID: 4982908729633609493, guid: 7dff9c2ed926f47ef97c649af8a923bb,
     type: 3}
   bounceSound: {fileID: 4397481708012282258, guid: 572c53a45a55949f8a77f574817f85c9,
     type: 3}
   bounceSoundThreshold: 1.5
-  switchSound: {fileID: 4397481708012282258, guid: afe484dd445ba43748b915e9e1657831,
-    type: 3}
   frontTiltAngle: 15
   sideTiltAngle: 20
   heightToCamera: 0.5
