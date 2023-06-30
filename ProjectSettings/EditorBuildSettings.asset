@@ -179,4 +179,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FinalBeta/FB3-Hammer.unity
     guid: 68aad82957d36465a99bf7c4c5c8c4a8
+  - enabled: 1
+    path: Assets/Scenes/FinalBeta/FB4-Infinity.unity
+    guid: 38fa912476f134015b568317509bac98
+  - enabled: 1
+    path: Assets/Scenes/FinalBeta/FB4-Tailgate.unity
+    guid: e0f90545a250c445bb779560fa36286f
+  - enabled: 1
+    path: Assets/Scenes/FinalBeta/FB4-Ricochet.unity
+    guid: 4ace5e28c31af42ce9d0abf9029d6deb
+  - enabled: 1
+    path: Assets/Scenes/FinalBeta/FB4-Levitate.unity
+    guid: 4cc87b2c23f314feb8b963ee4576fb74
   m_configObjects: {}
