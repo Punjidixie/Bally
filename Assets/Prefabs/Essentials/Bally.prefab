@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9024191351918687025}
   - component: {fileID: 8947873497787315178}
   - component: {fileID: 5579109033320989436}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bouncy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 4448983468704452474}
   - component: {fileID: 7967306010620167883}
   - component: {fileID: 8178904722164777687}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wood Ball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -174,7 +174,7 @@ GameObject:
   - component: {fileID: 5461478641696643593}
   - component: {fileID: 5461478641696643605}
   - component: {fileID: 5461478641696643604}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bally
   m_TagString: Bally
   m_Icon: {fileID: 0}
@@ -241,10 +241,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forceSize: 5.75
+  body: {fileID: 5041379639012984979}
   magneticField: {fileID: 126296893199625525}
   bouncyBubble: {fileID: 2839223915965799004}
   physicsMaterial: {fileID: 13400000, guid: 892ece3497a28453dade223ce305dfc0, type: 2}
   impulseParticle: {fileID: 841444000747576592, guid: 12116ba175c074d52b878725195a96c4,
+    type: 3}
+  destructionParticle: {fileID: 4176685536605880082, guid: e5a45326edc13434d8aca2d1325c26fb,
     type: 3}
   bounceSound: {fileID: 4397481708012282258, guid: 572c53a45a55949f8a77f574817f85c9,
     type: 3}
@@ -267,7 +270,7 @@ GameObject:
   - component: {fileID: 2934767770605679426}
   - component: {fileID: 1133269850888631989}
   - component: {fileID: 3151464893340421065}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6199,6 +6202,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5197078542165096412, guid: fc4214967515f47379783c072b1ed80f,
         type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5197078542165096412, guid: fc4214967515f47379783c072b1ed80f,
+        type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -6207,6 +6215,11 @@ PrefabInstance:
       propertyPath: owner
       value: 
       objectReference: {fileID: 5461478641696643598}
+    - target: {fileID: 8042795737259033919, guid: fc4214967515f47379783c072b1ed80f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2999914071321459643, guid: fc4214967515f47379783c072b1ed80f, type: 3}
     - {fileID: 7239673428765457436, guid: fc4214967515f47379783c072b1ed80f, type: 3}

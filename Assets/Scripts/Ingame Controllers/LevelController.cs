@@ -372,7 +372,7 @@ public class LevelController : MonoBehaviour
 
         levelState = "End";
         losePanel.SetActive(true);
-        losingMessage.text = "Time's up";
+        losingMessage.text = "Out of time...";
         tilting.GetComponent<Tilting>().UpdateCamera();
         Time.timeScale = 0;
        
@@ -387,9 +387,25 @@ public class LevelController : MonoBehaviour
 
         levelState = "Losing";
         losePanel.SetActive(true);
-        losingMessage.text = "Fall out";
+        losingMessage.text = "Fall out...";
 
         yield return new WaitForSecondsRealtime(2f);
+        tilting.GetComponent<Tilting>().UpdateCamera();
+        Time.timeScale = 0;
+        levelState = "End";
+    }
+
+    public IEnumerator DieRoutine()
+    {
+
+        HideEssentials();
+        HideControls();
+
+        levelState = "Losing";
+        losePanel.SetActive(true);
+        losingMessage.text = "Destroyed...";
+
+        yield return new WaitForSecondsRealtime(4f);
         tilting.GetComponent<Tilting>().UpdateCamera();
         Time.timeScale = 0;
         levelState = "End";

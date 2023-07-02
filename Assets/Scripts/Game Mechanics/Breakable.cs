@@ -50,14 +50,20 @@ public class Breakable : MonoBehaviour
                 soundToPlay = breakSound;
                 gameObject.SetActive(false);
 
+                Destroy(gameObject, 5);
+
             }
 
-            GameObject soundInstance = Instantiate(soundToPlay);
-            Destroy(soundInstance, 5);
+            if (soundToPlay)
+            {
+                GameObject soundInstance = Instantiate(soundToPlay);
+                Destroy(soundInstance, 5);
+            }
 
             SpawnParticles(densityMultiplier);
             
         }
+
     }
 
     private void SpawnParticles(float densityMultiplier)
@@ -68,12 +74,14 @@ public class Breakable : MonoBehaviour
             ParticleSystem pc = spawned.GetComponent<ParticleSystem>();
 
             var s = pc.shape;
-            s.meshRenderer = GetComponent<MeshRenderer>();
+            s.meshRenderer = GetComponentInChildren<MeshRenderer>();
 
             var e = pc.emission;
             e.rateOverTime = (particleDensity * densityMultiplier * CalculateSurfaceArea()) / breakParticlesArray.Length;
 
             spawned.SetActive(true);
+
+            Destroy(spawned, 10);
         }
     }
 
@@ -86,7 +94,7 @@ public class Breakable : MonoBehaviour
     // Assisted by ChatGPT, thanks!
     public float CalculateSurfaceArea()
     {
-        Mesh mesh = gameObject.GetComponent<MeshFilter>().mesh;
+        Mesh mesh = gameObject.GetComponentInChildren<MeshFilter>().mesh;
         float surfaceArea = 0f;
 
         for (int i = 0; i < mesh.triangles.Length; i += 3)

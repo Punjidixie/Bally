@@ -16,6 +16,9 @@ public class Tilting : MonoBehaviour
     protected FixedTouchField scrollArea;
     protected Joystick joystick;
 
+    //body
+    public GameObject body;
+
     //magnetic field
     bool magnetActive;
     public GameObject magneticField;
@@ -31,6 +34,7 @@ public class Tilting : MonoBehaviour
 
     //particles
     public GameObject impulseParticle;
+    public GameObject destructionParticle;
 
     //bouncy sound
     public GameObject bounceSound;
@@ -329,6 +333,18 @@ public class Tilting : MonoBehaviour
         levelController.crystalTracker.AddCrystal(count);
     }
 
+    void Die()
+    {
+        sphereCollider.enabled = false;
+        rb.useGravity = false;
+        rb.velocity = Vector3.zero;
+        body.SetActive(false);
+
+        GameObject particles = Instantiate(destructionParticle);
+        particles.transform.position = transform.position;
+        Destroy(particles, 5);
+    } 
+
     private void OnTriggerEnter(Collider other)
     {
         
@@ -366,6 +382,13 @@ public class Tilting : MonoBehaviour
 
                         switchComp.TriggerSwitch();
 
+                        break;
+
+                    // here's where the ball dies lol
+                    case TriggerType.Beam:
+
+                        Die();
+                        StartCoroutine(levelController.DieRoutine());
                         break;
 
                     //Status effects

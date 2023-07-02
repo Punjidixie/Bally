@@ -14,5 +14,6 @@ public enum TriggerType
     WinBox,
     Switch,
     StatusEffectObject,
+    Beam,
     None
 }
