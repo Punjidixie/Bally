@@ -326,13 +326,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   breakThrough: 0
-  breakThreshold: 2
+  breakThreshold: 3
   hp: 1
   breakParticlesArray:
   - {fileID: 8990261509723034616, guid: a2b88c9f2ed414053b0b11695a253162, type: 3}
   - {fileID: 5483249546307176338, guid: 37c84c5929ac74af48d64ca630c911bc, type: 3}
   - {fileID: 768439624950638628, guid: c84b4a05404394097b8ded05b89b8e35, type: 3}
-  particleDensity: 10
+  particleDensity: 20
+  breakType: 0
   breakSound: {fileID: 4397481708012282258, guid: 3d11b9badbe8445edbb7ba6f6c364b2c,
     type: 3}
   crackSound: {fileID: 4397481708012282258, guid: 3d11b9badbe8445edbb7ba6f6c364b2c,

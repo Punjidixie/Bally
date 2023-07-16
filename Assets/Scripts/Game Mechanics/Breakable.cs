@@ -3,6 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.ProBuilder;
 
+// For spawning break particles
+public enum BreakType
+{
+    Rate, // assuming duration = 0.1, particleDensity is rate over time per square meter
+    Burst,
+    Independent
+}
+
 public class Breakable : MonoBehaviour
 {
     public bool breakThrough = false;
@@ -10,7 +18,8 @@ public class Breakable : MonoBehaviour
     public int hp = 1;
 
     public GameObject[] breakParticlesArray;
-    public float particleDensity; // assuming duration = 0.1, here is rate over time per square meter
+    public float particleDensity; 
+    public BreakType breakType = BreakType.Rate;
 
     public GameObject breakSound;
     public GameObject crackSound;
@@ -77,12 +86,28 @@ public class Breakable : MonoBehaviour
             s.meshRenderer = GetComponentInChildren<MeshRenderer>();
 
             var e = pc.emission;
-            e.rateOverTime = (particleDensity * densityMultiplier * CalculateSurfaceArea()) / breakParticlesArray.Length;
 
+            switch (breakType)
+            {
+                case BreakType.Rate:
+                    e.rateOverTime = (particleDensity * densityMultiplier * CalculateSurfaceArea()) / breakParticlesArray.Length;
+                    break;
+                case BreakType.Burst:
+                    e.SetBursts(
+                    new ParticleSystem.Burst[]
+                    {
+                        new ParticleSystem.Burst(0, (particleDensity * densityMultiplier * CalculateSurfaceArea()) / breakParticlesArray.Length)
+                    });
+                    break;
+                default:
+                    break;
+
+            }
             spawned.SetActive(true);
 
             Destroy(spawned, 10);
         }
+            
     }
 
 

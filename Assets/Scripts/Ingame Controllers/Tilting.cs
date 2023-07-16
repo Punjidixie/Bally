@@ -386,7 +386,7 @@ public class Tilting : MonoBehaviour
 
                     // here's where the ball dies lol
                     case TriggerType.Beam:
-
+                        Debug.Log("beamed");
                         Die();
                         StartCoroutine(levelController.DieRoutine());
                         break;
@@ -444,9 +444,7 @@ public class Tilting : MonoBehaviour
     }
     public void OnCollisionEnter(Collision collision)
     {
-
         bool hardHit = Mathf.Abs(Vector3.Dot(collision.impulse.normalized, collision.relativeVelocity)) > bounceSoundThreshold; // dot to prevent the glitch where the flat ground sometimes trigger collision
-
         //This if statement is for sound playing
         if (hardHit)
         {
@@ -482,7 +480,7 @@ public class Tilting : MonoBehaviour
 
     public void OnCollisionStay(Collision collision)
     {
-        SetAngularVelocity(collision);
+        OnCollisionEnter(collision);
 
     }
 

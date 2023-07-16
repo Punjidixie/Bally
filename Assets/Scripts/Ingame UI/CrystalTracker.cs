@@ -28,7 +28,13 @@ public class CrystalTracker : MonoBehaviour
         text1.text = levelController.reqCrystal1.ToString();
         text2.text = levelController.reqCrystal2.ToString();
         text3.text = levelController.reqCrystal3.ToString();
- 
+
+        if (levelController.reqCrystal1 > 100) { text1.fontSize -= (int)(text1.fontSize * 0.2f); }
+        if (levelController.reqCrystal2 > 100) { text2.fontSize -= (int)(text2.fontSize * 0.2f); }
+        if (levelController.reqCrystal3 > 100) { text3.fontSize -= (int)(text3.fontSize * 0.2f); }
+
+
+
         if (levelController.reqCrystal1 == 0)
         {
             foreach (GameObject winBox in GameObject.FindGameObjectsWithTag("WinBox"))

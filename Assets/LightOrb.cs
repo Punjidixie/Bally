@@ -9,11 +9,6 @@ public class LightOrb : MonoBehaviour
 
     bool fullSize = false;
 
-    private void Start()
-    {
-        Destroy(gameObject, 10);
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -32,5 +27,10 @@ public class LightOrb : MonoBehaviour
             sphere.transform.localScale = Vector3.one * s;
         }
         
+    }
+
+    public void Poof()
+    {
+        Destroy(gameObject);
     }
 }

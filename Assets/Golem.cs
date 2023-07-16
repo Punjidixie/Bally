@@ -2,6 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum GolemState
+{
+    Phase0,
+    Phase1,
+    Phase2,
+    Phase3,
+    Phase4,
+    Phase5
+}
+
+// This class contains functions telling the golem what to do. These are called in the animation and GolemAutomation.
 public class Golem : MonoBehaviour
 {
 
@@ -21,82 +32,136 @@ public class Golem : MonoBehaviour
     public GameObject rightEye;
     public GameObject leftEye;
 
+    public GameObject heart;
+
     Tilting theBall;
     Rigidbody rb;
 
-    float boulderBarrageWidth = 11f;
-    float orbBarrageWidth = 16f;
-    float spawnWidth = 20f;
-    float spawnFrontOffset = 8f;
+
+    public float boulderBarrageWidth = 22f;
+    public float orbBarrageWidth = 22f;
+    public float spawnWidth = 20f;
+    public float spawnFrontOffset = 8f;
 
     // If it should look at the player
-    bool looking = true;
+    [HideInInspector] public bool looking = true;
 
     // degrees per second
     public float turnSpeed;
 
     // unturned angle
-    float defaultAngle;
+    [HideInInspector] public float defaultAngle;
 
-    float angleBeforeBeaming;
+    [HideInInspector] public bool freezeRotation = false;
+
+    // for phase 5
+    public bool ringMovement;
+    public float ringSpeed;
+    public float riseSpeed;
+    public float minHeight;
+    public float maxBallHeight;
+    public float radius;
+    public GameObject pivotObject;
+
+
 
     List<GameObject> orbList = new List<GameObject>();
 
-    enum GolemState
-    {
-        Phase1,
-        Phase2,
-        Phase3
-    }
+    public GolemState golemState = GolemState.Phase1;
 
     // Start is called before the first frame update
     void Start()
     {
         theBall = FindObjectOfType<Tilting>();
         rb = GetComponent<Rigidbody>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            looking = !looking;
-        }
+        //if (Input.GetKeyDown(KeyCode.Z))
+        //{
+        //    looking = !looking;
+        //}
 
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            StartCoroutine(MoveSineRoutine(rb.position + Vector3.left * 30f, 10f));
-        }
+        //if (Input.GetKeyDown(KeyCode.X))
+        //{
+        //    StartCoroutine(MoveSineRoutine(rb.position + Vector3.left * 30f, 10f));
+        //}
+
     }
 
     void FixedUpdate()
     {
-        Vector3 targetVec;
+        RotateSelf();
 
-        if (looking)
+    }
+
+    void RotateSelf()
+    {
+        if (!freezeRotation)
         {
-            targetVec = theBall.transform.position - rb.position;
+            Vector3 targetVec = looking ?
+                (theBall.transform.position - rb.position)
+                :
+                GetDefaultFront();
+
+            targetVec.y = 0;
+
+            float angleDifference = Vector3.Angle(GetFront(), targetVec);
+
+            float direction = (Vector3.Cross(GetFront(), targetVec).y > 0) ? 1f : -1f;
+
+            float change = direction * Time.fixedDeltaTime * turnSpeed;
+
+            if (Mathf.Abs(change) > angleDifference)
+            {
+                change = direction * angleDifference;
+            }
+
+            rb.MoveRotation(Quaternion.Euler(0f, rb.rotation.eulerAngles.y + change, 0f));
+
+            if (ringMovement) { RingMovement();  }
         }
-        else
-        {
-            targetVec = GetDefaultFront();
-        }
+    }
 
-        targetVec.y = 0;
+    void RingMovement()
+    {
+        // pivot to ball
+        Vector3 pivot = pivotObject.transform.position;
+        Vector3 targetDir = theBall.transform.position - pivot;
+        targetDir.y = 0f;
 
-        float angleDifference = Vector3.Angle(GetFront(), targetVec);
+        float angleOffset = theBall.transform.position.y > maxBallHeight ? 0f : 30f;
 
-        float direction = (Vector3.Cross(GetFront(), targetVec).y > 0) ? 1f : -1f;
+        // target direction
+        targetDir = Quaternion.AngleAxis(angleOffset, Vector3.up) * targetDir;
 
-        float change = direction * Time.fixedDeltaTime * turnSpeed;
+        // current direction
+        Vector3 currentDir = transform.position - pivot;
+        currentDir.y = 0f;
 
-        if (Mathf.Abs(change) > angleDifference)
-        {
-            change = direction * angleDifference;
-        }
+        float angleDifference = VectorAngle(currentDir, targetDir);
+        float ringDir = angleDifference > 0f ? 1f : -1f;
+        float angleToMove = ringSpeed * Time.fixedDeltaTime * ringDir;
+        if (Mathf.Abs(angleToMove) > Mathf.Abs(angleDifference)) { angleToMove = angleDifference; }
 
-        rb.MoveRotation(Quaternion.Euler(0f, rb.rotation.eulerAngles.y + change, 0f));
+        Vector3 newDir = Quaternion.AngleAxis(angleToMove, Vector3.up) * currentDir;
+
+        float targetHeight = theBall.transform.position.y;
+        if (targetHeight < minHeight) { targetHeight = minHeight; }
+        if (theBall.transform.position.y > maxBallHeight) { targetHeight += 3f; }
+
+        float deltaHeight = targetHeight - rb.position.y;
+        float heightToMove = riseSpeed * Time.fixedDeltaTime * (deltaHeight > 0 ? 1 : -1);
+        if (Mathf.Abs(heightToMove) > Mathf.Abs(deltaHeight)) { heightToMove = deltaHeight; }
+        float newHeight = rb.position.y + heightToMove;
+
+
+        Vector3 where = pivot + newDir.normalized * radius;
+        where.y = newHeight;
+        rb.MovePosition(where);
 
     }
 
@@ -161,8 +226,8 @@ public class Golem : MonoBehaviour
 
     public void ShootHandOrbs()
     {
-        ShootOrb(orbList[0], RotateShiftVector(theBall.transform.position - orbList[0].transform.position, -1.5f));
-        ShootOrb(orbList[1], RotateShiftVector(theBall.transform.position - orbList[1].transform.position, 1.5f));
+        ShootOrb(orbList[0], RotateShiftVector(theBall.transform.position - orbList[0].transform.position, -0.75f));
+        ShootOrb(orbList[1], RotateShiftVector(theBall.transform.position - orbList[1].transform.position, 0.75f));
         orbList.Clear();
     }
 
@@ -177,7 +242,6 @@ public class Golem : MonoBehaviour
 
             SpawnOrb(transform.position + spawnDirection + Vector3.up * 2);
 
-            Debug.Log(f);
         }
     }
 
@@ -195,12 +259,10 @@ public class Golem : MonoBehaviour
 
     public void SpawnBeams()
     {
-        looking = false;
-        angleBeforeBeaming = defaultAngle;
-        defaultAngle = GolemAngleToLook(theBall.transform.position - transform.position);
+        freezeRotation = true;
 
-        Vector3 rightBeamDirection = RotateShiftVector(theBall.transform.position - rightEye.transform.position, 1f);
-        Vector3 leftBeamDirection = RotateShiftVector(theBall.transform.position - leftEye.transform.position, -1f);
+        Vector3 rightBeamDirection = RotateShiftVector(theBall.transform.position - rightEye.transform.position, 0.75f);
+        Vector3 leftBeamDirection = RotateShiftVector(theBall.transform.position - leftEye.transform.position, -0.75f);
 
         GameObject rightBeam = Instantiate(beam);
         rightBeam.transform.position = rightEye.transform.position;
@@ -215,8 +277,32 @@ public class Golem : MonoBehaviour
 
     public void RecoverFromBeaming()
     {
-        looking = true;
-        defaultAngle = angleBeforeBeaming;
+        freezeRotation = false;
+    }
+
+    public void Look() { looking = true; }
+    public void DoNotLook() { looking = false; }
+    public void ClearOrbList() {
+        foreach (GameObject orb in orbList)
+        {
+            orb.GetComponent<LightOrb>().Poof();
+        }
+        orbList.Clear();
+    }
+
+    public void Fall()
+    {
+        rb.isKinematic = false;
+        rb.useGravity = true;
+        freezeRotation = true;
+    }
+
+    public void Defeat()
+    {
+        freezeRotation = true;
+        looking = false;
+        ringMovement = false;
+        heart.SetActive(false);
     }
 
     // -2 to 2
@@ -258,7 +344,7 @@ public class Golem : MonoBehaviour
 
     }
 
-    IEnumerator MoveSineRoutine(Vector3 to, float moveTime)
+    public IEnumerator MoveSineRoutine(Vector3 to, float moveTime)
     {
         looking = false;
         float t = 0;
@@ -276,6 +362,7 @@ public class Golem : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
         rb.MovePosition(startPosition + deltaPosition);
+        looking = true;
     }
 
     // Find the golem's looking angle, from a direction vector
@@ -284,34 +371,20 @@ public class Golem : MonoBehaviour
         Vector3 from = Vector3.back;
         to.y = 0;
 
+        return VectorAngle(from, to);
+
+    }
+
+    // where to move from "from" to "to", in terms of degrees 
+    float VectorAngle(Vector3 from, Vector3 to)
+    {
+        from.y = 0;
+        to.y = 0;
+
         float angle = Vector3.Angle(from, to);
 
         // Unity's Cross uses left hand rule... ok that clears the earlier confusion up
         return Vector3.Cross(from, to).y > 0 ? angle : -angle;
     }
-
-    // These three functions below were scrapped, but might be useful in the future?
-    //Vector3 GetShootDestination(Vector3 from)
-    //{
-    //    return from + GetScaledFront() - Vector3.up * (from.y - theBall.transform.position.y);
-    //}
-
-    //// Front, scaled to the where the ball is projected to
-    //Vector3 GetScaledFront()
-    //{
-    //    float rxz = Projection(theBall.transform.position - transform.position, GetFront()).magnitude;
-
-    //    return GetFront() * rxz;
-    //}
-
-    //Vector3 RotateAngleVector(Vector3 vector, float angle)
-    //{
-    //    float cos = Mathf.Cos(angle * Mathf.Deg2Rad);
-    //    float sin = Mathf.Sin(angle * Mathf.Deg2Rad);
-
-    //    return new Vector3(vector.x * cos - vector.z * sin, vector.y, vector.x * sin + vector.z * cos);
-    //}
-
-
 
 }

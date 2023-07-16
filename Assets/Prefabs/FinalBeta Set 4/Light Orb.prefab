@@ -4991,6 +4991,7 @@ GameObject:
   - component: {fileID: 4465353002213594668}
   - component: {fileID: 4465353002213594671}
   - component: {fileID: 7098709058002033927}
+  - component: {fileID: 4687954911252096783}
   m_Layer: 10
   m_Name: Light Orb
   m_TagString: Untagged
@@ -5046,11 +5047,9 @@ MonoBehaviour:
   breakThrough: 0
   breakThreshold: 0
   hp: 1
-  breakParticlesArray:
-  - {fileID: 8990261509723034616, guid: a2b88c9f2ed414053b0b11695a253162, type: 3}
-  - {fileID: 5483249546307176338, guid: 37c84c5929ac74af48d64ca630c911bc, type: 3}
-  - {fileID: 5483249546307176338, guid: 37c84c5929ac74af48d64ca630c911bc, type: 3}
+  breakParticlesArray: []
   particleDensity: 10
+  breakType: 2
   breakSound: {fileID: 4397481708012282258, guid: 3d11b9badbe8445edbb7ba6f6c364b2c,
     type: 3}
   crackSound: {fileID: 4397481708012282258, guid: 3d11b9badbe8445edbb7ba6f6c364b2c,
@@ -5082,3 +5081,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   expansionRate: 2.5
   sphere: {fileID: 1909174352223758005}
+--- !u!114 &4687954911252096783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4465353002213594667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e3909fd563514450ab0494688826e48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeSpan: 20
