@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 public class CrystalTracker : MonoBehaviour
@@ -9,11 +10,11 @@ public class CrystalTracker : MonoBehaviour
     public GameObject star1;
     public GameObject star2;
     public GameObject star3;
-    public Text text1;
-    public Text text2;
-    public Text text3;
+    public TMP_Text text1;
+    public TMP_Text text2;
+    public TMP_Text text3;
     public Slider slider;
-    public Text crystalText;
+    public TMP_Text crystalText;
     [System.NonSerialized] public int stars = 0;
     public Color yellow;
     public Color brown;

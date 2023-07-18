@@ -186,9 +186,12 @@ EditorBuildSettings:
     path: Assets/Scenes/FinalBeta/FB4-Tailgate.unity
     guid: e0f90545a250c445bb779560fa36286f
   - enabled: 1
+    path: Assets/Scenes/FinalBeta/FB4-Levitate.unity
+    guid: 4cc87b2c23f314feb8b963ee4576fb74
+  - enabled: 1
     path: Assets/Scenes/FinalBeta/FB4-Ricochet.unity
     guid: 4ace5e28c31af42ce9d0abf9029d6deb
   - enabled: 1
-    path: Assets/Scenes/FinalBeta/FB4-Levitate.unity
-    guid: 4cc87b2c23f314feb8b963ee4576fb74
+    path: Assets/Scenes/FinalBeta/FB4-Clocktower.unity
+    guid: 53812f607a5864ab78a4b51668fa2d7b
   m_configObjects: {}
