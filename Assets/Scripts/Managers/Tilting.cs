@@ -386,7 +386,6 @@ public class Tilting : MonoBehaviour
 
                     // here's where the ball dies lol
                     case TriggerType.Beam:
-                        Debug.Log("beamed");
                         Die();
                         StartCoroutine(levelController.DieRoutine());
                         break;
