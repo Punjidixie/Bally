@@ -10,6 +10,11 @@ public abstract class StatusEffectObject : Triggerable
 
     // Inherit TriggerType
     public StatusEffectObject() { triggerType = TriggerType.StatusEffectObject; }
+
+    public void GetCollected()
+    {
+        Destroy(gameObject);
+    }
 }
 
 public enum StatusEffectType
@@ -25,4 +30,12 @@ public class StatusEffectInfo
     public bool active;
     public float maxTime;
     public float elapsedTime;
+
+    public StatusEffectInfo(StatusEffectType _type)
+    {
+        type = _type;
+        active = false;
+        maxTime = 0;
+        elapsedTime = 0;
+    }
 }

@@ -19,18 +19,17 @@ public class Tilting : MonoBehaviour
     //body
     public GameObject body;
 
+    //status effects
+    [HideInInspector]
+    public StatusEffectType[] statusEffectTypes;
+    public Dictionary<StatusEffectType, StatusEffectInfo> statusEffectInfos;
+
     //magnetic field
-    bool magnetActive;
     public GameObject magneticField;
-    float magnetTime;
-    float magnetMaxTime;
 
     //bouncy effect
-    bool bouncyActive;
     public GameObject bouncyBubble;
     public PhysicMaterial physicsMaterial;
-    float bouncyMaxTime;
-    float bouncyTime;
 
     //particles
     public GameObject impulseParticle;
@@ -68,8 +67,6 @@ public class Tilting : MonoBehaviour
 
         levelController = FindObjectOfType<LevelController>();
 
-        magnetActive = false;
-        bouncyActive = false;
         physicsMaterial.bounciness = 0.7f;
 
         scrollArea = levelController.scrollArea;
@@ -78,6 +75,14 @@ public class Tilting : MonoBehaviour
         toXRotation = xRotationOffset;
         toYRotation = 0;
         toZRotation = 0;
+
+        statusEffectTypes = new StatusEffectType[] { StatusEffectType.Magnet, StatusEffectType.Bouncy };
+
+        statusEffectInfos = new Dictionary<StatusEffectType, StatusEffectInfo>
+        {
+            [StatusEffectType.Magnet] = new StatusEffectInfo(StatusEffectType.Magnet),
+            [StatusEffectType.Bouncy] = new StatusEffectInfo(StatusEffectType.Bouncy),
+        };
 
     }
 
@@ -122,6 +127,7 @@ public class Tilting : MonoBehaviour
                         TiltByKeyboard();
                         break;
                 }
+                UpdateStatusEffect();
                 //UpdateCamera();
                 break;
             case "Winning":
@@ -151,6 +157,24 @@ public class Tilting : MonoBehaviour
         }
     }
 
+    void UpdateStatusEffect()
+    {
+        foreach (StatusEffectType statType in statusEffectTypes)
+        {
+            StatusEffectInfo statInfo = statusEffectInfos[statType];
+            if (statInfo.active)
+            {
+                statInfo.elapsedTime += Time.deltaTime;
+                levelController.statusEffectTracker.UpdateTime(statType, statInfo.maxTime - statInfo.elapsedTime);
+                if (statInfo.elapsedTime > statInfo.maxTime)
+                {
+                    statInfo.active = false;
+                    DeactivateStatusEffect(statType);
+                    levelController.statusEffectTracker.Deactivate(statType);
+                }
+            }
+        }
+    }
     protected virtual void TiltByKeyboard()
     {
         toXRotation = Mathf.LerpAngle(Camera.main.transform.eulerAngles.x, xRotationOffset, Time.deltaTime / 0.1f);
@@ -386,6 +410,7 @@ public class Tilting : MonoBehaviour
 
                     // here's where the ball dies lol
                     case TriggerType.Beam:
+
                         Die();
                         StartCoroutine(levelController.DieRoutine());
                         break;
@@ -395,42 +420,19 @@ public class Tilting : MonoBehaviour
 
                         StatusEffectObject statComp = triggerable as StatusEffectObject;
 
-                        switch (statComp.statusEffectType)
+                        StatusEffectInfo statInfo = statusEffectInfos[statComp.statusEffectType];
+                        statInfo.maxTime = statComp.maxTime;
+                        statInfo.elapsedTime = 0f;
+
+                        if (!statInfo.active)
                         {
-                            case StatusEffectType.Magnet:
-
-                                magnetTime = 0;
-                                magnetMaxTime = other.gameObject.GetComponent<Magnet>().maxTime;
-                                levelController.statusEffectTracker.magnetSlider.maxValue = magnetMaxTime;
-                                levelController.statusEffectTracker.magnetSlider.value = magnetMaxTime;
-                                levelController.statusEffectTracker.magnetTracker.SetActive(true);
-                                levelController.statusEffectTracker.magnetTracker.transform.SetSiblingIndex(0);
-
-                                if (!magnetActive)
-                                {
-                                    StartCoroutine(WhileMagnetActive());
-                                }
-                                Destroy(other.gameObject);
-                                break;
-
-                            case StatusEffectType.Bouncy:
-                                bouncyTime = 0;
-                                bouncyMaxTime = other.gameObject.GetComponent<Bouncy>().maxTime;
-                                levelController.statusEffectTracker.bouncySlider.maxValue = bouncyMaxTime;
-                                levelController.statusEffectTracker.bouncySlider.value = bouncyMaxTime;
-                                levelController.statusEffectTracker.bouncyTracker.SetActive(true);
-                                levelController.statusEffectTracker.bouncyTracker.transform.SetSiblingIndex(0);
-
-                                if (!bouncyActive)
-                                {
-                                    StartCoroutine(WhileBouncyActive());
-                                }
-                                Destroy(other.gameObject);
-                                break;
-
-                            default:
-                                break;
+                            statInfo.active = true;
+                            ActivateStatusEffect(statComp.statusEffectType);
                         }
+
+                        levelController.statusEffectTracker.Activate(statComp.statusEffectType, statComp.maxTime);
+
+                        statComp.GetCollected();
                         break;
                     
                     default:
@@ -440,6 +442,34 @@ public class Tilting : MonoBehaviour
         }
         
         
+    }
+
+    public void ActivateStatusEffect(StatusEffectType type)
+    {
+        switch (type)
+        {
+            case StatusEffectType.Magnet:
+                magneticField.SetActive(true);
+                break;
+            case StatusEffectType.Bouncy:
+                physicsMaterial.bounciness = 0.99f;
+                bouncyBubble.SetActive(true);
+                break;
+        }
+    }
+
+    public void DeactivateStatusEffect(StatusEffectType type)
+    {
+        switch (type)
+        {
+            case StatusEffectType.Magnet:
+                magneticField.SetActive(false);
+                break;
+            case StatusEffectType.Bouncy:
+                physicsMaterial.bounciness = 0.7f;
+                bouncyBubble.SetActive(false);
+                break;
+        }
     }
     public void OnCollisionEnter(Collision collision)
     {
@@ -534,42 +564,6 @@ public class Tilting : MonoBehaviour
         return Vector3.zero;
 
     }
-
-    IEnumerator WhileMagnetActive()
-    {
-        magnetActive = true;
-        magneticField.SetActive(true);
-        while (magnetTime < magnetMaxTime)
-        {
-            magnetTime += Time.deltaTime;
-            levelController.statusEffectTracker.magnetSlider.value = magnetMaxTime - magnetTime;
-            yield return null;
-        }
-
-        levelController.statusEffectTracker.magnetTracker.SetActive(false);
-        magnetActive = false;
-        magneticField.SetActive(false);
-    }
-
-    IEnumerator WhileBouncyActive()
-    {
-        bouncyActive = true;
-        physicsMaterial.bounciness = 0.99f;
-        bouncyBubble.SetActive(true);
-
-        while (bouncyTime < bouncyMaxTime)
-        {
-            bouncyTime += Time.deltaTime;
-            levelController.statusEffectTracker.bouncySlider.value = bouncyMaxTime - bouncyTime;
-            yield return null;
-        }
-
-        levelController.statusEffectTracker.bouncyTracker.SetActive(false);
-        bouncyActive = false;
-        physicsMaterial.bounciness = 0.7f;
-        bouncyBubble.SetActive(false);
-    }
-
     
 
     
