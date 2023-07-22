@@ -3245,7 +3245,7 @@ PrefabInstance:
     - target: {fileID: 4270914603654172146, guid: f45c584e83b284223b04a0288ba6c552,
         type: 3}
       propertyPath: m_text
-      value: ball game
+      value: BALL GAME
       objectReference: {fileID: 0}
     - target: {fileID: 4270914603654172146, guid: f45c584e83b284223b04a0288ba6c552,
         type: 3}
@@ -5264,6 +5264,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Text (TMP) (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7224487575022520838, guid: f45c584e83b284223b04a0288ba6c552,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f45c584e83b284223b04a0288ba6c552, type: 3}

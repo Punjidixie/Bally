@@ -12,6 +12,7 @@ public static class UserSettings
 
         ["MovementMode"] = "Joystick",
         ["CameraMode"] = "Manual",
+        ["Skin"] = "WoodFace"
 
     };
 

@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Main/Control Settings.unity
     guid: b65f01221e39f449dbabe4e8bae1f042
   - enabled: 1
+    path: Assets/Scenes/Main/Skins.unity
+    guid: 3810c54d941044d0496cc41b84c336d0
+  - enabled: 1
     path: Assets/Scenes/LVS/L1-Welcome.unity
     guid: f19870b92806e49abba0bcd5f887bf48
   - enabled: 1

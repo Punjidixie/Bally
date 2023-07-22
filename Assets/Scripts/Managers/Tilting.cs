@@ -186,48 +186,31 @@ public class Tilting : MonoBehaviour
 
         toYRotation += Input.GetAxis("Mouse X") * PlayerPrefs.GetFloat("MouseSensitivity");
 
+        float frontInput = 0;
+        float sideInput = 0;
 
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
-        {
-            frontForce = new Vector3(Mathf.Sin(toYRotation * Mathf.Deg2Rad), 0, Mathf.Cos(toYRotation * Mathf.Deg2Rad)) * forceSize;
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) { frontInput = 1; }
+        else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) { frontInput = -1; }
 
-            toXRotation = Mathf.LerpAngle(Camera.main.transform.eulerAngles.x, xRotationOffset - frontTiltAngle, Time.deltaTime / 0.1f);
-        }
-        else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
-        {
-            frontForce = new Vector3(Mathf.Sin(toYRotation * Mathf.Deg2Rad), 0, Mathf.Cos(toYRotation * Mathf.Deg2Rad)) * -forceSize;
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) { sideInput = -1; }
+        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) { sideInput = 1; }
 
-            toXRotation = Mathf.LerpAngle(Camera.main.transform.eulerAngles.x, xRotationOffset + frontTiltAngle, Time.deltaTime / 0.1f);
-        }
-
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
-        {
-            sidewayForce = new Vector3(Mathf.Cos(toYRotation * Mathf.Deg2Rad), 0, -Mathf.Sin(toYRotation * Mathf.Deg2Rad)) * -forceSize;
-
-            toZRotation = Mathf.LerpAngle(Camera.main.transform.eulerAngles.z, -sideTiltAngle, Time.deltaTime / 0.1f);
-        }
-        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
-        {
-            sidewayForce = new Vector3(Mathf.Cos(toYRotation * Mathf.Deg2Rad), 0, -Mathf.Sin(toYRotation * Mathf.Deg2Rad)) * forceSize;
-
-            toZRotation = Mathf.LerpAngle(Camera.main.transform.eulerAngles.z, sideTiltAngle, Time.deltaTime / 0.1f);
-        }
+        frontForce = new Vector3(Mathf.Sin(toYRotation * Mathf.Deg2Rad), 0, Mathf.Cos(toYRotation * Mathf.Deg2Rad)) * forceSize * frontInput;
+        sidewayForce = new Vector3(Mathf.Cos(toYRotation * Mathf.Deg2Rad), 0, -Mathf.Sin(toYRotation * Mathf.Deg2Rad)) * forceSize * sideInput;
+        toXRotation = Mathf.LerpAngle(Camera.main.transform.eulerAngles.x, xRotationOffset - frontTiltAngle * frontInput, Time.deltaTime / 0.1f);
+        toZRotation = Mathf.LerpAngle(Camera.main.transform.eulerAngles.z, sideTiltAngle * sideInput, Time.deltaTime / 0.1f);
 
     }
 
     protected void TiltByJoystick()
     {
         toXRotation = Mathf.LerpAngle(Camera.main.transform.eulerAngles.x, xRotationOffset, Time.deltaTime / 0.1f);
-        toYRotation = Camera.main.transform.eulerAngles.y; //will be set via levelController
-        
+        toYRotation = Camera.main.transform.eulerAngles.y + scrollArea.TouchDist.x * PlayerPrefs.GetFloat("DragSensitivity");
+
         toZRotation = Mathf.LerpAngle(Camera.main.transform.eulerAngles.z, 0, Time.deltaTime / 0.1f);
 
         frontForce = Vector3.zero;
         sidewayForce = Vector3.zero;
-
-
-
-        toYRotation = Camera.main.transform.eulerAngles.y + scrollArea.TouchDist.x * PlayerPrefs.GetFloat("DragSensitivity");
 
 
         if (joystick.Vertical != 0)

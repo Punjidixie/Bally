@@ -10,6 +10,8 @@ public class TopManager : MonoBehaviour
     public static int levelIndex;
     public static LevelSetSCO levelSetSCO;
 
+    public static GameObject skinPrefab;
+
     public static bool instantiated = false;
 
     // Start is called before the first frame update
