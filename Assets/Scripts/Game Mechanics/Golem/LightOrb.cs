@@ -13,11 +13,11 @@ public class LightOrb : MonoBehaviour
     void Update()
     {
         float s = sphere.transform.localScale.x + expansionRate * Time.deltaTime;
-        if (s > 2.5f)
+        if (s > 2f)
         {
             if (!fullSize)
             {
-                sphere.transform.localScale = Vector3.one * 2.5f;
+                sphere.transform.localScale = Vector3.one * 2f;
                 fullSize = true;
             }
         }

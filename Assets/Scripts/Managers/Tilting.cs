@@ -492,7 +492,8 @@ public class Tilting : MonoBehaviour
 
     public void OnCollisionStay(Collision collision)
     {
-        OnCollisionEnter(collision);
+       // OnCollisionEnter(collision);
+        SetAngularVelocity(collision);
 
     }
 

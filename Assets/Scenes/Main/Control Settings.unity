@@ -300,6 +300,7 @@ GameObject:
   - component: {fileID: 35199034}
   - component: {fileID: 35199033}
   - component: {fileID: 35199036}
+  - component: {fileID: 35199037}
   m_Layer: 0
   m_Name: BALL
   m_TagString: Untagged
@@ -364,11 +365,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forceSize: 5.75
+  body: {fileID: 0}
+  statusEffectTypes: 
   magneticField: {fileID: 0}
   bouncyBubble: {fileID: 0}
   physicsMaterial: {fileID: 13400000, guid: 892ece3497a28453dade223ce305dfc0, type: 2}
   impulseParticle: {fileID: 841444000747576592, guid: 12116ba175c074d52b878725195a96c4,
     type: 3}
+  destructionParticle: {fileID: 0}
   bounceSound: {fileID: 4397481708012282258, guid: 572c53a45a55949f8a77f574817f85c9,
     type: 3}
   bounceSoundThreshold: 0
@@ -379,6 +383,19 @@ MonoBehaviour:
   xRotationOffset: 15
   levelController: {fileID: 0}
   controller: {fileID: 770476899}
+--- !u!114 &35199037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 35199032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8389d139cc1474725bbe18c6c6cc9c14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  body: {fileID: 1133814481}
 --- !u!1 &38508780
 GameObject:
   m_ObjectHideFlags: 0
@@ -5939,7 +5956,7 @@ PrefabInstance:
     - target: {fileID: 7234813999116626898, guid: f215eeaff9e7a42868693c9f47e2128c,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -25.001
+      value: -25.000977
       objectReference: {fileID: 0}
     - target: {fileID: 7234813999116626898, guid: f215eeaff9e7a42868693c9f47e2128c,
         type: 3}

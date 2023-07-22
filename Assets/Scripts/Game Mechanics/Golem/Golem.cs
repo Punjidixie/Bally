@@ -290,6 +290,14 @@ public class Golem : MonoBehaviour
         orbList.Clear();
     }
 
+    public void DestroyBeams()
+    {
+        foreach (Beam beam in FindObjectsOfType<Beam>())
+        {
+            Destroy(beam.gameObject);
+        }
+    }
+
     public void Fall()
     {
         rb.isKinematic = false;

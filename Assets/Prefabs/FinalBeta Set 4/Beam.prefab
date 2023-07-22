@@ -7410,7 +7410,7 @@ MonoBehaviour:
   warningBody: {fileID: 2325419644098204033}
   expandSpeed: 8
   shrinkSpeed: 3
-  gracePeriod: 1.5
+  gracePeriod: 1.75
   fullSizePeriod: 0.5
 --- !u!54 &2325419645010066333
 Rigidbody:

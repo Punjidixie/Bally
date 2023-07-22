@@ -20,7 +20,7 @@ public static class UserSettings
     {
 
         ["MouseSensitivity"] = 10f,
-        ["DragSensitivity"] = 0.3f,
+        ["DragSensitivity"] = 0.2f,
         ["FPS"] = -1f
 
     };

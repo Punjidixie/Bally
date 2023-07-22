@@ -299,7 +299,7 @@ AnimationClip:
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 1.8333334
-        value: {x: 26.781, y: 0, z: 0}
+        value: {x: 5, y: 0, z: 0}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -1768,7 +1768,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1.8333334
-        value: 26.781
+        value: 5
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -3661,7 +3661,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Body
+    path: Body/Right Arm/LowerArm/Hand/Finger (1)
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3671,7 +3671,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Body
+    path: Body/Right Arm/LowerArm/Hand/Finger (1)
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3681,7 +3681,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Body
+    path: Body/Right Arm/LowerArm/Hand/Finger (1)
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3781,7 +3781,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Body/Right Arm/LowerArm/Hand/Finger (1)
+    path: Body
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3791,7 +3791,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Body/Right Arm/LowerArm/Hand/Finger (1)
+    path: Body
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3801,7 +3801,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Body/Right Arm/LowerArm/Hand/Finger (1)
+    path: Body
     classID: 4
     script: {fileID: 0}
   m_HasGenericRootTransform: 0

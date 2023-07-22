@@ -95,7 +95,7 @@ public class GolemAutomation : MonoBehaviour
                 TriggerAnimation("Beam", 6f);
                 break;
             case GolemState.Phase5:
-                TriggerAnimation("Beam", 4.75f);
+                TriggerAnimation("Beam", 6f);
                 break;
             default:
                 break;
@@ -111,7 +111,7 @@ public class GolemAutomation : MonoBehaviour
         }
         else
         {
-            TriggerAnimation("ShootTwo", 4f);
+            TriggerAnimation("ShootTwo", 7f);
         }
     }
 
@@ -135,11 +135,11 @@ public class GolemAutomation : MonoBehaviour
 
         if (seed % 2 == 0)
         {
-            TriggerAnimation("ShootTwo", 8f);
+            TriggerAnimation("ShootTwo", 15f);
         }
         else
         {
-            TriggerAnimation("LightBarrage", 13f);
+            TriggerAnimation("LightBarrage", 15f);
         }
     }
 
@@ -185,12 +185,13 @@ public class GolemAutomation : MonoBehaviour
     IEnumerator HurtDashTransition(GolemState newState, Vector3 newPosition, float moveTime, float timeAfterTilNext, float newDefaultAngle)
     {
         TriggerAnimation("Hurt", 0);
+        golem.ClearOrbList();
         canTransition = false;
         actionFrozen = true;
         golem.golemState = newState;
         yield return new WaitForSeconds(1);
         golem.freezeRotation = false;
-        golem.ClearOrbList();
+        
 
         canTransition = true;
         StartCoroutine(DashTo(newPosition, moveTime, timeAfterTilNext, newDefaultAngle));
@@ -227,18 +228,20 @@ public class GolemAutomation : MonoBehaviour
             switch (golem.golemState)
             {
                 case GolemState.Phase1:
-                    StartCoroutine(HurtDashTransition(GolemState.Phase2, positionObjects[1].transform.position, 5, 3, -90));
+                    StartCoroutine(HurtDashTransition(GolemState.Phase2, positionObjects[1].transform.position, 5, 6, -90));
                     break;
                 case GolemState.Phase2:
-                    StartCoroutine(HurtDashTransition(GolemState.Phase3, positionObjects[2].transform.position, 5, 3, 180));
+                    StartCoroutine(HurtDashTransition(GolemState.Phase3, positionObjects[2].transform.position, 5, 6, 180));
                     break;
                 case GolemState.Phase3:
-                    StartCoroutine(HurtDashTransition(GolemState.Phase4, positionObjects[3].transform.position, 5, 3, 90));
+                    StartCoroutine(HurtDashTransition(GolemState.Phase4, positionObjects[3].transform.position, 5, 6, 90));
                     break;
                 case GolemState.Phase4:
+                    golem.DestroyBeams();
                     StartCoroutine(Phase4ToPhase5());
                     break;
                 case GolemState.Phase5:
+                    golem.DestroyBeams();
                     animator.SetTrigger("Defeat");
                     golem.Defeat();
                     break;
