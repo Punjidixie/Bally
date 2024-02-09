@@ -185,11 +185,16 @@ public class GolemAutomation : MonoBehaviour
     IEnumerator HurtDashTransition(GolemState newState, Vector3 newPosition, float moveTime, float timeAfterTilNext, float newDefaultAngle)
     {
         TriggerAnimation("Hurt", 0);
+
+        // wait for the animation transition to die out
+        yield return new WaitForSeconds(0.5f);
         golem.ClearOrbList();
         canTransition = false;
         actionFrozen = true;
         golem.golemState = newState;
-        yield return new WaitForSeconds(1);
+
+        // wait for hurt to end
+        yield return new WaitForSeconds(0.5f);
         golem.freezeRotation = false;
         
 
