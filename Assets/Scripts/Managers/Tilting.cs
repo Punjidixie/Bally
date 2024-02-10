@@ -57,13 +57,16 @@ public class Tilting : MonoBehaviour
     //other components
     protected SphereCollider sphereCollider;
 
-    private int frame;
+    //ghost mode
+    public bool isGhostMode;
+    private GhostModeController ghost;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         sphereCollider = GetComponent<SphereCollider>();
+        ghost = GetComponent<GhostModeController>();
 
         levelController = FindObjectOfType<LevelController>();
 
@@ -75,6 +78,8 @@ public class Tilting : MonoBehaviour
         toXRotation = xRotationOffset;
         toYRotation = 0;
         toZRotation = 0;
+
+        isGhostMode = false;
 
         statusEffectTypes = new StatusEffectType[] { StatusEffectType.Magnet, StatusEffectType.Bouncy };
 
@@ -112,22 +117,7 @@ public class Tilting : MonoBehaviour
             case "Panning":
                 break;
             case "InGame":
-                switch (PlayerPrefs.GetString("MovementMode"))
-                {
-                    case "Joystick":
-                        TiltByJoystick();
-                        break;
-                    case "Keyboard":
-                        TiltByKeyboard();
-                        break;
-                    case "DeviceTilting":
-                        TiltByDeviceTilting();
-                        break;
-                    default:
-                        TiltByKeyboard();
-                        break;
-                }
-                UpdateStatusEffect();
+                UpdateInGame();
                 //UpdateCamera();
                 break;
             case "Winning":
@@ -146,7 +136,7 @@ public class Tilting : MonoBehaviour
         switch (levelController.levelState)
         {
             case "InGame":
-                UpdateCamera();
+                LateUpdateInGame();
                 break;
             case "Winning":
                 PanWinning();
@@ -157,6 +147,35 @@ public class Tilting : MonoBehaviour
         }
     }
 
+    void UpdateInGame()
+    {
+        if (Input.GetKeyDown(KeyCode.E)) { isGhostMode = !isGhostMode; }
+        if (!isGhostMode)
+        {
+            switch (PlayerPrefs.GetString("MovementMode"))
+            {
+                case "Joystick":
+                    TiltByJoystick();
+                    break;
+                case "Keyboard":
+                    TiltByKeyboard();
+                    break;
+                case "DeviceTilting":
+                    TiltByDeviceTilting();
+                    break;
+                default:
+                    TiltByKeyboard();
+                    break;
+            }
+        }
+        UpdateStatusEffect();
+    }
+
+    public void LateUpdateInGame()
+    {
+        if (!isGhostMode) { UpdateCamera(); }
+        else if (isGhostMode) { ghost.UpdateGhostMode(); }
+    }
     void UpdateStatusEffect()
     {
         foreach (StatusEffectType statType in statusEffectTypes)

@@ -15,7 +15,7 @@ public class SkyCamera : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         if (levelController)
         {
@@ -26,8 +26,9 @@ public class SkyCamera : MonoBehaviour
                 case "Winning":
                 case "Losing":
                 case "End":
+                    if (ball.isGhostMode) { transform.rotation = Camera.main.transform.rotation; }
                     // If not tilted, the main camera defauts to ball.xRotationOffset.
-                    transform.rotation = Quaternion.Euler(ball.xRotationOffset, Camera.main.transform.eulerAngles.y, 0);
+                    else { transform.rotation = Quaternion.Euler(ball.xRotationOffset, Camera.main.transform.eulerAngles.y, 0); }
                     break;
                 default:
                     // Sky camera and main camera should sync up, unless while tilted.

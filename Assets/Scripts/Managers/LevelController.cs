@@ -206,7 +206,7 @@ public class LevelController : MonoBehaviour
                 }
                 else
                 {
-                    timePassed += Time.deltaTime;
+                    if (!tilting.isGhostMode) { timePassed += Time.deltaTime; }
                     UpdateClock();
                 }
                 break;
@@ -421,7 +421,7 @@ public class LevelController : MonoBehaviour
         HideEssentials();
         HideControls();
 
-        tilting.GetComponent<Tilting>().UpdateCamera();
+        tilting.GetComponent<Tilting>().LateUpdateInGame();
         pausePanel.SetActive(true);
         Time.timeScale = 0;
         levelState = "Paused";

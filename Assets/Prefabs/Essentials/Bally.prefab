@@ -175,6 +175,7 @@ GameObject:
   - component: {fileID: 5461478641696643605}
   - component: {fileID: 5461478641696643604}
   - component: {fileID: 403174586017668328}
+  - component: {fileID: 3942930045549053733}
   m_Layer: 6
   m_Name: Bally
   m_TagString: Bally
@@ -260,6 +261,7 @@ MonoBehaviour:
   lengthToCamera: 3.25
   xRotationOffset: 15
   levelController: {fileID: 0}
+  isGhostMode: 0
 --- !u!114 &403174586017668328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -273,6 +275,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 5041379639012984979}
+--- !u!114 &3942930045549053733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5461478641696643598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47d9a94862f094bc499b5b3c52b917cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultMovementSpeed: 2
+  defaultRotationSpeed: 60
 --- !u!1 &9135388946118637913
 GameObject:
   m_ObjectHideFlags: 0
